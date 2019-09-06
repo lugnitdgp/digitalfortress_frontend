@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- 10.15.3
+install: npm
+script: gatsby build
+deploy:
+  provider: s3
+  access_key_id: $ACCESS_KEY
+  secret_access_key: $ACCESS_SECRET
+  bucket: "df.trennds.com"
+  skip_cleanup: true
+  acl: public_read
+  local_dir: public
