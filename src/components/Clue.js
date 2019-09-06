@@ -14,7 +14,7 @@ export default (props) => {
       <Collapse isOpen={collapse}>
         <CardBody>
           <input className="form-control" placeholder="Enter answer" value={answer} onChange={(e) => setAnswer(e.target.value)}></input>
-          <button className="btn btn-primary mt-3" onSubmit={(e) => props.submitClue(answer)}>Submit</button>
+          <button className="btn btn-primary mt-3" onClick={(e) => props.submitClue(answer, props.id)}>Submit</button>
         </CardBody>
       </Collapse>
     </Card>
