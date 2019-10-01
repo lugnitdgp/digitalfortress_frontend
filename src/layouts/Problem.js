@@ -58,9 +58,9 @@ export default class Problem extends React.Component {
       var positions = []
       for(let i=0; i < response.data.length; i++) {
         console.log(response.data[i])
-        if(response.data[i].isSolved == 1) positions.push(response.data[i].position) 
+        if(response.data[i].isSolved == 1) positions.push(response.data[i].position)
       }
-      
+
       console.log(positions)
       self.setState((state, props) => ({
         clues: clues
@@ -108,10 +108,10 @@ export default class Problem extends React.Component {
         </div>
         <div className="container p-3">
           <div className="row">
-            <div className="col-6">
+            <div className="col-12">
               {cluesArr}
             </div>
-            <div className="col-6 p-3">
+            <div className="col-12 p-3">
               <GameMap positions={this.state.positions} />
             </div>
           </div>
