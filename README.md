@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="src/images/logo.png" width="50" />
+    <img alt="Gatsby" src="src/images/logo.svg" width="50" />
   </a>
 </p>
 <h1 align="center">
@@ -18,6 +18,10 @@ npm install
 - Run the development Server
 ```
 gatsby develop -p 5000
+```
+or, 
+```
+npm run develop
 ```
 - Compile the production build
 ```

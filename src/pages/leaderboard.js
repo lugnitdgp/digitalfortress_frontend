@@ -19,9 +19,9 @@ export default class LeaderBoard extends React.Component {
 
     fetchData() {
         var self = this
-        axios.get(`${data.api}quiz/leaderboard`).then((response) => {
-            if (response.data.length != 0) {
-                var temp = response.data.map((v, index) => {
+        axios.get(`${data.api}quiz/leaderboard?format=json`).then((response) => {
+            if (response.data.standings.length != 0) {
+                var temp = response.data.standings.map((v, index) => {
                     if (index == 0)
                         return <div className="alert" role="alert" key={index} style={{ backgroundColor: '#FFD700' }}>
                             <span className="text-white mr-2">{v.rank}. </span>
