@@ -53,7 +53,7 @@ export default class NavBar extends React.Component {
 
   render() {
     return <div className="navbar-inner">
-      <Navbar color="transparent" expand="md">
+      <Navbar expand="md" style={{backgroundColor: 'rgba(154, 89, 240, 0.2)'}}>
         <NavbarBrand>
           <Link to="/">
             <a className="navbar-brand" href="#">
