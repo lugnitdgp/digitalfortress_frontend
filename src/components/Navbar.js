@@ -57,7 +57,7 @@ export default class NavBar extends React.Component {
         <NavbarBrand>
           <Link to="/">
             <a className="navbar-brand" href="#">
-              <img src={logo} width={20} height={30} className="d-inline-block align-top" alt="Logo" />
+              <img src={logo} width={40} height={40} className="d-inline-block align-top" alt="Logo" />
               {' '}igital Fortress</a>
           </Link>
         </NavbarBrand>

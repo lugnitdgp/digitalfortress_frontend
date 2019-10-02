@@ -11,8 +11,12 @@ export default class GoogleSignIn extends React.Component {
   }
 
   registerUser(idToken) {
-    axios.get(`${data.api}quiz/register?type=1&id_token=${idToken}`).then((res) => {
+    axios.post(`${data.api}quiz/auth/register`, {
+      "accesstoken": idToken,
+      "type": "1"
+    }).then((res) => {
       console.log("User registered successfully");
+      localStorage.token = res.data.token;
     })
   }
 
