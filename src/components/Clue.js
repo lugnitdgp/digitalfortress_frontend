@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Collapse, Button, CardBody, Card, CardHeader } from 'reactstrap';
 import { func } from 'prop-types';
+import '../custom.css';
 
 export default (props) => {
   const [collapse, setCollapse] = useState(false)
