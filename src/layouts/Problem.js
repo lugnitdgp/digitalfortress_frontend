@@ -30,13 +30,17 @@ export default class Problem extends React.Component {
   fetchRound() {
     var self = this;
     console.log(this.state.email)
-    axios.get(`${data.api}quiz/getRound?email=${localStorage.email}`).then(function (response) {
+    axios.get(`${data.api}quiz/getRound?format=json`, {
+      headers: {
+        "Authorization": `Token ${localStorage.token}`
+      }
+    }).then(function (response) {
       if (response.data.status == 200) {
         self.setState((state, props) => ({
-          round: response.data.question,
+          round: response.data.question.question,
         }));
         self.fetchClues();
-      } else if (response.data.status == 500) {
+      } else if (response.data.status == 404) {
         navigate('/completed')
       } else {
         AnswerAlert(-1)
@@ -49,16 +53,20 @@ export default class Problem extends React.Component {
 
   fetchClues() {
     var self = this;
-    axios.get(`${data.api}quiz/getClues?email=${localStorage.email}`).then(function (response) {
-      var clues = response.data.map((v) => ({
+    axios.get(`${data.api}quiz/getClue?format=json`, {
+      headers: {
+        "Authorization": `Token ${localStorage.token}`
+      }
+    }).then(function (response) {
+      var clues = response.data.clues.map((v) => ({
         id: v.id,
-        isSolved: v.isSolved,
+        isSolved: v.solved,
         question: v.question
       }))
       var positions = []
-      for(let i=0; i < response.data.length; i++) {
+      for (let i = 0; i < response.data.length; i++) {
         console.log(response.data[i])
-        if(response.data[i].isSolved == 1) positions.push(response.data[i].position)
+        if (response.data[i].solved == true) positions.push(response.data[i].position)
       }
 
       console.log(positions)
@@ -75,22 +83,37 @@ export default class Problem extends React.Component {
 
   submitRound(answer) {
     var self = this
-    axios.get(`${data.api}quiz/checkRound?email=${localStorage.email}&answer=${answer}`).then((response) => {
-      if (response.data.status == 200) AnswerAlert(1)
-      else AnswerAlert(0)
+    axios.post(`${data.api}quiz/checkRound`, {
+      "answer": answer
+    },
+     {
+      headers: {
+        "Authorization": `Token ${localStorage.token}`
+      }}).then((response) => {
+      if (response.data.status == 200 && response.data.detail == 1) AnswerAlert(1);
+        else if (response.data.status != 500) AnswerAlert(0);
+      else AnswerAlert(-1);
     }).catch((err) => AnswerAlert(-1))
   }
 
   submitClue(answer, id) {
     var self = this
-    axios.get(`${data.api}quiz/checkClue?email=${localStorage.email}&answer=${answer}&clue=${id}`).then((response) => {
-      if (response.data.isTrue == 1) {
+    axios.post(`${data.api}quiz/checkClue`, {
+      "clue_id": id,
+      "answer": answer
+    },
+     {
+      headers: {
+        "Authorization": `Token ${localStorage.token}`
+      }}).then((response) => {
+      if (response.data.status == 200 && response.data.detail == 1) {
         AnswerAlert(1)
         self.setState((state, props) => ({
           positions: [...state.positions, response.data.position]
         }))
       }
-      if (response.data.isTrue == 0) AnswerAlert(0)
+      if (response.data.status == 500) AnswerAlert(0)
+      else AnswerAlert(-1)
     }).catch((response) => AnswerAlert(-1))
   }
 

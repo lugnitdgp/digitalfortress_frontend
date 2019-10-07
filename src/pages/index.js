@@ -28,15 +28,16 @@ class IndexPage extends React.Component {
       <SEO title="Home" />
       <DashboardLayout>
         <div className="jumbotron jumbotron-fluid">
-        {/* <img src={Hero} alt="lkcckcf" className="float-right d-none d-lg-block align-middle" height="500" /> */}
+          {/* <img src={Hero} alt="lkcckcf" className="float-right d-none d-lg-block align-middle" height="500" /> */}
           <div className="container">
             <h1 className="display-4">Digital Fortress</h1>
             <h3>Competition to <span className="element"></span></h3>
-              <GoogleSignIn className="mr-3"/>
-              <FacebookSignIn />
+            <GoogleSignIn className="mr-3" />
+            <FacebookSignIn />
           </div>
         </div>
         {/*<div className="container-fluid p-3 bg-transparent">
+
           <div className="row">
             <div className="col-12 col-lg-4 p-5">
               <div className="card prize">

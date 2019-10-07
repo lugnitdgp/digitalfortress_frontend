@@ -14,14 +14,33 @@ export default class GoogleSignIn extends React.Component {
     axios.post(`${data.api}quiz/auth/register`, {
       "accesstoken": idToken,
       "type": "1"
+    }, {
+      headers: {
+        "Content-Type": "application/json"
+      }
     }).then((res) => {
-      console.log("User registered successfully");
-      localStorage.token = res.data.token;
+      if (res.data.status == 402) {
+        axios.post(`${data.api}quiz/auth/login`, {
+          "accesstoken": idToken,
+          "type": "1"
+        }, {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then((res) => {
+          localStorage.token = res.data.token;
+          navigate("/dashboard/")
+        }).catch((res) => console.log(res))
+      } else {
+        console.log("User registered successfully");
+        localStorage.token = res.data.token;
+        navigate("/dashboard/")
+      }
     })
   }
 
   componentDidMount() {
-    if(localStorage.email) {
+    if (localStorage.email) {
       navigate("/dashboard/")
     }
   }
@@ -33,7 +52,6 @@ export default class GoogleSignIn extends React.Component {
     localStorage.image = res.profileObj.imageUrl;
     localStorage.name = res.profileObj.name;
 
-    navigate("/dashboard/")
   }
 
   render() {
@@ -41,7 +59,7 @@ export default class GoogleSignIn extends React.Component {
       clientId="1066270839928-ulo4qi9cai9liclom3ca7cjel1h248hj.apps.googleusercontent.com"
       buttonText="Login"
       onSuccess={(res) => { this.setData(res) }}
-      onFailure={(res) => { this.setData(res)}}
+      onFailure={(res) => { this.setData(res) }}
       cookiePolicy={'single_host_origin'}
       className={this.props.className}
     />;

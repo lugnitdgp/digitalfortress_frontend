@@ -31,6 +31,5 @@ export default (props) => {
   <div className="firefly" />
   <div className="firefly" />
   <div className="firefly" /></div>
->
    </div>
 }

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import GoogleSignIn from '../components/GoogleSignIn';
-import logo from '../images/logo.svg';
+import logo from '../images/logo.png';
 import { Link } from "gatsby"
 import FacebookSignIn from './FacebookSignIn';
 import { navigate } from "gatsby";
@@ -53,12 +53,11 @@ export default class NavBar extends React.Component {
 
   render() {
     return <div className="navbar-inner">
-      <Navbar color="transparent" expand="md">
+      <Navbar expand="md" style={{backgroundColor: 'rgba(154, 89, 240, 0.2)'}}>
         <NavbarBrand>
           <Link to="/">
             <a className="navbar-brand" href="#">
-              <img src={logo} width={40} height={40} className="d-inline-block align-top" alt="Logo" />
-              {' '}igital Fortress</a>
+              <img src={logo} height={40} className="d-inline-block align-top" alt="Logo" /></a>
           </Link>
         </NavbarBrand>
         <NavbarToggler onClick={this.toggleNavbar} className="toggler" />
