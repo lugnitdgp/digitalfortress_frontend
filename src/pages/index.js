@@ -36,7 +36,7 @@ class IndexPage extends React.Component {
             <FacebookSignIn />
           </div>
         </div>
-        <div className="container-fluid p-3 bg-transparent">
+        {/* <div className="container-fluid p-3 bg-transparent">
           <div className="row">
             <div className="col-12 col-lg-4 p-5">
               <div className="card prize">
@@ -72,7 +72,7 @@ class IndexPage extends React.Component {
         <div className="container-fluid bg-success p-5">
           <h2 className="text-center mx-auto d-block text-white">Are you ready to enter the contest.</h2>
           <span className="text-center mx-auto d-block"><GoogleSignIn className="mt-3" /></span>
-        </div>
+        </div> */}
       </DashboardLayout>
     </div>
   }

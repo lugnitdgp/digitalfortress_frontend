@@ -7,6 +7,8 @@
   Digital Fortress
 </h1>
 
+[![Build Status](https://travis-ci.com/romitkarmakar/digitalfortress_frontend.svg?branch=master)](https://travis-ci.com/romitkarmakar/digitalfortress_frontend)
+
 This is a quiz competition developed by GLUG for testing the students skills in Linux Terminal Commands and common computer science related questions.
 
 ## Installation

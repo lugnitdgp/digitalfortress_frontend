@@ -2,20 +2,49 @@ import React from 'react';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import '../custom.css'
 import { navigate } from "gatsby";
+import FacebookAuth from 'react-facebook-auth';
+import axios from 'axios';
+import data from '../env.json';
 
 export default class FacebookSignIn extends React.Component {
     constructor(props) {
         super(props)
     }
-    
+
     setData(res) {
         localStorage.email = res.email;
         localStorage.image = res.picture.data.url;
         localStorage.name = res.name;
-        navigate("/dashboard/")
+        // navigate("/dashboard/")
     }
 
+    MyFacebookButton = ({ onClick }) => (
+        <button onClick={onClick}>
+            Login with facebook
+        </button>
+    );
+
+    authenticate = (response) => {
+        axios.post(`${data.api}quiz/auth/register`, {
+            "accesstoken": response.accessToken,
+            "expiration_time": `${response.data_access_expiration_time}`,
+            "userID": response.id,
+            "type": "2"
+          }, {
+            headers: {
+              "Content-Type": "application/json"
+            }
+          }).then((res) => console.log(res))
+        console.log(response.data_access_expiration_time);
+        // Api call to server so we can validate the token
+    };
+
     render() {
+        return <FacebookAuth
+            appId="393676568001815"
+            callback={this.authenticate}
+            component={this.MyFacebookButton}
+        />
         return <FacebookLogin
             appId="393676568001815"
             autoLoad={false}
