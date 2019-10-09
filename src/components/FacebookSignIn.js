@@ -18,11 +18,15 @@ export default class FacebookSignIn extends React.Component {
         // navigate("/dashboard/")
     }
 
-    MyFacebookButton = ({ onClick }) => (
-        <button onClick={onClick}>
-            Login with facebook
+  
+       MyFacebookButton = ({ onClick }) => (
+        
+        <button onClick={onClick} className="m-2 align-middle loginBtn loginBtn--facebook">
+            FACEBOOK
         </button>
-    );
+        
+       );
+    
 
     authenticate = (response) => {
         axios.post(`${data.api}quiz/auth/register`, {
@@ -45,7 +49,8 @@ export default class FacebookSignIn extends React.Component {
             callback={this.authenticate}
             component={this.MyFacebookButton}
         />
-        return <FacebookLogin
+        //</div>
+        /*{return <FacebookLogin
             appId="393676568001815"
             autoLoad={false}
             fields="name,email,picture"
@@ -53,6 +58,6 @@ export default class FacebookSignIn extends React.Component {
             className="p-3 float-right"
             render={renderProps => (
                 <button onClick={renderProps.onClick} className="m-2 align-middle loginBtn loginBtn--facebook">Facebook</button>
-            )} />
+            )} />*/
     }
 }
