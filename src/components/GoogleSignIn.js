@@ -1,5 +1,6 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
+import '../custom.css'
 import axios from 'axios';
 import { navigate } from "gatsby";
 import data from '../env.json';
@@ -53,11 +54,20 @@ export default class GoogleSignIn extends React.Component {
     localStorage.name = res.profileObj.name;
 
   }
+  MyGoogleButton = ({ onClick }) => (
+        
+    <button onClick={onClick} className="m-2 align-middle loginBtn loginBtn--google">
+        GOOGLE+
+    </button>
+    
+   );
+
 
   render() {
     return <GoogleLogin
       clientId="1066270839928-ulo4qi9cai9liclom3ca7cjel1h248hj.apps.googleusercontent.com"
-      buttonText="Login"
+      //buttonText="GOOGLE+"
+      
       onSuccess={(res) => { this.setData(res) }}
       onFailure={(res) => { this.setData(res) }}
       cookiePolicy={'single_host_origin'}
