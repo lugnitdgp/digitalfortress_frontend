@@ -5,7 +5,7 @@
   position: relative;
   /* width: 13em;  - apply for fixed size */
   margin: 0.8em;
-  padding: 5px 13px 5px 46px;
+  padding: 10px 13px 10px 46px;
   border: none;
   text-align: left;
   vertical-align: center;
@@ -37,27 +37,27 @@
 /* Facebook */
 
 .loginBtn--facebook {
-  background-color: #4C69BA;
-  background-image: linear-gradient(#4C69BA, #3B55A0);
+  background-color: rgb(10, 41, 124);
+  background-image: linear-gradient(rgb(13, 41, 117), rgb(12, 38, 116));
   /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
-  text-shadow: 0 -1px 0 #354C8C;
+  text-shadow: 0 -1px 0 rgb(7, 32, 100);
 }
 
 .loginBtn--facebook:before {
-  border-right: #364e92 1px solid;
-  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png') 6px no-repeat;
+  /*border-right: #062886 1px solid;*/
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png') 10px no-repeat;
 }
 
 .loginBtn--facebook:hover, .loginBtn--facebook:focus {
-  background-color: #5B7BD5;
-  background-image: linear-gradient(#5B7BD5, #4864B1);
+  background-color: rgb(6, 37, 121);
+  background-image: linear-gradient(rgb(10, 34, 99), rgb(17, 48, 133));
 }
 
 /* Google */
 
 .loginBtn--google {
   /*font-family: "Roboto", Roboto, arial, sans-serif;*/
-  background: #DD4B39;
+  background: rgb(161, 29, 11);
 }
 
 .loginBtn--google:before {
