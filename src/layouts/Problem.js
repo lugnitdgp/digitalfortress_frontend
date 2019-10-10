@@ -131,10 +131,10 @@ export default class Problem extends React.Component {
         </div>
         <div className="container p-3">
           <div className="row">
-            <div className="col-12">
+            <div className="col-12 col-lg-6">
               {cluesArr}
             </div>
-            <div className="col-12 p-3">
+            <div className="col-12 col-lg-6">
               <GameMap positions={this.state.positions} />
             </div>
           </div>

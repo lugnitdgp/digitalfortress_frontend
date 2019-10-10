@@ -21,9 +21,9 @@ export default (props) => {
 
     return <div className="card">
         <Map
-            style="mapbox://styles/mapbox/streets-v9"
+            style='mapbox://styles/mapbox/light-v10'
             containerStyle={{
-                height: "50vh",
+                height: "60vh",
             }}
             center={[-67.13734351262877, 45.137451890638886]}
             zoom={[8]}>
