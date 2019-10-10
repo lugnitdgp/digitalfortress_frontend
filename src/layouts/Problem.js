@@ -112,7 +112,7 @@ export default class Problem extends React.Component {
           positions: [...state.positions, response.data.position]
         }))
       }
-      if (response.data.status == 500) AnswerAlert(0)
+      else if (response.data.status == 500) AnswerAlert(0)
       else AnswerAlert(-1)
     }).catch((response) => AnswerAlert(-1))
   }
