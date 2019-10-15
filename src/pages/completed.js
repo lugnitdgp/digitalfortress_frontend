@@ -13,7 +13,7 @@ export default function Completed() {
     const [msg, setMsg] = useState("")
 
     function setTimer() {
-        Axios.get(`${data.api}quiz/currLevel`).then((res) => {
+        Axios.get(`${process.env.API}quiz/currLevel`).then((res) => {
             if (res.data.status == 200) {
                 setHeaderMsg("Congratulations")
                 setMsg(`You have finished level ${res.data.level}`)
@@ -29,7 +29,7 @@ export default function Completed() {
     setInterval(setTimer, 60000)
 
     useEffect(() => {
-        Axios.get(`${data.api}quiz/currLevel`).then((res) => {
+        Axios.get(`${process.env.API}quiz/currLevel`).then((res) => {
             if (res.data.status == 200) {
                 setHeaderMsg("Congratulations")
                 setMsg(`You have finished level ${res.data.level}`)

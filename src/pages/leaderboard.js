@@ -19,7 +19,7 @@ export default class LeaderBoard extends React.Component {
 
     fetchData() {
         var self = this
-        axios.get(`${data.api}quiz/leaderboard?format=json`).then((response) => {
+        axios.get(`${process.env.API}quiz/leaderboard?format=json`).then((response) => {
             if (response.data.standings.length != 0) {
                 var temp = response.data.standings.map((v, index) => {
                     if (index == 0)

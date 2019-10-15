@@ -12,7 +12,7 @@ export default class GoogleSignIn extends React.Component {
   }
 
   registerUser(idToken) {
-    axios.post(`${data.api}quiz/auth/register`, {
+    axios.post(`${process.env.API}quiz/auth/register`, {
       "accesstoken": idToken,
       "type": "1"
     }, {
@@ -21,7 +21,7 @@ export default class GoogleSignIn extends React.Component {
       }
     }).then((res) => {
       if (res.data.status == 402) {
-        axios.post(`${data.api}quiz/auth/login`, {
+        axios.post(`${process.env.API}quiz/auth/login`, {
           "accesstoken": idToken,
           "type": "1"
         }, {
