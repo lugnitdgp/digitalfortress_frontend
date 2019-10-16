@@ -6,7 +6,7 @@ export default function Question(props) {
   return <div className="card">
     <div className="card-header">
       <img src="https://img.icons8.com/color/48/000000/document.png" className="float-left" alt="Document-Icon" />
-      <span className="b align-middle">{props.question}</span>
+      <span className="b align-middle">{props.question.question}</span>
     </div>
     <div className="card-body">
       <div className="row">

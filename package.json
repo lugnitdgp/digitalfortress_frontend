@@ -26,6 +26,7 @@
     "popper.js": "^1.15.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-countdown-now": "^2.1.1",
     "react-dom": "^16.8.6",
     "react-facebook-auth": "^1.4.0",
     "react-facebook-login": "^4.1.1",

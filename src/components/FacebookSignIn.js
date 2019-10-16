@@ -15,18 +15,18 @@ export default class FacebookSignIn extends React.Component {
         localStorage.email = res.email;
         localStorage.image = res.picture.data.url;
         localStorage.name = res.name;
-        // navigate("/dashboard/")
+        navigate("/dashboard/")
     }
 
-  
-       MyFacebookButton = ({ onClick }) => (
-        
+
+    MyFacebookButton = ({ onClick }) => (
+
         <button onClick={onClick} className="m-2 align-middle loginBtn loginBtn--facebook">
             FACEBOOK
         </button>
-        
-       );
-    
+
+    );
+
 
     authenticate = (response) => {
         axios.post(`${data.api}quiz/auth/register`, {
@@ -34,12 +34,33 @@ export default class FacebookSignIn extends React.Component {
             "expiration_time": `${response.data_access_expiration_time}`,
             "userID": response.id,
             "type": "2"
-          }, {
+        }, {
             headers: {
-              "Content-Type": "application/json"
+                "Content-Type": "application/json"
             }
-          }).then((res) => console.log(res))
-        console.log(response.data_access_expiration_time);
+        }).then(function (res) {
+            if (res.data.status != 402)
+                this.setData(response);
+            else {
+                axios.post(`${data.api}quiz/auth/login`, {
+                    "accesstoken": response.accessToken,
+                    "expiration_time": `${response.data_access_expiration_time}`,
+                    "userID": response.id,
+                    "type": "2"
+                }, {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }).then((resValue) => {
+                    localStorage.token = resValue.data.token
+                    localStorage.email = resValue.data.user.email
+                    localStorage.name = resValue.data.user.name
+                    localStorage.image = resValue.data.user.imageLink
+
+                    navigate("/dashboard/")
+                })
+            }
+        })
         // Api call to server so we can validate the token
     };
 

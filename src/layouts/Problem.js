@@ -37,7 +37,7 @@ export default class Problem extends React.Component {
     }).then(function (response) {
       if (response.data.status == 200) {
         self.setState((state, props) => ({
-          round: response.data.question.question,
+          round: response.data.question,
         }));
         self.fetchClues();
       } else if (response.data.status == 404) {
@@ -64,9 +64,9 @@ export default class Problem extends React.Component {
         question: v.question
       }))
       var positions = []
-      for (let i = 0; i < response.data.length; i++) {
+      for (let i = 0; i < response.data.clues.length; i++) {
         console.log(response.data[i])
-        if (response.data[i].solved == true) positions.push(response.data[i].position)
+        if (response.data.clues[i].solved == 1) positions.push(response.data.clues[i].position)
       }
 
       console.log(positions)
@@ -86,14 +86,19 @@ export default class Problem extends React.Component {
     axios.post(`${data.api}quiz/checkRound`, {
       "answer": answer
     },
-     {
-      headers: {
-        "Authorization": `Token ${localStorage.token}`
-      }}).then((response) => {
-      if (response.data.status == 200 && response.data.detail == 1) AnswerAlert(1);
-        else if (response.data.status != 500) AnswerAlert(0);
-      else AnswerAlert(-1);
-    }).catch((err) => AnswerAlert(-1))
+      {
+        headers: {
+          "Authorization": `Token ${localStorage.token}`
+        }
+      }).then((response) => {
+        if (response.data.status == 200 && response.data.detail == 1) {
+          AnswerAlert(1);
+          self.fetchRound();
+        }
+        else if (response.data.status == 500) AnswerAlert(0);
+        else if (response.data.status == 404) navigate('/completed');
+        else AnswerAlert(-1);
+      }).catch((err) => AnswerAlert(-1))
   }
 
   submitClue(answer, id) {
@@ -102,19 +107,20 @@ export default class Problem extends React.Component {
       "clue_id": id,
       "answer": answer
     },
-     {
-      headers: {
-        "Authorization": `Token ${localStorage.token}`
-      }}).then((response) => {
-      if (response.data.status == 200 && response.data.detail == 1) {
-        AnswerAlert(1)
-        self.setState((state, props) => ({
-          positions: [...state.positions, response.data.position]
-        }))
-      }
-      else if (response.data.status == 500) AnswerAlert(0)
-      else AnswerAlert(-1)
-    }).catch((response) => AnswerAlert(-1))
+      {
+        headers: {
+          "Authorization": `Token ${localStorage.token}`
+        }
+      }).then((response) => {
+        if (response.data.status == 200 && response.data.detail == 1) {
+          AnswerAlert(1)
+          self.setState((state, props) => ({
+            positions: [...state.positions, response.data.position]
+          }))
+        }
+        else if (response.data.status == 500) AnswerAlert(0)
+        else AnswerAlert(-1)
+      }).catch((response) => AnswerAlert(-1))
   }
 
   render() {
@@ -125,6 +131,10 @@ export default class Problem extends React.Component {
       })
       return <div>
         <div className="container p-3">
+          <div className="row justify-content-center md-2">
+            <span style={{ color: "white", fontSize: "3rem" }}>Round No. {this.state.round.round_number}</span>
+            <hr />
+          </div>
           <div className="row mx-auto d-block">
             <Question question={this.state.round} submitRound={this.submitRound} />
           </div>
@@ -132,9 +142,15 @@ export default class Problem extends React.Component {
         <div className="container p-3">
           <div className="row">
             <div className="col-12 col-lg-6">
+              <div className="row justify-content-center">
+                <span style={{ color: "white", fontSize: "3rem" }}>Clues</span>
+              </div>
               {cluesArr}
             </div>
             <div className="col-12 col-lg-6">
+              <div className="row justify-content-center">
+                <span style={{ color: "white", fontSize: "3rem" }}>Map</span>
+              </div>
               <GameMap positions={this.state.positions} />
             </div>
           </div>
