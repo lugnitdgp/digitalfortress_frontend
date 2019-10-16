@@ -1,15 +1,8 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
-
-console.log(data.api + "ddjbcjsbcjb")
-
 module.exports = {
   siteMetadata: {
     title: `Dgital Fortress`,
     description: `Now test your investigation skills and compete with your friends.`,
-    author: `@romitkarmakar`,
-    apiUrl: data.api
+    author: `@romitkarmakar`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
