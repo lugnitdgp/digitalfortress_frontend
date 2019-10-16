@@ -61,7 +61,8 @@ export default class Problem extends React.Component {
       var clues = response.data.clues.map((v) => ({
         id: v.id,
         isSolved: v.solved,
-        question: v.question
+        question: v.question,
+        position: v.position
       }))
       var positions = []
       for (let i = 0; i < response.data.clues.length; i++) {
@@ -117,6 +118,7 @@ export default class Problem extends React.Component {
           self.setState((state, props) => ({
             positions: [...state.positions, response.data.position]
           }))
+          self.fetchClues()
         }
         else if (response.data.status == 500) AnswerAlert(0)
         else AnswerAlert(-1)
@@ -127,7 +129,7 @@ export default class Problem extends React.Component {
     var self = this
     if (this.state.clues !== null) {
       var cluesArr = this.state.clues.map((v, index) => {
-        return <Clue question={v.question} id={v.id} submitClue={self.submitClue} key={index}></Clue>
+        return <Clue question={v.question} id={v.id} submitClue={self.submitClue} key={index} isSolved={v.isSolved} position={v.position}></Clue>
       })
       return <div>
         <div className="container p-3">
