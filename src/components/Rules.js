@@ -26,12 +26,11 @@ export default class Rules extends React.Component {
           <ModalHeader toggle={this.toggle}>Rules of the Quiz</ModalHeader>
           <ModalBody>
             <ol className="p-3">
-              <li>The quiz comprises of 3 levels with 10 questions each.</li>
-              <li>Each question carries 10 marks.</li>
-              <li>The one who finishes the quiz first is the winner.</li>
-              <li>You can go to the next question only after getting the current question correct.</li>
-              <li>Answers should be in lowercase and without spaces.</li>
-              <li>A level can be played only between its start and end timings.</li>
+              <li>There are 7 rounds worth 10 points each.</li>
+              <li>Each Round is based on a theme which you need to figure out.</li>
+              <li>Each Round consists of a main question and 4 clue questions.</li>
+              <li>Answering each clue question unlocks a position on the map.</li>
+              <li>These locations are hints to the main question.</li>
             </ol>
           </ModalBody>
           <ModalFooter>
