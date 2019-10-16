@@ -30,7 +30,7 @@ export default class Problem extends React.Component {
   fetchRound() {
     var self = this;
     console.log(this.state.email)
-    axios.get(`${process.env.API}quiz/getRound?format=json`, {
+    axios.get(`${data.api}quiz/getRound?format=json`, {
       headers: {
         "Authorization": `Token ${localStorage.token}`
       }
@@ -53,7 +53,7 @@ export default class Problem extends React.Component {
 
   fetchClues() {
     var self = this;
-    axios.get(`${process.env.API}quiz/getClue?format=json`, {
+    axios.get(`${data.api}quiz/getClue?format=json`, {
       headers: {
         "Authorization": `Token ${localStorage.token}`
       }
@@ -83,7 +83,7 @@ export default class Problem extends React.Component {
 
   submitRound(answer) {
     var self = this
-    axios.post(`${process.env.API}quiz/checkRound`, {
+    axios.post(`${data.api}quiz/checkRound`, {
       "answer": answer
     },
      {
@@ -98,7 +98,7 @@ export default class Problem extends React.Component {
 
   submitClue(answer, id) {
     var self = this
-    axios.post(`${process.env.API}quiz/checkClue`, {
+    axios.post(`${data.api}quiz/checkClue`, {
       "clue_id": id,
       "answer": answer
     },

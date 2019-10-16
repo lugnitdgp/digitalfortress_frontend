@@ -2,7 +2,8 @@ import React from 'react';
 import DashboardLayout from '../layouts/DashboardLayout';
 import axios from 'axios';
 import AnswerAlert from '../components/AnswerAlert';
-import data from '../env.json';
+import { useStaticQuery, graphql } from "gatsby"
+import data from "../env.json";
 
 export default class LeaderBoard extends React.Component {
     constructor(props) {
@@ -19,7 +20,7 @@ export default class LeaderBoard extends React.Component {
 
     fetchData() {
         var self = this
-        axios.get(`${process.env.API}quiz/leaderboard?format=json`).then((response) => {
+        axios.get(`${data.api}quiz/leaderboard?format=json`).then((response) => {
             if (response.data.standings.length != 0) {
                 var temp = response.data.standings.map((v, index) => {
                     if (index == 0)

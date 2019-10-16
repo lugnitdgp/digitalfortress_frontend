@@ -29,7 +29,7 @@ export default class FacebookSignIn extends React.Component {
     
 
     authenticate = (response) => {
-        axios.post(`${process.env.API}quiz/auth/register`, {
+        axios.post(`${data.api}quiz/auth/register`, {
             "accesstoken": response.accessToken,
             "expiration_time": `${response.data_access_expiration_time}`,
             "userID": response.id,
