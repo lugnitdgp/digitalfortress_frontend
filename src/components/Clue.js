@@ -8,7 +8,7 @@ export default (props) => {
   const [answer, setAnswer] = useState("")
   if (props.isSolved == 1) {
     var x = <CardBody>
-      <span className="ml-2">Position : {props.position[0] + ", " + props.position[1]}</span>
+      <span className="ml-2">Position : {props.position[1] + ", " + props.position[0]}</span>
     </CardBody>
 
   }
