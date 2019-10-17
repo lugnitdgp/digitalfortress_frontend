@@ -154,7 +154,7 @@ audio {
 }
 
 .card{
-  background: rgba(44, 45, 46, 0.1);
+  background: rgba(44, 45, 46, 0.1) !important;
   color: white;
 /* background: -moz-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,0.93) 49%, rgba(134,174,204,0.85) 100%);
 background: -webkit-gradient(left top, right top, color-stop(0%, rgba(212,228,239,1)), color-stop(49%, rgba(134,174,204,0.93)), color-stop(100%, rgba(134,174,204,0.85)));
@@ -178,7 +178,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', end
   padding: 5px;
   /* border-style: none; */
   border-radius: 20px;
-  background: rgba(46, 6, 69, 0.1);
+  background: rgba(46, 6, 69, 0.1) !important;
   color: white;
 /* background: -moz-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,0.93) 49%, rgba(134,174,204,0.85) 100%);
 background: -webkit-gradient(left top, right top, color-stop(0%, rgba(212,228,239,1)), color-stop(49%, rgba(134,174,204,0.93)), color-stop(100%, rgba(134,174,204,0.85)));
@@ -200,7 +200,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', end
 }
 
 .clue-submit {
-  background-color: rgb(46, 6, 69);
+  background-color: rgb(46, 6, 69) !important;
   color: white;
 }
 
