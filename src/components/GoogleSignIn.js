@@ -69,7 +69,7 @@ export default class GoogleSignIn extends React.Component {
       //buttonText="GOOGLE+"
       
       onSuccess={(res) => { this.setData(res) }}
-      onFailure={(res) => { this.setData(res) }}
+      onFailure={(res) => { console.log(res) }}
       cookiePolicy={'single_host_origin'}
       className={this.props.className}
     />;
