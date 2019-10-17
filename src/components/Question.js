@@ -12,7 +12,7 @@ export default function Question(props) {
       <div className="row">
         <div className="col-10"><input className="c form-control" placeholder="Enter your answer" value={answer} onChange={(e) => setAnswer(e.target.value)} /></div>
         <div className="col-2">
-          <button className="btn float-right pl-3 clue-submit" onClick={(e) => props.submitRound(answer)}>
+          <button className="btn float-right pl-3 clue-submit" onClick={(e) => {setAnswer(""); props.submitRound(answer);}}>
             Submit
           <img src="https://img.icons8.com/plasticine/26/000000/idea.png" alt="daf" className="float-right d-none d-lg-block"/>
           </button>
