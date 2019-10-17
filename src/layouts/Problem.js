@@ -134,7 +134,7 @@ export default class Problem extends React.Component {
       return <div>
         <div className="container p-3">
           <div className="row justify-content-center md-2">
-            <span style={{ color: "white", fontSize: "3rem" }}>Round No. {this.state.round.round_number}</span>
+            <span style={{ color: "white", fontSize: "3rem", fontFamily: "'Mansalva', cursive" }}>Round No. {this.state.round.round_number}</span>
             <hr />
           </div>
           <div className="row mx-auto d-block">
@@ -145,13 +145,13 @@ export default class Problem extends React.Component {
           <div className="row">
             <div className="col-12 col-lg-6">
               <div className="row justify-content-center">
-                <span style={{ color: "white", fontSize: "3rem" }}>Clues</span>
+                <span style={{ color: "white", fontSize: "3rem", fontFamily: "'Mansalva', cursive" }}>Clues</span>
               </div>
               {cluesArr}
             </div>
             <div className="col-12 col-lg-6">
               <div className="row justify-content-center">
-                <span style={{ color: "white", fontSize: "3rem" }}>Map</span>
+                <span style={{ color: "white", fontSize: "3rem", fontFamily: "'Mansalva', cursive" }}>Map</span>
               </div>
               <GameMap positions={this.state.positions} />
             </div>

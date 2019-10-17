@@ -32,8 +32,8 @@ class IndexPage extends React.Component {
           <div className="container">
             <h1 className="display-4">Digital Fortress</h1>
             <h3>Competition to <span className="element"></span></h3>
-            <GoogleSignIn className="mr-3" />
-            <FacebookSignIn />
+            {/* <GoogleSignIn className="mr-3" />
+            <FacebookSignIn /> */}
           </div>
         </div>
         {/*<div className="container-fluid p-3 bg-transparent">
@@ -72,7 +72,8 @@ class IndexPage extends React.Component {
         </div>*/}
         <div className="container-fluid a p-5">
           <h2 className="text-center mx-auto d-block text-white">Are you ready to enter the contest?</h2>
-          <span className="text-center mx-auto d-block"><GoogleSignIn className="mt-3"/></span>
+          <span className="text-center mx-auto d-block"><GoogleSignIn className="mt-3 mr-3" />
+            <FacebookSignIn /></span>
         </div>
       </DashboardLayout>
     </div>

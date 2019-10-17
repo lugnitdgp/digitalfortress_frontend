@@ -21,7 +21,7 @@ export default (props) => {
 
     return <div className="card">
         <Map
-            style='mapbox://styles/mapbox/light-v10'
+            style='mapbox://styles/mapbox/navigation-preview-day-v2'
             containerStyle={{
                 height: "60vh",
             }}

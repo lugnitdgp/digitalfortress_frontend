@@ -66,7 +66,7 @@ export default class FacebookSignIn extends React.Component {
 
     render() {
         return <FacebookAuth
-            appId="393676568001815"
+            appId="2716610551899124"
             callback={this.authenticate}
             component={this.MyFacebookButton}
         />

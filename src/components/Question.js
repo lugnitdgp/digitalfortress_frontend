@@ -6,13 +6,13 @@ export default function Question(props) {
   return <div className="card">
     <div className="card-header">
       <img src="https://img.icons8.com/color/48/000000/document.png" className="float-left" alt="Document-Icon" />
-      <span className="b align-middle">{props.question.question}</span>
+      <span className="b align-middle" style={{ fontSize: "1.5rem", fontFamily: "'Josefin Sans', sans-serif" }}>{props.question.question}</span>
     </div>
     <div className="card-body">
       <div className="row">
         <div className="col-10"><input className="c form-control" placeholder="Enter your answer" value={answer} onChange={(e) => setAnswer(e.target.value)} /></div>
         <div className="col-2">
-          <button className="btn btn-success float-right pl-3" onClick={(e) => props.submitRound(answer)}>
+          <button className="btn float-right pl-3 clue-submit" onClick={(e) => props.submitRound(answer)}>
             Submit
           <img src="https://img.icons8.com/plasticine/26/000000/idea.png" alt="daf" className="float-right d-none d-lg-block"/>
           </button>

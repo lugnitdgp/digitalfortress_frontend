@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Mansalva&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
 .loginBtn {
   box-sizing: border-box;
@@ -152,14 +154,15 @@ audio {
 }
 
 .card{
-  background: rgba(212,228,239,1);
-background: -moz-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,0.93) 49%, rgba(134,174,204,0.85) 100%);
+  background: rgba(44, 45, 46, 0.1);
+  color: white;
+/* background: -moz-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,0.93) 49%, rgba(134,174,204,0.85) 100%);
 background: -webkit-gradient(left top, right top, color-stop(0%, rgba(212,228,239,1)), color-stop(49%, rgba(134,174,204,0.93)), color-stop(100%, rgba(134,174,204,0.85)));
 background: -webkit-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,0.93) 49%, rgba(134,174,204,0.85) 100%);
 background: -o-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,0.93) 49%, rgba(134,174,204,0.85) 100%);
 background: -ms-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,0.93) 49%, rgba(134,174,204,0.85) 100%);
 background: linear-gradient(to right, rgba(212,228,239,1) 0%, rgba(134,174,204,0.93) 49%, rgba(134,174,204,0.85) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc', GradientType=1 );
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc', GradientType=1 ); */
   border-radius: 10px;
 }
 
@@ -171,13 +174,36 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', end
   background: #98AFC7;
 }
 
-.btn{
-  background: rgba(212,228,239,1);
-background: -moz-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,0.93) 49%, rgba(134,174,204,0.85) 100%);
+.clue-btn{
+  padding: 5px;
+  /* border-style: none; */
+  border-radius: 20px;
+  background: rgba(46, 6, 69, 0.1);
+  color: white;
+/* background: -moz-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,0.93) 49%, rgba(134,174,204,0.85) 100%);
 background: -webkit-gradient(left top, right top, color-stop(0%, rgba(212,228,239,1)), color-stop(49%, rgba(134,174,204,0.93)), color-stop(100%, rgba(134,174,204,0.85)));
 background: -webkit-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,0.93) 49%, rgba(134,174,204,0.85) 100%);
 background: -o-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,0.93) 49%, rgba(134,174,204,0.85) 100%);
 background: -ms-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,0.93) 49%, rgba(134,174,204,0.85) 100%);
 background: linear-gradient(to right, rgba(212,228,239,1) 0%, rgba(134,174,204,0.93) 49%, rgba(134,174,204,0.85) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc', GradientType=1 );
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc', GradientType=1 ); */
+}
+
+.clue-btn:hover {
+  background: rgba(46, 6, 69, 0.7) !important;
+  color: white;
+}
+
+.clue-btn:active {
+  background: rgba(46, 6, 69, 0.7) !important;
+  color: white;
+}
+
+.clue-submit {
+  background-color: rgb(46, 6, 69);
+  color: white;
+}
+
+.clue-submit:hover {
+  color: white !important;
 }
