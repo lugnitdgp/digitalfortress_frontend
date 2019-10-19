@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import logo from '../images/screencast.png';
+// import logo from '../images/screencast.png';
 // import gold from '../images/gold.svg';
 
 import SEO from "../components/seo"
@@ -13,6 +13,7 @@ import GoogleSignIn from "../components/GoogleSignIn";
 import FacebookSignIn from "../components/FacebookSignIn";
 import GameMap from "../components/GameMap";
 import Clue from "../components/Clue";
+import logo from '../images/logodf.png';
 
 class IndexPage extends React.Component {
   componentDidMount() {
@@ -30,7 +31,8 @@ class IndexPage extends React.Component {
         <div className="jumbotron jumbotron-fluid">
           {/* <img src={Hero} alt="lkcckcf" className="float-right d-none d-lg-block align-middle" height="500" /> */}
           <div className="container">
-            <h1 className="display-4">Digital Fortress</h1>
+            {/* <h1 className="display-4">Digital Fortress</h1> */}
+            <img src={ logo } height="90" />
             <h3>Competition to <span className="element"></span></h3>
             {/* <GoogleSignIn className="mr-3" />
             <FacebookSignIn /> */}

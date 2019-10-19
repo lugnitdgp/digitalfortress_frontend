@@ -26,7 +26,7 @@ export default class Rules extends React.Component {
           <ModalHeader toggle={this.toggle}>Rules of the Quiz</ModalHeader>
           <ModalBody>
             <ol className="p-3">
-              <li>There are 7 rounds worth 10 points each.</li>
+              <li>Solving each round rewards you 10 points.</li>
               <li>Each Round is based on a theme which you need to figure out.</li>
               <li>Each Round consists of a main question and 4 clue questions.</li>
               <li>Answering each clue question unlocks a position on the map.</li>
