@@ -25,7 +25,7 @@ export default function Completed() {
 
                         </div>
                         <div className="card-footer d-block mx-auto bg-transparent">
-                            <h1 className="mt-5 text-center">Furthur rounds are coming soon, you will notified in official WhatsApp group.</h1>
+                            <h1 className="mt-5 text-center">Congratulations, you have successfully completed the event. Please check the leaderboard for your current rank.</h1>
                         </div>
                     </div>
                 </div>
