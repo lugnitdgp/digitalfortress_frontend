@@ -5,22 +5,28 @@ import logo from '../images/logodf.png';
 import { Link } from "gatsby"
 import FacebookSignIn from './FacebookSignIn';
 import { navigate } from "gatsby";
-import '../custom.css';
+// import '../custom.css';
 import Rules from '../components/Rules';
-
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-} from 'reactstrap';
+import { AppBar, Toolbar, IconButton, Typography, withStyles, Button } from "@material-ui/core";
+import { Menu } from '@material-ui/icons'
 import Logout from './Logout';
 
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  button: {
+    float: "right"
+  }
+});
 
-export default class NavBar extends React.Component {
+class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,8 +58,10 @@ export default class NavBar extends React.Component {
   }
 
   render() {
+    const { classes } = this.props;
+
     return <div className="navbar-inner">
-      <Navbar expand="md" style={{backgroundColor: 'rgba(154, 89, 240, 0.2)'}}>
+      {/* <Navbar expand="md" style={{backgroundColor: 'rgba(154, 89, 240, 0.2)'}}>
         <NavbarBrand>
           <Link to="/">
             <a className="navbar-brand" href="#">
@@ -89,7 +97,23 @@ export default class NavBar extends React.Component {
             </NavItem>
           </Nav>
         </Collapse>
-      </Navbar>
+      </Navbar> */}
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <Menu />
+          </IconButton>
+          
+          <img src={logo} height={40} className="d-inline-block align-top" alt="Logo" />
+          <div className={classes.grow} />
+          <Link to="/" style={{color: "white"}}><Button color="inherit">Home</Button></Link>
+          <Link to="/leaderboard/" style={{color: "white"}}><Button color="inherit">LeaderBoard</Button></Link>
+          
+          <Logout />
+        </Toolbar>
+      </AppBar>
     </div>
   }
 }
+
+export default withStyles(styles)(NavBar);
