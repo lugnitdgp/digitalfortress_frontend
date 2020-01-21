@@ -65,7 +65,7 @@ export default class GoogleSignIn extends React.Component {
 
   render() {
     return <GoogleLogin
-      clientId="1066270839928-ulo4qi9cai9liclom3ca7cjel1h248hj.apps.googleusercontent.com"
+      clientId="535154977870-aq118ipvnqf56418dhubf4r235m48mr3.apps.googleusercontent.com"
       //buttonText="GOOGLE+"
       
       onSuccess={(res) => { this.setData(res) }}

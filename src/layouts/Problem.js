@@ -141,7 +141,7 @@ export default class Problem extends React.Component {
             <Question question={this.state.round} submitRound={this.submitRound} />
           </div>
         </div>
-        <div className="container p-3">
+        <div className="container p-3" style={{height: "700px"}}>
           <div className="row">
             <div className="col-12 col-lg-6">
               <div className="row justify-content-center">

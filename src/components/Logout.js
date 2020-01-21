@@ -1,57 +1,69 @@
-import React, { useState, useEffect } from 'react';
-import Swal from 'sweetalert2';
-import { GoogleLogout } from 'react-google-login';
-import { navigate } from 'gatsby';
+import React, { useState, useEffect } from "react"
+import Swal from "sweetalert2"
+import { navigate } from "gatsby"
+import { Avatar, Typography, Grid, Button, makeStyles } from "@material-ui/core"
+import { Facebook } from "@material-ui/icons"
 
-export default (props) => {
-    var [isLogged, setLogged] = useState(0)
-    var [name, setName] = useState("")
-    var [image, setImage] = useState("")
+const useStyles = makeStyles(theme => ({
+  spacing: {
+    margin: theme.spacing(1),
+  },
+}))
+export default props => {
+  var [isLogged, setLogged] = useState(0)
+  var [name, setName] = useState("")
+  var [image, setImage] = useState("")
+  const classes = useStyles()
 
-    useEffect(() => {
-        if (localStorage.email) {
-            setLogged(1)
-            setName(localStorage.name)
-            setImage(localStorage.image)
-        }
+  useEffect(() => {
+    if (localStorage.email) {
+      setLogged(1)
+      setName(localStorage.name)
+      setImage(localStorage.image)
+    }
+  })
+
+  function logOut() {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success m-1",
+        cancelButton: "btn btn-danger m-1",
+      },
+      buttonsStyling: false,
     })
 
-    function logOut() {
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: 'btn btn-success m-1',
-                cancelButton: 'btn btn-danger m-1'
-            },
-            buttonsStyling: false
-        })
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "Do you want to log out of this competition",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Log out!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then(result => {
+        if (result.value) {
+          localStorage.clear()
+          swalWithBootstrapButtons.fire(
+            "Success",
+            "Your have been logged out.",
+            "success"
+          )
+          navigate("/")
+        }
+      })
+  }
 
-        swalWithBootstrapButtons.fire({
-            title: 'Are you sure?',
-            text: "Do you want to log out of this competition",
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Log out!',
-            cancelButtonText: 'No, cancel!',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.value) {
-                localStorage.clear();
-                swalWithBootstrapButtons.fire(
-                    'Success',
-                    'Your have been logged out.',
-                    'success'
-                )
-                navigate("/")
-            }
-        })
-
-    }
-
-    if (isLogged == 1)
-        return <div onClick={(e) => logOut()}>
-            <img src={image} height={30} alt="Test" className="img-circle" />
-            <a className="text-white nav-link text-capitalize pointer" style={{display: 'inline-block'}}>{name}</a>
-        </div>
-    else
-        return <div></div>
+  if (isLogged == 1)
+    return (
+      <Button color="primary" onClick={e => logOut()}>
+        <Avatar src={image} className={classes.spacing} />
+        <Typography style={{ color: "white" }}>{name}</Typography>
+      </Button>
+    )
+  else return <Button color="primary">
+    <Facebook style={{ color: "white" }} className={classes.spacing} />
+    <Typography style={{ color: "white" }}>Facebook</Typography>
+  </Button>
 }
