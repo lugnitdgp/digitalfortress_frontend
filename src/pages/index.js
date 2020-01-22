@@ -35,7 +35,7 @@ class IndexPage extends React.Component {
         <DashboardLayout>
           <div className="jumbotron jumbotron-fluid">
             <div className="container">
-              <img src={logo} height="90" />
+              <img src={logo} height="80" />
               <h3>
                 Competition to <span className="element"></span>
               </h3>

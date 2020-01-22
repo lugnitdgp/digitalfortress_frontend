@@ -15,6 +15,7 @@ export default class Problem extends React.Component {
     this.state = {
       round: null,
       clues: null,
+      center: [37.778519, -122.405640],
       positions: null
     };
 
@@ -39,6 +40,7 @@ export default class Problem extends React.Component {
       if (response.data.status == 200) {
         self.setState((state, props) => ({
           round: response.data.question,
+          // center: response.data.center
         }));
         self.fetchClues();
       } else if (response.data.status == 404) {
@@ -153,7 +155,7 @@ export default class Problem extends React.Component {
               <div className="row justify-content-center">
               <Typography variant="h3" component="h3" style={{color: "white"}}>Map</Typography>
               </div>
-              <GameMap positions={this.state.positions} />
+              <GameMap positions={this.state.positions} centerLoc={this.state.center} />
             </div>
           </div>
         </div>
