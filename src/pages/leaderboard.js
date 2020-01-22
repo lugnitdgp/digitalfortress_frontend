@@ -4,8 +4,17 @@ import axios from 'axios';
 import AnswerAlert from '../components/AnswerAlert';
 import { useStaticQuery, graphql } from "gatsby"
 import data from "../env.json";
+import { List, ListItem, ListItemAvatar, Avatar, ListItemText, withStyles } from '@material-ui/core';
 
-export default class LeaderBoard extends React.Component {
+
+const useStyles = theme => ({
+    root: {
+      width: '100%',
+      backgroundColor: theme.palette.background.paper,
+    },
+  });
+
+class LeaderBoard extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -19,43 +28,20 @@ export default class LeaderBoard extends React.Component {
     }
 
     fetchData() {
+        const {classes} = this.props;
         var self = this
         axios.get(`${data.api}quiz/leaderboard?format=json`).then((response) => {
             if (response.data.standings.length != 0) {
                 var temp = response.data.standings.map((v, index) => {
-                    if (index == 0)
-                        return <div className="alert" role="alert" key={index} style={{ backgroundColor: '#FFD700' }}>
-                            <span className="text-white mr-2">{v.rank}. </span>
-                            <img src={v.image} alt={v.name} className="img-circle" height="50" />
-                            <span className="ml-2 text-capitalize text-white">{v.name}
-                                <span className="float-right align-middle text-white">{v.score}</span>
-                            </span>
-                        </div>
-                    else if (index == 1)
-                        return <div className="alert" role="alert" key={index} style={{ backgroundColor: '#A7A7AD' }}>
-                            <span className="text-white mr-2">{v.rank}. </span>
-                            <img src={v.image} alt={v.name} className="img-circle" height="50" />
-                            <span className="ml-2 text-capitalize text-white">{v.name}
-                                <span className="float-right align-middle text-white">{v.score}</span>
-                            </span>
-                        </div>
-                    else if (index == 2)
-                        return <div className="alert" role="alert" key={index} style={{ backgroundColor: '#b08d57' }}>
-                            <span className="text-white mr-2">{v.rank}. </span>
-                            <img src={v.image} alt={v.name} className="img-circle" height="50" />
-                            <span className="ml-2 text-capitalize text-white">{v.name}
-                                <span className="float-right align-middle text-white">{v.score}</span>
-                            </span>
-                        </div>
-                    else
-                        return <div className="alert" role="alert" key={index}>
-                            <span className="text-white mr-2">{v.rank}. </span>
-                            <img src={v.image} alt={v.name} className="img-circle" height="50" />
-                            <span className="ml-2 text-capitalize text-white">{v.name}
-                                <span className="float-right align-middle text-white">{v.score}</span>
-                            </span>
-                            <hr />
-                        </div>
+                    return <List className={classes.root}>
+                        <ListItem>
+                        <ListItemText primary={v.rank} style={{color: "black"}} />
+                            <ListItemAvatar>
+                                <Avatar src={v.image} />
+                            </ListItemAvatar>
+                            <ListItemText primary={v.name} style={{color: "black"}} />
+                        </ListItem>
+                    </List>;
                 })
                 self.setState({
                     playerRanks: temp
@@ -71,6 +57,8 @@ export default class LeaderBoard extends React.Component {
         })
     }
     render() {
+        const {classes} = this.props;
+
         if (this.state.playerRanks.length !== 0)
             return <DashboardLayout>
                 <div className="container mt-5">
@@ -109,3 +97,5 @@ export default class LeaderBoard extends React.Component {
             </DashboardLayout>
     }
 }
+
+export default withStyles(useStyles)(LeaderBoard);

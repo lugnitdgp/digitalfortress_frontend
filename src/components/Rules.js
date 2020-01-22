@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import '../bootstrap.css';
+import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from "@material-ui/core"
 
 export default class Rules extends React.Component {
   constructor(props) {
@@ -20,24 +19,33 @@ export default class Rules extends React.Component {
 
   render() {
     return (
-      <div>
-        <a className="nav-link text-white pointer" onClick={this.toggle}>Rules</a>
-        <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Rules of the Quiz</ModalHeader>
-          <ModalBody>
-            <ol className="p-3">
+      <Dialog
+        open={this.state.modal}
+        onClose={e => this.toggle()}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">Rules of the Quiz</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+          <ol className="p-3">
               <li>Solving each round rewards you 10 points.</li>
               <li>Each Round is based on a theme which you need to figure out.</li>
               <li>Each Round consists of a main question and 4 clue questions.</li>
               <li>Answering each clue question unlocks a position on the map.</li>
               <li>These locations are hints to the main question.</li>
             </ol>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Close</Button>
-          </ModalFooter>
-        </Modal>
-      </div>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={e => this.toggle()} color="primary">
+            Disagree
+          </Button>
+          <Button onClick={e => this.toggle()} color="primary" autoFocus>
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     );
   }
 }

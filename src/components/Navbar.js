@@ -60,8 +60,7 @@ class NavBar extends React.Component {
   render() {
     const { classes } = this.props;
 
-    return <div className="navbar-inner">
-      <AppBar position="static">
+    return <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <Menu />
@@ -71,12 +70,12 @@ class NavBar extends React.Component {
           <div className={classes.grow} />
           <Hidden smDown>
           <Link to="/" style={{color: "white"}}><Button color="inherit">Home</Button></Link>
+          <Button color="inherit">Rules</Button>
           <Link to="/leaderboard/" style={{color: "white"}}><Button color="inherit">LeaderBoard</Button></Link>
           </Hidden>
           <Logout />
         </Toolbar>
-      </AppBar>
-    </div>
+      </AppBar>;
   }
 }
 
