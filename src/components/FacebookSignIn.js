@@ -28,6 +28,7 @@ export default class FacebookSignIn extends React.Component {
   )
 
   authenticate = response => {
+    var self = this
     axios
       .post(
         `${data.api}quiz/auth/register`,
@@ -44,7 +45,7 @@ export default class FacebookSignIn extends React.Component {
         }
       )
       .then(function(res) {
-        if (res.data.status != 402) this.setData(response)
+        if (res.data.status != 402) self.setData(response)
         else {
           axios
             .post(
