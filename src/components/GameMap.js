@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-// import "../bootstrap.css"
+import { Card } from "@material-ui/core"
 import { Map, GoogleApiWrapper } from "google-maps-react"
 
 const mapStyles = {

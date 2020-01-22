@@ -6,6 +6,7 @@ import { navigate } from 'gatsby';
 import data from '../env.json';
 import GameMap from '../components/GameMap';
 import Clue from '../components/Clue';
+import { Typography } from "@material-ui/core"
 
 export default class Problem extends React.Component {
 
@@ -134,8 +135,7 @@ export default class Problem extends React.Component {
       return <div>
         <div className="container p-3">
           <div className="row justify-content-center md-2">
-            <span style={{ color: "white", fontSize: "3rem", fontFamily: "'Mansalva', cursive" }}>Round No. {this.state.round.round_number}</span>
-            <hr />
+            <Typography variant="h2" component="h2" style={{color: "white"}}>Round No. {this.state.round.round_number}</Typography>        <hr />
           </div>
           <div className="row mx-auto d-block">
             <Question question={this.state.round} submitRound={this.submitRound} />
@@ -145,13 +145,13 @@ export default class Problem extends React.Component {
           <div className="row">
             <div className="col-12 col-lg-6">
               <div className="row justify-content-center">
-                <span style={{ color: "white", fontSize: "3rem", fontFamily: "'Mansalva', cursive" }}>Clues</span>
+              <Typography variant="h3" component="h3" style={{color: "white"}}>Clues</Typography>
               </div>
               {cluesArr}
             </div>
             <div className="col-12 col-lg-6">
               <div className="row justify-content-center">
-                <span style={{ color: "white", fontSize: "3rem", fontFamily: "'Mansalva', cursive" }}>Map</span>
+              <Typography variant="h3" component="h3" style={{color: "white"}}>Map</Typography>
               </div>
               <GameMap positions={this.state.positions} />
             </div>

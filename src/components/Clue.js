@@ -12,9 +12,14 @@ import {
   IconButton,
   Collapse,
   Grid,
+  Button,
+  TextField,
+  Divider,
+  InputBase,
+  Paper
 } from "@material-ui/core"
-import { ExpandMore } from "@material-ui/icons"
-import { red } from '@material-ui/core/colors';
+import { ExpandMore, Menu, Search, Directions, Send } from "@material-ui/icons"
+import { red } from "@material-ui/core/colors"
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -32,13 +37,33 @@ const useStyles = makeStyles(theme => ({
     }),
   },
   flex: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   expandOpen: {
     transform: "rotate(180deg)",
   },
   avatar: {
     backgroundColor: red[500],
+  },
+  spacing: {
+    margin: theme.spacing(1),
+  },
+  divider: {
+    height: 28,
+    margin: 4,
+  },
+  input: {
+    marginLeft: theme.spacing(1),
+    flex: 1,
+  },
+  iconButton: {
+    padding: 10,
+  },
+  root: {
+    padding: '2px 4px',
+    display: 'flex',
+    alignItems: 'center',
+    width: "100%",
   },
 }))
 
@@ -55,9 +80,9 @@ export default props => {
     var x = (
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <span className="ml-2">
+          <Typography>
             Position : {props.position[1] + ", " + props.position[0]}
-          </span>
+          </Typography>
         </CardContent>
       </Collapse>
     )
@@ -65,57 +90,56 @@ export default props => {
     var x = (
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <div className="row">
-            <div className="col col-10">
-              <input
-                className="form-control"
-                placeholder="Enter answer"
-                value={answer}
+          
+          <Paper component="form" className={classes.root}>
+            <InputBase
+              className={classes.input}
+              placeholder="Enter your answer"
+              inputProps={{ "aria-label": "search google maps" }}
+              value={answer}
                 onChange={e => {
                   setAnswer("")
                   setAnswer(e.target.value)
                 }}
-              ></input>
-            </div>
-            <div className="col col-2">
-              <button
-                className="btn clue-submit"
-                onClick={e => props.submitClue(answer, props.id)}
-                style={{ float: "right" }}
-              >
-                Submit
-              </button>
-            </div>
-          </div>
+            />
+            <Divider className={classes.divider} orientation="vertical" />
+            <Button
+              className={classes.iconButton}
+              aria-label="search"
+              onClick={e => props.submitClue(answer, props.id)}
+            >
+              {/* <Send /> */}
+              Send
+            </Button>
+            
+          </Paper>
         </CardContent>
       </Collapse>
     )
   }
 
   return (
-    <div className="mt-1">
-      <Card>
+      <Card className={classes.spacing}>
         <CardContent>
           <Grid container spacing={2}>
-            <Grid item xs={11}>
-            <Typography className={classes.flex}>{props.question}</Typography>
+            <Grid item xs={10}>
+              <Typography variant="h6" component="h6" className={classes.flex}>{props.question}</Typography>
             </Grid>
-            <Grid item xs={1}>
-            <IconButton
-              className={clsx(classes.expand, {
-                [classes.expandOpen]: expanded,
-              })}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more"
-            >
-              <ExpandMore />
-            </IconButton>
+            <Grid item xs={2}>
+              <IconButton
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: expanded,
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+              >
+                <ExpandMore />
+              </IconButton>
             </Grid>
           </Grid>
           <CardActionArea>{x}</CardActionArea>
         </CardContent>
       </Card>
-    </div>
   )
 }
