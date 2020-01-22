@@ -9,6 +9,8 @@
 
 [![Build Status](https://travis-ci.com/romitkarmakar/digitalfortress_frontend.svg?branch=master)](https://travis-ci.com/romitkarmakar/digitalfortress_frontend)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d8194fb5-bc0e-4495-8f3c-6b9da16995ae/deploy-status)](https://app.netlify.com/sites/reverent-lovelace-205163/deploys)
+
 This is a quiz competition developed by GLUG for testing the students skills in Linux Terminal Commands and common computer science related questions.
 
 ## Installation
