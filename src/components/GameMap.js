@@ -65,5 +65,5 @@ class GameMap extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyCJO87A9heNXZUThrJudaxiu0X4mqy3cvw",
+  apiKey: process.env.GATSBY_GOOGLE_MAP_API_KEY,
 })(GameMap)

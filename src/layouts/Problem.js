@@ -3,7 +3,6 @@ import Question from '../components/Question';
 import axios from 'axios';
 import AnswerAlert from '../components/AnswerAlert';
 import { navigate } from 'gatsby';
-import data from '../env.json';
 import GameMap from '../components/GameMap';
 import Clue from '../components/Clue';
 import { Typography } from "@material-ui/core"
@@ -32,7 +31,7 @@ export default class Problem extends React.Component {
   fetchRound() {
     var self = this;
     console.log(this.state.email)
-    axios.get(`${data.api}quiz/getRound?format=json`, {
+    axios.get(`${process.env.GATSBY_API_URL}quiz/getRound?format=json`, {
       headers: {
         "Authorization": `Token ${localStorage.token}`
       }
@@ -56,7 +55,7 @@ export default class Problem extends React.Component {
 
   fetchClues() {
     var self = this;
-    axios.get(`${data.api}quiz/getClue?format=json`, {
+    axios.get(`${process.env.GATSBY_API_URL}quiz/getClue?format=json`, {
       headers: {
         "Authorization": `Token ${localStorage.token}`
       }
@@ -87,7 +86,7 @@ export default class Problem extends React.Component {
 
   submitRound(answer) {
     var self = this
-    axios.post(`${data.api}quiz/checkRound`, {
+    axios.post(`${process.env.GATSBY_API_URL}quiz/checkRound`, {
       "answer": answer
     },
       {
@@ -107,7 +106,7 @@ export default class Problem extends React.Component {
 
   submitClue(answer, id) {
     var self = this
-    axios.post(`${data.api}quiz/checkClue`, {
+    axios.post(`${process.env.GATSBY_API_URL}quiz/checkClue`, {
       "clue_id": id,
       "answer": answer
     },
