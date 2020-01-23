@@ -2,8 +2,6 @@ import React from 'react';
 import DashboardLayout from '../layouts/DashboardLayout';
 import axios from 'axios';
 import AnswerAlert from '../components/AnswerAlert';
-import { useStaticQuery, graphql } from "gatsby"
-import data from "../env.json";
 import { List, ListItem, ListItemAvatar, Avatar, ListItemText, withStyles } from '@material-ui/core';
 
 
@@ -30,7 +28,7 @@ class LeaderBoard extends React.Component {
     fetchData() {
         const {classes} = this.props;
         var self = this
-        axios.get(`${data.api}quiz/leaderboard?format=json`).then((response) => {
+        axios.get(`${process.env.GATSBY_API_URL}quiz/leaderboard?format=json`).then((response) => {
             if (response.data.standings.length != 0) {
                 var temp = response.data.standings.map((v, index) => {
                     return <List className={classes.root}>

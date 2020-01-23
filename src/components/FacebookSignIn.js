@@ -4,7 +4,6 @@ import "../custom.css"
 import { navigate } from "gatsby"
 import FacebookAuth from "react-facebook-auth"
 import axios from "axios"
-import data from "../env.json"
 import { Avatar, Typography, Grid, Button, makeStyles } from "@material-ui/core"
 import { Facebook } from "@material-ui/icons"
 
@@ -31,7 +30,7 @@ export default class FacebookSignIn extends React.Component {
     var self = this
     axios
       .post(
-        `${data.api}quiz/auth/register`,
+        `${process.env.GATSBY_API_URL}quiz/auth/register`,
         {
           accesstoken: response.accessToken,
           expiration_time: `${response.data_access_expiration_time}`,
@@ -49,7 +48,7 @@ export default class FacebookSignIn extends React.Component {
         else {
           axios
             .post(
-              `${data.api}quiz/auth/login`,
+              `${process.env.GATSBY_API_URL}quiz/auth/login`,
               {
                 accesstoken: response.accessToken,
                 expiration_time: `${response.data_access_expiration_time}`,
@@ -78,7 +77,7 @@ export default class FacebookSignIn extends React.Component {
   render() {
     return (
       <FacebookAuth
-        appId="2716610551899124"
+        appId={process.env.GATSBY_FACEBOOK_APPID}
         callback={this.authenticate}
         component={this.MyFacebookButton}
       />

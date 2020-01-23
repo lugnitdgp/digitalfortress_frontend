@@ -3,9 +3,6 @@ import React, { useState, useEffect } from "react"
 import DashboardLayout from '../layouts/DashboardLayout'
 import SEO from "../components/seo"
 import "../custom.css"
-import Axios from "axios";
-import { navigate } from "gatsby";
-import data from '../env.json';
 
 
 export default function Completed() {

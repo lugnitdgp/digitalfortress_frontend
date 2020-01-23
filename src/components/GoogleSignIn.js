@@ -3,7 +3,6 @@ import GoogleLogin from 'react-google-login';
 import '../custom.css'
 import axios from 'axios';
 import { navigate } from "gatsby";
-import data from '../env.json';
 
 export default class GoogleSignIn extends React.Component {
   constructor(props) {
@@ -12,7 +11,7 @@ export default class GoogleSignIn extends React.Component {
   }
 
   registerUser(idToken) {
-    axios.post(`${data.api}quiz/auth/register`, {
+    axios.post(`${process.env.GATSBY_API_URL}quiz/auth/register`, {
       "accesstoken": idToken,
       "type": "1"
     }, {
@@ -21,7 +20,7 @@ export default class GoogleSignIn extends React.Component {
       }
     }).then((res) => {
       if (res.data.status == 402) {
-        axios.post(`${data.api}quiz/auth/login`, {
+        axios.post(`${process.env.GATSBY_API_URL}quiz/auth/login`, {
           "accesstoken": idToken,
           "type": "1"
         }, {
@@ -65,7 +64,7 @@ export default class GoogleSignIn extends React.Component {
 
   render() {
     return <GoogleLogin
-      clientId="535154977870-aq118ipvnqf56418dhubf4r235m48mr3.apps.googleusercontent.com"
+      clientId={process.env.GATSBY_GOOGLE_LOGIN_CLIENT_ID}
       //buttonText="GOOGLE+"
       
       onSuccess={(res) => { this.setData(res) }}
