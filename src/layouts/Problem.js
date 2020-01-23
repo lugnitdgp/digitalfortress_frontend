@@ -6,6 +6,7 @@ import { navigate } from "gatsby"
 import GameMap from "../components/GameMap"
 import Clue from "../components/Clue"
 import { Typography, withStyles, Container, Grid } from "@material-ui/core"
+import Loader from "../styles/loader"
 
 const styles = theme => ({
   root: {
@@ -221,12 +222,13 @@ class Problem extends React.Component {
     } else
       return (
         <div className="container p-5">
-          <div
+          {/* <div
             className="spinner-border mx-auto d-block m-5 text-light"
             role="status"
           >
             <span className="sr-only">Loading...</span>
-          </div>
+          </div> */}
+          <Loader />
         </div>
       )
   }
