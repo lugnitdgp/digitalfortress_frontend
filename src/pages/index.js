@@ -14,6 +14,7 @@ import FacebookSignIn from "../components/FacebookSignIn"
 import GameMap from "../components/GameMap"
 import Clue from "../components/Clue"
 import logo from "../images/logodf.png"
+import { Hidden } from "@material-ui/core"
 
 class IndexPage extends React.Component {
   componentDidMount() {
@@ -35,7 +36,8 @@ class IndexPage extends React.Component {
         <DashboardLayout>
           <div className="jumbotron jumbotron-fluid">
             <div className="container">
-              <img src={logo} height="80" />
+              <Hidden smUp><img src={logo} height="60" /></Hidden>
+              <Hidden smDown><img src={logo} height="80" /></Hidden>
               <h3>
                 Competition to <span className="element"></span>
               </h3>

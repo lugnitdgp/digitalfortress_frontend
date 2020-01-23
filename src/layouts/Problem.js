@@ -1,170 +1,235 @@
-import React from 'react';
-import Question from '../components/Question';
-import axios from 'axios';
-import AnswerAlert from '../components/AnswerAlert';
-import { navigate } from 'gatsby';
-import GameMap from '../components/GameMap';
-import Clue from '../components/Clue';
-import { Typography } from "@material-ui/core"
+import React from "react"
+import Question from "../components/Question"
+import axios from "axios"
+import AnswerAlert from "../components/AnswerAlert"
+import { navigate } from "gatsby"
+import GameMap from "../components/GameMap"
+import Clue from "../components/Clue"
+import { Typography, withStyles, Container, Grid } from "@material-ui/core"
 
-export default class Problem extends React.Component {
+const styles = theme => ({
+  root: {
+    padding: theme.spacing(1),
+  },
+  centerRow: {
+    justifyContent: "center",
+  },
+})
 
+class Problem extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       round: null,
       clues: null,
-      center: [37.778519, -122.405640],
-      positions: null
-    };
+      center: [37.778519, -122.40564],
+      positions: null,
+    }
 
-    this.submitRound = this.submitRound.bind(this);
-    this.submitClue = this.submitClue.bind(this);
-    this.fetchRound = this.fetchRound.bind(this);
-    this.fetchClues = this.fetchClues.bind(this);
+    this.submitRound = this.submitRound.bind(this)
+    this.submitClue = this.submitClue.bind(this)
+    this.fetchRound = this.fetchRound.bind(this)
+    this.fetchClues = this.fetchClues.bind(this)
   }
 
   componentDidMount() {
-    this.fetchRound();
+    this.fetchRound()
   }
 
   fetchRound() {
-    var self = this;
+    var self = this
     console.log(this.state.email)
-    axios.get(`${process.env.GATSBY_API_URL}quiz/getRound?format=json`, {
-      headers: {
-        "Authorization": `Token ${localStorage.token}`
-      }
-    }).then(function (response) {
-      if (response.data.status == 200) {
-        self.setState((state, props) => ({
-          round: response.data.question,
-          // center: response.data.center
-        }));
-        self.fetchClues();
-      } else if (response.data.status == 404) {
-        navigate('/completed')
-      } else {
+    axios
+      .get(`${process.env.GATSBY_API_URL}quiz/getRound?format=json`, {
+        headers: {
+          Authorization: `Token ${localStorage.token}`,
+        },
+      })
+      .then(function(response) {
+        if (response.data.status == 200) {
+          self.setState((state, props) => ({
+            round: response.data.question,
+            // center: response.data.center
+          }))
+          self.fetchClues()
+        } else if (response.data.status == 404) {
+          navigate("/completed")
+        } else {
+          AnswerAlert(-1)
+        }
+      })
+      .catch(function(error) {
         AnswerAlert(-1)
-      }
-    }).catch(function (error) {
-      AnswerAlert(-1)
-    });
-
+      })
   }
 
   fetchClues() {
-    var self = this;
-    axios.get(`${process.env.GATSBY_API_URL}quiz/getClue?format=json`, {
-      headers: {
-        "Authorization": `Token ${localStorage.token}`
-      }
-    }).then(function (response) {
-      var clues = response.data.clues.map((v) => ({
-        id: v.id,
-        isSolved: v.solved,
-        question: v.question,
-        position: v.position
-      }))
-      var positions = []
-      for (let i = 0; i < response.data.clues.length; i++) {
-        console.log(response.data[i])
-        if (response.data.clues[i].solved == 1) positions.push(response.data.clues[i].position)
-      }
+    var self = this
+    axios
+      .get(`${process.env.GATSBY_API_URL}quiz/getClue?format=json`, {
+        headers: {
+          Authorization: `Token ${localStorage.token}`,
+        },
+      })
+      .then(function(response) {
+        var clues = response.data.clues.map(v => ({
+          id: v.id,
+          isSolved: v.solved,
+          question: v.question,
+          position: v.position,
+        }))
+        var positions = []
+        for (let i = 0; i < response.data.clues.length; i++) {
+          console.log(response.data[i])
+          if (response.data.clues[i].solved == 1)
+            positions.push(response.data.clues[i].position)
+        }
 
-      console.log(positions)
-      self.setState((state, props) => ({
-        clues: clues
-      }));
-      self.setState((state, props) => ({
-        positions: positions
-      }));
-    }).catch(function (error) {
-      AnswerAlert(-1)
-    });
+        console.log(positions)
+        self.setState((state, props) => ({
+          clues: clues,
+        }))
+        self.setState((state, props) => ({
+          positions: positions,
+        }))
+      })
+      .catch(function(error) {
+        AnswerAlert(-1)
+      })
   }
 
   submitRound(answer) {
     var self = this
-    axios.post(`${process.env.GATSBY_API_URL}quiz/checkRound`, {
-      "answer": answer
-    },
-      {
-        headers: {
-          "Authorization": `Token ${localStorage.token}`
+    axios
+      .post(
+        `${process.env.GATSBY_API_URL}quiz/checkRound`,
+        {
+          answer: answer,
+        },
+        {
+          headers: {
+            Authorization: `Token ${localStorage.token}`,
+          },
         }
-      }).then((response) => {
+      )
+      .then(response => {
         if (response.data.status == 200 && response.data.detail == 1) {
-          AnswerAlert(1);
-          self.fetchRound();
-        }
-        else if (response.data.status == 500) AnswerAlert(0);
-        else if (response.data.status == 404) navigate('/completed');
-        else AnswerAlert(-1);
-      }).catch((err) => AnswerAlert(-1))
+          AnswerAlert(1)
+          self.fetchRound()
+        } else if (response.data.status == 500) AnswerAlert(0)
+        else if (response.data.status == 404) navigate("/completed")
+        else AnswerAlert(-1)
+      })
+      .catch(err => AnswerAlert(-1))
   }
 
   submitClue(answer, id) {
     var self = this
-    axios.post(`${process.env.GATSBY_API_URL}quiz/checkClue`, {
-      "clue_id": id,
-      "answer": answer
-    },
-      {
-        headers: {
-          "Authorization": `Token ${localStorage.token}`
+    axios
+      .post(
+        `${process.env.GATSBY_API_URL}quiz/checkClue`,
+        {
+          clue_id: id,
+          answer: answer,
+        },
+        {
+          headers: {
+            Authorization: `Token ${localStorage.token}`,
+          },
         }
-      }).then((response) => {
+      )
+      .then(response => {
         if (response.data.status == 200 && response.data.detail == 1) {
           AnswerAlert(1)
           self.setState((state, props) => ({
-            positions: [...state.positions, response.data.position]
+            positions: [...state.positions, response.data.position],
           }))
           self.fetchClues()
-        }
-        else if (response.data.status == 500) AnswerAlert(0)
+        } else if (response.data.status == 500) AnswerAlert(0)
         else AnswerAlert(-1)
-      }).catch((response) => AnswerAlert(-1))
+      })
+      .catch(response => AnswerAlert(-1))
   }
 
   render() {
+    const { classes } = this.props
     var self = this
     if (this.state.clues !== null) {
       var cluesArr = this.state.clues.map((v, index) => {
-        return <Clue question={v.question} id={v.id} submitClue={self.submitClue} key={index} isSolved={v.isSolved} position={v.position}></Clue>
+        return (
+          <Clue
+            question={v.question}
+            id={v.id}
+            submitClue={self.submitClue}
+            key={index}
+            isSolved={v.isSolved}
+            position={v.position}
+          ></Clue>
+        )
       })
-      return <div>
-        <div className="container p-3">
-          <div className="row justify-content-center md-2">
-            <Typography variant="h2" component="h2" style={{color: "white"}}>Round No. {this.state.round.round_number}</Typography>        <hr />
-          </div>
-          <div className="row mx-auto d-block">
-            <Question question={this.state.round} submitRound={this.submitRound} />
-          </div>
-        </div>
-        <div className="container p-3" style={{height: "700px"}}>
-          <div className="row">
-            <div className="col-12 col-lg-6">
+      return (
+        <Container>
+          <Container className={classes.root}>
+            <Grid container justify="center">
+              <Typography
+                variant="h2"
+                component="h2"
+                style={{ color: "white" }}
+              >
+                Round No. {this.state.round.round_number}
+              </Typography>
+            </Grid>
+            <Question
+              question={this.state.round}
+              submitRound={this.submitRound}
+            />
+          </Container>
+
+          <Grid container spacing={2}>
+            <Grid item xs={12} lg={6}>
               <div className="row justify-content-center">
-              <Typography variant="h3" component="h3" style={{color: "white"}}>Clues</Typography>
+                <Typography
+                  variant="h3"
+                  component="h3"
+                  style={{ color: "white" }}
+                >
+                  Clues
+                </Typography>
               </div>
               {cluesArr}
-            </div>
-            <div className="col-12 col-lg-6">
-              <div className="row justify-content-center">
-              <Typography variant="h3" component="h3" style={{color: "white"}}>Map</Typography>
+            </Grid>
+            <Grid item xs={12} lg={6}>
+              <Grid container justify="center">
+                <Typography
+                  variant="h3"
+                  component="h3"
+                  style={{ color: "white" }}
+                >
+                  Map
+                </Typography>
+              </Grid>
+              <div class="col-12">
+                <GameMap
+                  positions={this.state.positions}
+                  centerLoc={this.state.center}
+                />
               </div>
-              <GameMap positions={this.state.positions} centerLoc={this.state.center} />
-            </div>
+            </Grid>
+          </Grid>
+        </Container>
+      )
+    } else
+      return (
+        <div className="container p-5">
+          <div
+            className="spinner-border mx-auto d-block m-5 text-light"
+            role="status"
+          >
+            <span className="sr-only">Loading...</span>
           </div>
         </div>
-      </div>
-    }
-    else
-      return <div className="container p-5">
-        <div className="spinner-border mx-auto d-block m-5 text-light" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      </div >
+      )
   }
 }
+
+export default withStyles(styles)(Problem)

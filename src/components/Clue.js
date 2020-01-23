@@ -18,7 +18,7 @@ import {
   InputBase,
   Paper
 } from "@material-ui/core"
-import { ExpandMore, Menu, Search, Directions, Send } from "@material-ui/icons"
+import { ExpandMore, Menu, Search, Directions, Send, Check, Close } from "@material-ui/icons"
 import { red } from "@material-ui/core/colors"
 
 const useStyles = makeStyles(theme => ({
@@ -47,6 +47,9 @@ const useStyles = makeStyles(theme => ({
   },
   spacing: {
     margin: theme.spacing(1),
+  },
+  smallspacing: {
+    marginRight: theme.spacing(1)
   },
   divider: {
     height: 28,
@@ -124,6 +127,9 @@ export default props => {
           <Grid container spacing={2}>
             <Grid item xs={10}>
               <Typography variant="h6" component="h6" className={classes.flex}>{props.question}</Typography>
+              {props.isSolved ? 
+              <span><Check className={classes.smallspacing} style={{color: "green"}} /><span>Solved</span></span>
+               : <span><Close className={classes.smallspacing} style={{color: "red"}} /><span>Not Solved</span></span>}
             </Grid>
             <Grid item xs={2}>
               <IconButton

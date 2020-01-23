@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react"
 import Swal from "sweetalert2"
 import { navigate } from "gatsby"
-import { Avatar, Typography, Grid, Button, makeStyles } from "@material-ui/core"
+import {
+  Avatar,
+  Typography,
+  Grid,
+  Button,
+  makeStyles,
+  Hidden,
+} from "@material-ui/core"
 import { Facebook } from "@material-ui/icons"
 
 const useStyles = makeStyles(theme => ({
@@ -59,11 +66,18 @@ export default props => {
     return (
       <Button color="primary" onClick={e => logOut()}>
         <Avatar src={image} className={classes.spacing} />
-        <Typography style={{ color: "white" }}>{name}</Typography>
+        <Hidden smDown>
+          <Typography style={{ color: "white" }}>{name}</Typography>
+        </Hidden>
       </Button>
     )
-  else return <Button color="primary">
-    <Facebook style={{ color: "white" }} className={classes.spacing} />
-    <Typography style={{ color: "white" }}>Facebook</Typography>
-  </Button>
+  else
+    return (
+      <Hidden smDown>
+        <Button color="primary">
+          <Facebook style={{ color: "white" }} className={classes.spacing} />
+          <Typography style={{ color: "white" }}>Facebook</Typography>
+        </Button>
+      </Hidden>
+    )
 }
