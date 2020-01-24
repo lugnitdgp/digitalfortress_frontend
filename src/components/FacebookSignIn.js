@@ -1,11 +1,12 @@
 import React from "react"
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props"
-import "../custom.css"
+// import "../custom.css"
 import { navigate } from "gatsby"
 import FacebookAuth from "react-facebook-auth"
 import axios from "axios"
 import { Avatar, Typography, Grid, Button, makeStyles } from "@material-ui/core"
 import { Facebook } from "@material-ui/icons"
+import "../styles/social.css"
 
 export default class FacebookSignIn extends React.Component {
   constructor(props) {
@@ -20,10 +21,11 @@ export default class FacebookSignIn extends React.Component {
   }
 
   MyFacebookButton = ({ onClick }) => (
-    <Button color="primary" onClick={onClick}>
-      <Facebook style={{ color: "white" }} />
-      <Typography style={{ color: "white" }}>Facebook</Typography>
-    </Button>
+    <div className="social-btns">
+      <button className="btn facebook" onClick={onClick}>
+        <i className="fa fa-facebook" />
+      </button>
+    </div>
   )
 
   authenticate = response => {

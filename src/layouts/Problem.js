@@ -55,7 +55,9 @@ class Problem extends React.Component {
           self.fetchClues()
         } else if (response.data.status == 404) {
           navigate("/completed")
-        } else {
+        }
+        else if(response.data.status == 410) navigate("/timer");
+        else {
           AnswerAlert(-1)
         }
       })
@@ -119,6 +121,7 @@ class Problem extends React.Component {
           self.fetchRound()
         } else if (response.data.status == 500) AnswerAlert(0)
         else if (response.data.status == 404) navigate("/completed")
+        else if(response.data.status == 410) navigate("/timer")
         else AnswerAlert(-1)
       })
       .catch(err => AnswerAlert(-1))

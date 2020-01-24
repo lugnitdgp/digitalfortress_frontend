@@ -7,7 +7,7 @@ import {
 } from "google-maps-react"
 
 const mapStyles = {
-  padding: "10px",
+  padding: "15px",
   width: "95%",
   height: "500px",
 }
