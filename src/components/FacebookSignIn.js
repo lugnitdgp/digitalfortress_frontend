@@ -16,7 +16,7 @@ export default class FacebookSignIn extends React.Component {
   setData(res) {
     localStorage.email = res.email
     localStorage.image = res.picture.data.url
-    localStorage.name = res.name
+    localStorage.name = res.first_name
     navigate("/dashboard/")
   }
 
@@ -66,7 +66,7 @@ export default class FacebookSignIn extends React.Component {
             .then(resValue => {
               localStorage.token = resValue.data.token
               localStorage.email = resValue.data.user.email
-              localStorage.name = resValue.data.user.name
+              localStorage.name = resValue.data.user.first_name
               localStorage.image = resValue.data.user.imageLink
 
               navigate("/dashboard/")
