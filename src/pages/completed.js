@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react"
 
 import DashboardLayout from '../layouts/DashboardLayout'
-import SEO from "../components/seo"
-import "../custom.css"
 import CompletedSvg from "../styles/completedsvg"
 
 
 export default function Completed() {
 
     return <DashboardLayout>
-        <SEO title="Finished" />
         <div className="container">
             <div className="row">
                 <div className="d-none d-md-block col-2"></div>
