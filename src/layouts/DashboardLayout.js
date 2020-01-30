@@ -228,9 +228,9 @@ export default class DashboardLayout extends React.Component {
           <NavBar />
           <div id="large-header" className="large-header">
             <canvas id="demo-canvas"></canvas>
-            {this.props.children}
-            <Footer />
           </div>
+          {this.props.children}
+          <Footer />
         </div>
     )
   }

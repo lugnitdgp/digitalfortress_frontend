@@ -1,14 +1,13 @@
 /* Header */
+body {
+  background-image: url("https://images3.alphacoders.com/869/869602.jpg") !important;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
 .large-header {
-    position: relative;
-    width: 100%;
-    background: #333;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center center;
-    z-index: 1;
-  }
-  #large-header {
-     background-image: url("https://images3.alphacoders.com/869/869602.jpg");
-     background-attachment: fixed;
-  }
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  z-index: -100;
+}
