@@ -15,7 +15,7 @@ import Loader from "../styles/loader"
 const useStyles = theme => ({
   root: {
     width: "100%",
-    backgroundColor: theme.palette.background.paper,
+    // backgroundColor: theme.palette.background.paper,
   },
 })
 
@@ -43,12 +43,12 @@ class LeaderBoard extends React.Component {
             return (
               <List className={classes.root}>
                 <ListItem>
-                  <ListItemText primary={v.rank} style={{ color: "black" }} />
+                  <ListItemText primary={v.rank} style={{ color: "white" }} />
                   <ListItemAvatar>
                     <Avatar src={v.image} />
                   </ListItemAvatar>
-                  <ListItemText primary={v.name} style={{ color: "black" }} />
-                  <ListItemText primary={v.score} style={{ color: "black" }} />
+                  <ListItemText primary={v.name} style={{ color: "white" }} />
+                  <ListItemText primary={v.score} style={{ color: "white" }} />
                 </ListItem>
               </List>
             )

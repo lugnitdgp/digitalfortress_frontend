@@ -63,6 +63,7 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    backgroundColor: "#000000",
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -220,13 +221,13 @@ class NavBar extends React.Component {
                 <ListItemIcon>
                   <YouTube style={{ color: 'white' }}/>
                 </ListItemIcon>
-                <ListItemText primary="Sign in with Google" />
+                <ListItemText primary="Google" />
               </ListItem> 
               <ListItem button key="Facebook">
                 <ListItemIcon>
                   <Facebook style={{ color: 'white' }} />
                 </ListItemIcon>
-                <ListItemText primary="Sign in with F.B." />
+                <ListItemText primary="Facebook" />
               </ListItem> 
           </List>
         </Drawer>

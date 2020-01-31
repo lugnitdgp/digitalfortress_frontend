@@ -230,7 +230,7 @@ export default class DashboardLayout extends React.Component {
             <canvas id="demo-canvas"></canvas>
           </div>
           {this.props.children}
-          <Footer />
+          {/* <Footer /> */}
         </div>
     )
   }
