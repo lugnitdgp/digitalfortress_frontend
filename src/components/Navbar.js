@@ -24,6 +24,7 @@ import {
 } from "@material-ui/core"
 import {
   Menu,
+  Home,
   Inbox,
   Mail,
   ChevronLeft,
@@ -31,14 +32,21 @@ import {
   Facebook,
   YoutubeSearchedFor,
   YouTube,
+
 } from "@material-ui/icons"
+import FormatAlignJustifyIcon from '@material-ui/icons/FormatAlignJustify';
+import DashboardIcon from '@material-ui/icons/Dashboard';
 import Logout from "./Logout"
+import Dashboard from "../pages/dashboard"
 
 const drawerWidth = 240;
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
+  },
+  BackdropProps: {
+    background: 'transparent'
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -76,6 +84,9 @@ const styles = theme => ({
   },
   drawerPaper: {
     width: drawerWidth,
+    background: 'black',
+    color: 'white',
+    opacity: .75,
   },
   drawerHeader: {
     display: 'flex',
@@ -176,42 +187,44 @@ class NavBar extends React.Component {
           open={this.state.isOpen}
           classes={{
             paper: classes.drawerPaper,
+            
           }}
+          
         >
           <div className={classes.drawerHeader}>
             <IconButton onClick={this.toggleNavbar}>
-              <ChevronLeft />
+              <ChevronLeft style={{ color: 'white' }}/>
             </IconButton>
           </div>
           <Divider />
           <List> 
               <ListItem button key="Home">
                 <ListItemIcon>
-                  <Mail/>
+                  <Home style={{ color: 'white' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Home" />
               </ListItem> 
               <ListItem button key="Rules">
                 <ListItemIcon>
-                  <Mail/>
+                  <FormatAlignJustifyIcon style={{ color: 'white' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Rules" />
               </ListItem>
               <ListItem button key="Leaderboard">
                 <ListItemIcon>
-                  <Mail/>
+                  <DashboardIcon style={{ color: 'white' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Leaderboard" />
               </ListItem>  
               <ListItem button key="Google">
                 <ListItemIcon>
-                  <YouTube/>
+                  <YouTube style={{ color: 'white' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Sign in with Google" />
               </ListItem> 
               <ListItem button key="Facebook">
                 <ListItemIcon>
-                  <Facebook />
+                  <Facebook style={{ color: 'white' }} />
                 </ListItemIcon>
                 <ListItemText primary="Sign in with F.B." />
               </ListItem> 
