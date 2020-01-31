@@ -48,6 +48,7 @@ class LeaderBoard extends React.Component {
                     <Avatar src={v.image} />
                   </ListItemAvatar>
                   <ListItemText primary={v.name} style={{ color: "black" }} />
+                  <ListItemText primary={v.score} style={{ color: "black" }} />
                 </ListItem>
               </List>
             )
