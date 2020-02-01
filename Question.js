@@ -27,7 +27,7 @@ export default function Question(props) {
 
   return (
     
-       <Card style={{borderRadius: 8,boxShadow: 10,elevation: 2}}>
+       <Card style={{borderRadius: 8,boxShadow: 10,elevation: 2,backgroundColor: 'black',color: 'white',opacity: .75}}>
       <CardContent>
         <Typography variant="h5" component="h5" className={classes.spacing}>{props.question.question}</Typography>
         <TextField

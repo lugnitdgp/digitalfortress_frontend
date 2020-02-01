@@ -30,6 +30,9 @@ const useStyles = makeStyles(theme => ({
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 1,
+    backgroundColor: 'black',
+    color: 'white',
+    opacity: .75,
   },
   media: {
     height: 0,
