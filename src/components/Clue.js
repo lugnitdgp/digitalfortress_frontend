@@ -16,9 +16,22 @@ import {
   TextField,
   Divider,
   InputBase,
-  Paper
+  Paper,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
 } from "@material-ui/core"
-import { ExpandMore, Menu, Search, Directions, Send, Check, Close } from "@material-ui/icons"
+import {
+  ExpandMore,
+  Menu,
+  Search,
+  Directions,
+  Send,
+  Check,
+  Close,
+} from "@material-ui/icons"
 import { red } from "@material-ui/core/colors"
 
 const useStyles = makeStyles(theme => ({
@@ -49,7 +62,10 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
   },
   smallspacing: {
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
+  },
+  pad: {
+    padding: theme.spacing(1),
   },
   divider: {
     height: 28,
@@ -63,9 +79,9 @@ const useStyles = makeStyles(theme => ({
     padding: 10,
   },
   root: {
-    padding: '2px 4px',
-    display: 'flex',
-    alignItems: 'center',
+    padding: "2px 4px",
+    display: "flex",
+    alignItems: "center",
     width: "100%",
   },
 }))
@@ -74,6 +90,7 @@ export default props => {
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false)
   const [answer, setAnswer] = useState("")
+  const [open, setOpen] = React.useState(false)
 
   const handleExpandClick = () => {
     setExpanded(!expanded)
@@ -81,71 +98,93 @@ export default props => {
 
   if (props.isSolved == 1) {
     var x = (
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography>
+      <Dialog
+        open={open}
+        onClose={e => setOpen(false)}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">Clue</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
             Position : {props.position[1] + ", " + props.position[0]}
-          </Typography>
-        </CardContent>
-      </Collapse>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={e => setOpen(false)} color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     )
   } else {
     var x = (
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          
-          <Paper component="form" className={classes.root}>
-            <InputBase
-              className={classes.input}
-              placeholder="Enter your answer"
-              inputProps={{ "aria-label": "search google maps" }}
-              value={answer}
-                onChange={e => {
-                  setAnswer("")
-                  setAnswer(e.target.value)
-                }}
-            />
-            <Divider className={classes.divider} orientation="vertical" />
-            <Button
-              className={classes.iconButton}
-              aria-label="search"
-              onClick={e => props.submitClue(answer, props.id)}
-            >
-              {/* <Send /> */}
-              Send
-            </Button>
-            
-          </Paper>
-        </CardContent>
-      </Collapse>
+      <Dialog
+        open={open}
+        onClose={e => setOpen(false)}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">Clue</DialogTitle>
+        <DialogContent>
+          <DialogContentText>{props.question}</DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Enter your answer"
+            type="text"
+            fullWidth
+            value={answer}
+            onChange={e => {
+              setAnswer("")
+              setAnswer(e.target.value)
+            }}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={e => setOpen(false)} color="primary">
+            Close
+          </Button>
+          <Button
+            onClick={e => props.submitClue(answer, props.id)}
+            color="primary"
+          >
+            Check Answer
+          </Button>
+        </DialogActions>
+      </Dialog>
     )
   }
 
   return (
-      <Card className={classes.spacing}>
-        <CardContent>
-          <Grid container spacing={2}>
-            <Grid item xs={10}>
-              <Typography variant="h6" component="h6" className={classes.flex}>{props.question}</Typography>
-              {props.isSolved ? 
-              <span><Check className={classes.smallspacing} style={{color: "green"}} /><span>Solved</span></span>
-               : <span><Close className={classes.smallspacing} style={{color: "red"}} /><span>Not Solved</span></span>}
-            </Grid>
-            <Grid item xs={2}>
-              <IconButton
-                className={clsx(classes.expand, {
-                  [classes.expandOpen]: expanded,
-                })}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-              >
-                <ExpandMore />
-              </IconButton>
-            </Grid>
-          </Grid>
-          <CardActionArea>{x}</CardActionArea>
-        </CardContent>
-      </Card>
+    <Card>
+      <CardContent>
+        <Typography variant="h6" component="h6" className={classes.pad}>
+          Clue No. {props.index}{" "}
+        </Typography>
+        {props.isSolved ? (
+          <Typography className={classes.pad}>
+            <Check
+              className={classes.smallspacing}
+              style={{ color: "green" }}
+            />
+            <span>Solved</span>
+          </Typography>
+        ) : (
+          <Typography className={classes.pad}>
+            <Close className={classes.smallspacing} style={{ color: "red" }} />
+            <span>Not Solved</span>
+          </Typography>
+        )}
+        <Button
+          className={classes.spacing}
+          onClick={e => setOpen(true)}
+          color="primary"
+          variant="outlined"
+        >
+          Open Clue
+        </Button>
+        <CardActionArea>{x}</CardActionArea>
+      </CardContent>
+    </Card>
   )
 }

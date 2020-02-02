@@ -55,8 +55,7 @@ class Problem extends React.Component {
           self.fetchClues()
         } else if (response.data.status == 404) {
           navigate("/completed")
-        }
-        else if(response.data.status == 410) navigate("/timer");
+        } else if (response.data.status == 410) navigate("/timer")
         else {
           AnswerAlert(-1)
         }
@@ -121,7 +120,7 @@ class Problem extends React.Component {
           self.fetchRound()
         } else if (response.data.status == 500) AnswerAlert(0)
         else if (response.data.status == 404) navigate("/completed")
-        else if(response.data.status == 410) navigate("/timer")
+        else if (response.data.status == 410) navigate("/timer")
         else AnswerAlert(-1)
       })
       .catch(err => AnswerAlert(-1))
@@ -161,14 +160,17 @@ class Problem extends React.Component {
     if (this.state.clues !== null) {
       var cluesArr = this.state.clues.map((v, index) => {
         return (
-          <Clue
-            question={v.question}
-            id={v.id}
-            submitClue={self.submitClue}
-            key={index}
-            isSolved={v.isSolved}
-            position={v.position}
-          ></Clue>
+          <Grid item xs={6} sm={6} lg={3}>
+            <Clue
+              question={v.question}
+              id={v.id}
+              index = {index+1}
+              submitClue={self.submitClue}
+              key={index}
+              isSolved={v.isSolved}
+              position={v.position}
+            ></Clue>
+          </Grid>
         )
       })
       return (
@@ -188,10 +190,7 @@ class Problem extends React.Component {
               submitRound={this.submitRound}
             />
           </Container>
-
-          <Grid container spacing={2}>
-            <Grid item xs={12} lg={6}>
-              <div className="row justify-content-center">
+          <div className="row justify-content-center">
                 <Typography
                   variant="h3"
                   component="h3"
@@ -200,9 +199,11 @@ class Problem extends React.Component {
                   Clues
                 </Typography>
               </div>
-              {cluesArr}
-            </Grid>
-            <Grid item xs={12} lg={6}>
+          <Grid container spacing={2}>
+            {cluesArr}
+          </Grid>
+          <Grid container spacing={2}>
+            <Grid item xs={12} lg={12}>
               <Grid container justify="center">
                 <Typography
                   variant="h3"

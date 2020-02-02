@@ -9,7 +9,7 @@ import {
 const mapStyles = {
   padding: "15px",
   width: "95%",
-  height: "425px",
+  height: "500px",
 }
 
 class GameMap extends React.Component {

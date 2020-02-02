@@ -1,10 +1,10 @@
 /* Header */
 body {
   background-image: url("../images/bckg.jpg") !important;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
 }
 .large-header {
   position: absolute;
