@@ -26,9 +26,9 @@ export default function Question(props) {
   const theme = useTheme();
 
   return (
-    <Card>
+    <Card styles={{ card: { backgroundColor: 'black' }}} >
       <CardContent>
-        <Typography variant="h5" component="h5" className={classes.spacing}>{props.question.question}</Typography>
+        <Typography color="white" variant="h5" component="h5" className={classes.spacing}>{props.question.question}</Typography>
         <TextField
         variant="outlined"
           fullWidth
