@@ -148,3 +148,26 @@
 .list .item:hover .pos {
   opacity: 0.8;
 }
+
+@media only screen and (max-width: 400px) {
+  .top3 .item.one {
+    width: 8rem;
+    height: 11rem;
+  }
+  .top3 .item {
+    width: 5rem;
+    margin: 20px 5px;
+  }
+
+  .top3 .item.one .pic {
+    width: 4rem;
+    height: 4rem;
+    left: 2rem;
+  }
+
+  .top3 .item .pic {
+    width: 3rem;
+    height: 3rem;
+    left: 1rem;
+  }
+}

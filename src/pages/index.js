@@ -10,6 +10,7 @@ import { Hidden, Container, withStyles, Grid } from "@material-ui/core"
 import Countdown from "../styles/countdown"
 import Social from "../styles/social"
 import HeaderScreen from "../styles/header"
+import Rules from "../components/Rules"
 
 var styles = theme => ({
   root: {

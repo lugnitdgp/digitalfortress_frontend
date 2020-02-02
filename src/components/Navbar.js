@@ -5,7 +5,6 @@ import logo from "../images/logodf.png"
 import { Link } from "gatsby"
 import FacebookSignIn from "./FacebookSignIn"
 import { navigate } from "gatsby"
-// import '../custom.css';
 import Rules from "../components/Rules"
 import {
   AppBar,
@@ -32,22 +31,22 @@ import {
   Facebook,
   YoutubeSearchedFor,
   YouTube,
-
 } from "@material-ui/icons"
-import FormatAlignJustifyIcon from '@material-ui/icons/FormatAlignJustify';
-import DashboardIcon from '@material-ui/icons/Dashboard';
+import FormatAlignJustifyIcon from "@material-ui/icons/FormatAlignJustify"
+import DashboardIcon from "@material-ui/icons/Dashboard"
 import Logout from "./Logout"
 import Dashboard from "../pages/dashboard"
-import GoogleLogin from "react-google-login";
+import GoogleLogin from "react-google-login"
+import store from "../store/index"
 
-const drawerWidth = 240;
+const drawerWidth = 240
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
   },
   BackdropProps: {
-    background: 'transparent'
+    background: "transparent",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -60,7 +59,7 @@ const styles = theme => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
@@ -69,7 +68,7 @@ const styles = theme => ({
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -78,7 +77,7 @@ const styles = theme => ({
     marginRight: theme.spacing(2),
   },
   hide: {
-    display: 'none',
+    display: "none",
   },
   drawer: {
     width: drawerWidth,
@@ -86,28 +85,28 @@ const styles = theme => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    background: 'black',
-    color: 'white',
-    opacity: .75,
+    background: "black",
+    color: "white",
+    opacity: 0.75,
   },
   drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
   },
   contentShift: {
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -174,7 +173,12 @@ class NavBar extends React.Component {
               <Link to="/" style={{ color: "white" }}>
                 <Button color="inherit">Home</Button>
               </Link>
-              <Button color="inherit">Rules</Button>
+              <Button
+                color="inherit"
+                onClick={e => store.dispatch({ type: "OPEN" })}
+              >
+                Rules
+              </Button>
               <Link to="/leaderboard/" style={{ color: "white" }}>
                 <Button color="inherit">LeaderBoard</Button>
               </Link>
@@ -189,52 +193,57 @@ class NavBar extends React.Component {
           open={this.state.isOpen}
           classes={{
             paper: classes.drawerPaper,
-            
           }}
-          
         >
           <div className={classes.drawerHeader}>
             <IconButton onClick={this.toggleNavbar}>
-              <ChevronLeft style={{ color: 'white' }}/>
+              <ChevronLeft style={{ color: "white" }} />
             </IconButton>
           </div>
           <Divider />
-          <List> 
-              <ListItem button key="Home">
-                <ListItemIcon>
-                  <Home style={{ color: 'white' }}/>
-                </ListItemIcon>
-                <Link to="/"><ListItemText primary="Home" style={{ color: 'white' }}/></Link>
-              </ListItem> 
-              <ListItem button key="Rules">
-                <ListItemIcon>
-                  <FormatAlignJustifyIcon style={{ color: 'white' }}/>
-                </ListItemIcon>
-                <Link to='/rules/'>
-                <ListItemText primary="Rules" style={{ color: 'white' }}/>
-                </Link>
-              </ListItem>
-              <ListItem button key="Leaderboard" >
-                <ListItemIcon>
-                  <DashboardIcon style={{ color: 'white' }}/>
-                </ListItemIcon>
-                <Link to="/leaderboard/">
-                <ListItemText primary="Leaderboard" style={{color:'white'}} />
-                </Link>
-              </ListItem>  
-              <ListItem button key="Google">
-                <ListItemIcon>
-                  <YouTube style={{ color: 'white' }}/>
-                  {/* <mdiGoogle style={{ color: 'white' }}/> */}
-                </ListItemIcon>
-                <ListItemText primary="Google" ></ListItemText>
-              </ListItem> 
-              <ListItem button key="Facebook">
-                <ListItemIcon>
-                  <Facebook style={{ color: 'white' }} />
-                </ListItemIcon>
-                <ListItemText primary="Facebook" />
-              </ListItem> 
+          <List>
+            <ListItem button key="Home">
+              <ListItemIcon>
+                <Home style={{ color: "white" }} />
+              </ListItemIcon>
+              <Link to="/">
+                <ListItemText primary="Home" style={{ color: "white" }} />
+              </Link>
+            </ListItem>
+            <ListItem button key="Rules">
+              <ListItemIcon>
+                <FormatAlignJustifyIcon style={{ color: "white" }} />
+              </ListItemIcon>
+
+              <ListItemText
+                primary="Rules"
+                style={{ color: "white" }}
+                onClick={e => store.dispatch({ type: "OPEN" })}
+              />
+            </ListItem>
+            <ListItem button key="Leaderboard">
+              <ListItemIcon>
+                <DashboardIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <Link to="/leaderboard/">
+                <ListItemText
+                  primary="Leaderboard"
+                  style={{ color: "white" }}
+                />
+              </Link>
+            </ListItem>
+            <ListItem button key="Google">
+              <ListItemIcon>
+                <YouTube style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary="Google"></ListItemText>
+            </ListItem>
+            <ListItem button key="Facebook">
+              <ListItemIcon>
+                <Facebook style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary="Facebook" />
+            </ListItem>
           </List>
         </Drawer>
       </React.Fragment>
