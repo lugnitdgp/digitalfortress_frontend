@@ -38,6 +38,7 @@ import FormatAlignJustifyIcon from '@material-ui/icons/FormatAlignJustify';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import Logout from "./Logout"
 import Dashboard from "../pages/dashboard"
+import GoogleLogin from "react-google-login";
 
 const drawerWidth = 240;
 
@@ -203,25 +204,30 @@ class NavBar extends React.Component {
                 <ListItemIcon>
                   <Home style={{ color: 'white' }}/>
                 </ListItemIcon>
-                <ListItemText primary="Home" />
+                <Link to="/"><ListItemText primary="Home" style={{ color: 'white' }}/></Link>
               </ListItem> 
               <ListItem button key="Rules">
                 <ListItemIcon>
                   <FormatAlignJustifyIcon style={{ color: 'white' }}/>
                 </ListItemIcon>
-                <ListItemText primary="Rules" />
+                <Link to='/rules/'>
+                <ListItemText primary="Rules" style={{ color: 'white' }}/>
+                </Link>
               </ListItem>
-              <ListItem button key="Leaderboard">
+              <ListItem button key="Leaderboard" >
                 <ListItemIcon>
                   <DashboardIcon style={{ color: 'white' }}/>
                 </ListItemIcon>
-                <ListItemText primary="Leaderboard" />
+                <Link to="/leaderboard/">
+                <ListItemText primary="Leaderboard" style={{color:'white'}} />
+                </Link>
               </ListItem>  
               <ListItem button key="Google">
                 <ListItemIcon>
                   <YouTube style={{ color: 'white' }}/>
+                  {/* <mdiGoogle style={{ color: 'white' }}/> */}
                 </ListItemIcon>
-                <ListItemText primary="Google" />
+                <ListItemText primary="Google" ></ListItemText>
               </ListItem> 
               <ListItem button key="Facebook">
                 <ListItemIcon>
