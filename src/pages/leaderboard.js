@@ -106,7 +106,7 @@ class LeaderBoard extends React.Component {
       return (
         <DashboardLayout>
           <div className="center">
-            <h1 className="mx-auto d-block md-5 text-white">LeaderBoard</h1>
+            <h1 className="mx-auto d-block md-5 text-black">LeaderBoard</h1>
             <hr></hr>
             <div className="top3">
               {
