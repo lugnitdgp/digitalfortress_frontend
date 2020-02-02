@@ -49,7 +49,7 @@ class LeaderBoard extends React.Component {
           style={{ backgroundImage: "url(" + image + ")" }}
         ></div>
         <div className="name">{name}</div>
-        <div className="score">{score}</div>
+        <div className="score" style={{color: "black"}}>{score}</div>
       </div>
     )
   }
@@ -62,7 +62,7 @@ class LeaderBoard extends React.Component {
           style={{ backgroundImage: "url(" + image + ")" }}
         ></div>
         <div className="name">{name}</div>
-        <div className="score">{score}</div>
+        <div className="score" style={{color: "black"}}>{score}</div>
       </div>
     )
   }
@@ -75,7 +75,7 @@ class LeaderBoard extends React.Component {
           style={{ backgroundImage: "url(" + image + ")" }}
         ></div>
         <div className="name">{name}</div>
-        <div className="score">{score}</div>
+        <div className="score" style={{color: "black"}}>{score}</div>
       </div>
     )
   }
@@ -101,6 +101,9 @@ class LeaderBoard extends React.Component {
   render() {
     const { classes } = this.props
     const list = this.state.playerRanks
+    const mystyle = {
+      color: "black",
+   };
 
     if (list.length !== 0) {
       return (
@@ -143,7 +146,7 @@ class LeaderBoard extends React.Component {
                           style={{ backgroundImage: "url(" + v.image + ")" }}
                         ></div>
                         <div className="name">{v.name}</div>
-                        <div className="score">{v.score}</div>
+                        <div className="score" style={mystyle}>{v.score}</div>
                       </div>
                     ) : null}
                   </React.Fragment>
