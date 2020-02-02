@@ -12,12 +12,12 @@ import {
   withStyles,
 } from "@material-ui/core"
 import Loader from "../styles/loader"
+import store from "../store/leaderboard"
 
 const useStyles = theme => ({
   root: {
     width: "100%",
     backgroundColor: theme.palette.background.paper,
-    // backgroundColor:"#546e7a",
   },
 })
 
@@ -31,45 +31,51 @@ class LeaderBoard extends React.Component {
   }
 
   componentDidMount() {
+    var self = this
     this.fetchData()
+    store.subscribe(() => {
+      self.setState({
+        playerRanks: store.getState()
+      })
+    })
   }
 
   FirstPosition({ name, image, score }) {
     return (
-      <div class="one item">
-        <div class="pos">1</div>
+      <div className="one item">
+        <div className="pos">1</div>
         <div
-          class="pic"
+          className="pic"
           style={{ backgroundImage: "url(" + image + ")" }}
         ></div>
-        <div class="name">{name}</div>
-        <div class="score">{score}</div>
+        <div className="name">{name}</div>
+        <div className="score">{score}</div>
       </div>
     )
   }
   SecondPosition({ name, image, score }) {
     return (
-      <div class="two item">
-        <div class="pos">2</div>
+      <div className="two item">
+        <div className="pos">2</div>
         <div
-          class="pic"
+          className="pic"
           style={{ backgroundImage: "url(" + image + ")" }}
         ></div>
-        <div class="name">{name}</div>
-        <div class="score">{score}</div>
+        <div className="name">{name}</div>
+        <div className="score">{score}</div>
       </div>
     )
   }
   ThirdPosition({ name, image, score }) {
     return (
-      <div class="three item">
-        <div class="pos">3</div>
+      <div className="three item">
+        <div className="pos">3</div>
         <div
-          class="pic"
+          className="pic"
           style={{ backgroundImage: "url(" + image + ")" }}
         ></div>
-        <div class="name">{name}</div>
-        <div class="score">{score}</div>
+        <div className="name">{name}</div>
+        <div className="score">{score}</div>
       </div>
     )
   }
@@ -81,9 +87,7 @@ class LeaderBoard extends React.Component {
       .get(`${process.env.GATSBY_API_URL}quiz/leaderboard?format=json`)
       .then(response => {
         if (response.data.standings.length != 0) {
-          self.setState({
-            playerRanks: response.data.standings,
-          })
+          store.dispatch({ type: "INCREMENT", data: response.data.standings })
         } else {
           self.setState({
             playerRanks: [],
@@ -96,60 +100,60 @@ class LeaderBoard extends React.Component {
   }
   render() {
     const { classes } = this.props
+    const list = this.state.playerRanks
 
-    if (this.state.playerRanks.length !== 0)
+    if (list.length !== 0) {
       return (
         <DashboardLayout>
-          {/* <div className="card bg-transparent"> */}
-          
-          {/* </div> */}
           <div className="center">
-          <h1 className="mx-auto d-block md-5 text-white">LeaderBoard</h1>
-          <hr ></hr>
-            <div class="top3">
-            {
+            <h1 className="mx-auto d-block md-5 text-white">LeaderBoard</h1>
+            <hr></hr>
+            <div className="top3">
+              {
                 <this.SecondPosition
-                  name={this.state.playerRanks[1].name}
-                  image={this.state.playerRanks[1].image}
-                  score={this.state.playerRanks[1].score}
+                  name={list[1].name}
+                  image={list[1].image}
+                  score={list[1].score}
                 />
               }
               {
                 <this.FirstPosition
-                  name={this.state.playerRanks[0].name}
-                  image={this.state.playerRanks[0].image}
-                  score={this.state.playerRanks[0].score}
+                  name={list[0].name}
+                  image={list[0].image}
+                  score={list[0].score}
                 />
               }
               {
                 <this.ThirdPosition
-                  name={this.state.playerRanks[2].name}
-                  image={this.state.playerRanks[2].image}
-                  score={this.state.playerRanks[2].score}
+                  name={list[2].name}
+                  image={list[2].image}
+                  score={list[2].score}
                 />
               }
             </div>
-            <div class="list">
-              {this.state.playerRanks.map((v, index) => {
-                return (<React.Fragment>
-                  {v.rank > 3 ? (
-                    <div class="item">
-                      <div class="pos">{v.rank}</div>
-                      <div
-                        class="pic"
-                        style={{ backgroundImage: "url(" + v.image + ")" }}
-                      ></div>
-                      <div class="name">{v.name}</div>
-                      <div class="score">{v.score}</div>
-                    </div>
-                  ) : null}
-                </React.Fragment>)
+            <div className="list">
+              {list.map((v, index) => {
+                return (
+                  <React.Fragment key={v.rank}>
+                    {v.rank > 3 ? (
+                      <div className="item">
+                        <div className="pos">{v.rank}</div>
+                        <div
+                          className="pic"
+                          style={{ backgroundImage: "url(" + v.image + ")" }}
+                        ></div>
+                        <div className="name">{v.name}</div>
+                        <div className="score">{v.score}</div>
+                      </div>
+                    ) : null}
+                  </React.Fragment>
+                )
               })}
             </div>
           </div>
         </DashboardLayout>
       )
-    else
+    } else
       return (
         <DashboardLayout>
           <Loader />

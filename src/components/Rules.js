@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from "@material-ui/core"
+import store from "../store/index"
 
 export default class Rules extends React.Component {
   constructor(props) {
@@ -17,11 +18,20 @@ export default class Rules extends React.Component {
     }));
   }
 
+  componentDidMount() {
+    var self = this
+    store.subscribe(() => {
+      self.setState({
+        modal: store.getState()
+      })
+    })
+  }
+
   render() {
     return (
       <Dialog
         open={this.state.modal}
-        onClose={e => this.toggle()}
+        onClose={e => store.dispatch({ type: 'CLOSE'})}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >

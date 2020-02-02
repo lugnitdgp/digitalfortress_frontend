@@ -5,6 +5,7 @@ import Footer from "../components/Footer"
 import Helmet from "react-helmet"
 import "../styles/background.css"
 import EasePack, { TweenLite, Circ } from "gsap"
+import Rules from "../components/Rules"
 
 export default class DashboardLayout extends React.Component {
   componentDidMount() {
@@ -230,6 +231,7 @@ export default class DashboardLayout extends React.Component {
             <canvas id="demo-canvas"></canvas>
           </div>
           {this.props.children}
+          <Rules />
           {/* <Footer /> */}
         </div>
     )
