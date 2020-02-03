@@ -24,7 +24,7 @@ class Timer extends React.Component {
       .then(function(response) {
         if (response.data.status == 410) {
             self.setState({
-                time: response.data.end_time
+                time: response.data.start_time
             })
         }
       })

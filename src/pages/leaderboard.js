@@ -17,7 +17,6 @@ import store from "../store/leaderboard"
 const useStyles = theme => ({
   root: {
     width: "100%",
-    backgroundColor: theme.palette.background.paper,
   },
 })
 
