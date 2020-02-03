@@ -48,9 +48,6 @@ export default class Rules extends React.Component {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={e => this.toggle()} color="primary">
-            Disagree
-          </Button>
           <Button onClick={e => this.toggle()} color="primary" autoFocus>
             Close
           </Button>

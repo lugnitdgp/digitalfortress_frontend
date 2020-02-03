@@ -26,7 +26,7 @@ class Problem extends React.Component {
     this.state = {
       round: null,
       clues: null,
-      center: [37.778519, -122.40564],
+      center: [0.0, 0.0],
       positions: null,
     }
 

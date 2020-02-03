@@ -35,13 +35,13 @@ class GameMap extends React.Component {
     return (
         <Map
           google={this.props.google}
-          zoom={1}
+          zoom={2}
           style={mapStyles}
           center={{
             lat: self.props.centerLoc[0],
             lng: self.props.centerLoc[1],
           }}
-          bounds={bounds}
+          // bounds={bounds}
         >
           {this.props.positions.map(v => (
             <Marker
