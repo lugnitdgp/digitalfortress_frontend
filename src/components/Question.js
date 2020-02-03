@@ -17,6 +17,13 @@ const useStyles = makeStyles(theme => ({
   },
   buttons: {
     float: "right"
+  },
+  cardColor: {
+    backgroundColor: "rgba(255, 255, 255, 0.5)"
+  },
+  textstyle: {
+    fontFamily: "'Cabin', sans-serif",
+    padding: theme.spacing(1)
   }
 }));
 
@@ -26,9 +33,9 @@ export default function Question(props) {
   const theme = useTheme();
 
   return (
-    <Card styles={{ card: { backgroundColor: 'black' }}} >
-      <CardContent>
-        <Typography color="white" variant="h5" component="h5" className={classes.spacing}>{props.question.question}</Typography>
+    <Card className={classes.cardColor}>
+      <CardContent className={classes.cardColor}>
+        <Typography color="white" variant="h5" component="h5" className={classes.textstyle}>{props.question.question}</Typography>
         <TextField
         variant="outlined"
           fullWidth

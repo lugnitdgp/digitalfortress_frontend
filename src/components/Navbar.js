@@ -232,7 +232,7 @@ class NavBar extends React.Component {
                 />
               </Link>
             </ListItem>
-            <ListItem button key="Google">
+            {/* <ListItem button key="Google">
               <ListItemIcon>
                 <YouTube style={{ color: "white" }} />
               </ListItemIcon>
@@ -243,7 +243,7 @@ class NavBar extends React.Component {
                 <Facebook style={{ color: "white" }} />
               </ListItemIcon>
               <ListItemText primary="Facebook" />
-            </ListItem>
+            </ListItem> */}
           </List>
         </Drawer>
       </React.Fragment>

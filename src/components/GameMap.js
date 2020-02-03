@@ -10,6 +10,7 @@ const mapStyles = {
   padding: "15px",
   width: "95%",
   height: "500px",
+  zIndex: "1 !important"
 }
 
 class GameMap extends React.Component {

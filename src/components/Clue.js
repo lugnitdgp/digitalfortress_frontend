@@ -84,6 +84,9 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     width: "100%",
   },
+  cardColor: {
+    backgroundColor: "rgba(255, 255, 255, 0.5)"
+  }
 }))
 
 export default props => {
@@ -94,6 +97,11 @@ export default props => {
 
   const handleExpandClick = () => {
     setExpanded(!expanded)
+  }
+
+  const submit = () => {
+    setOpen(false)
+    props.submitClue(answer, props.id)
   }
 
   if (props.isSolved == 1) {
@@ -145,7 +153,7 @@ export default props => {
             Close
           </Button>
           <Button
-            onClick={e => props.submitClue(answer, props.id)}
+            onClick={e => submit()}
             color="primary"
           >
             Check Answer
@@ -156,8 +164,8 @@ export default props => {
   }
 
   return (
-    <Card>
-      <CardContent>
+    <Card className={classes.cardColor}>
+      <CardContent className={classes.cardColor}>
         <Typography variant="h6" component="h6" className={classes.pad}>
           Clue No. {props.index}{" "}
         </Typography>

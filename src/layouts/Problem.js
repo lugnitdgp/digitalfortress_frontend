@@ -15,6 +15,9 @@ const styles = theme => ({
   centerRow: {
     justifyContent: "center",
   },
+  textstyle: {
+    fontFamily: "'Cabin', sans-serif"
+  }
 })
 
 class Problem extends React.Component {
@@ -180,7 +183,7 @@ class Problem extends React.Component {
               <Typography
                 variant="h2"
                 component="h2"
-                style={{ color: "white" }}
+                className={classes.textstyle}
               >
                 Round No. {this.state.round.round_number}
               </Typography>
@@ -195,6 +198,7 @@ class Problem extends React.Component {
                   variant="h3"
                   component="h3"
                   style={{ color: "white" }}
+                  className={classes.textstyle}
                 >
                   Clues
                 </Typography>
@@ -209,6 +213,7 @@ class Problem extends React.Component {
                   variant="h3"
                   component="h3"
                   style={{ color: "white" }}
+                  className={classes.textstyle}
                 >
                   Map
                 </Typography>
