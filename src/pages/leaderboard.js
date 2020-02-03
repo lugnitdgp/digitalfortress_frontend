@@ -109,7 +109,7 @@ class LeaderBoard extends React.Component {
       return (
         <DashboardLayout>
           <div className="center">
-            <h1 className="mx-auto d-block md-5 text-black">LeaderBoard</h1>
+            <h1 className="mx-auto d-block md-5 text-black title">LeaderBoard</h1>
             <hr></hr>
             <div className="top3">
               {
@@ -146,7 +146,7 @@ class LeaderBoard extends React.Component {
                           style={{ backgroundImage: "url(" + v.image + ")" }}
                         ></div>
                         <div className="name">{v.name}</div>
-                        <div className="score" style={mystyle}>{v.score}</div>
+                        <div className="score" style={{color: "black"}}>{v.score}</div>
                       </div>
                     ) : null}
                   </React.Fragment>

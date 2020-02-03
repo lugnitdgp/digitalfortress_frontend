@@ -8,7 +8,10 @@
   z-index: 10;
   font-family: 'Red Hat Display', sans-serif;
 }
-
+.title{
+  color: black;
+  font-size: 2rem;
+}
 .top3 {
   display: -webkit-box;
   display: flex;
@@ -23,9 +26,9 @@
   position: relative;
   background: white;
   width: 9rem;
-  height: 10rem;
+  height: auto;
   text-align: center;
-  padding: 2.8rem 0 0;
+  padding: 3rem 0 0;
   margin: 1rem 1rem 2rem;
   border-radius: 0.5rem;
   -webkit-transform-origin: bottom;
@@ -51,7 +54,7 @@
 }
 .top3 .item .pos {
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 0.5rem;
 }
 .top3 .item .name {
@@ -59,12 +62,14 @@
   margin-bottom: 0.5rem;
 }
 .top3 .item .score {
-  opacity: 0.5;
+  /* opacity: 0.5; */
+  font-size: 1rem;
+  font-weight: 900;
 }
 .top3 .item .score:after {
   display: block;
-  content: 'points';
-  opacity: 0.5;
+  /* content: 'points'; */
+  /* opacity: 0.5; */
 }
 .top3 .item.one {
   width: 10rem;
@@ -95,7 +100,7 @@
   height: 3rem;
   border-radius: 4rem;
   margin-bottom: 2rem;
-  background: #EAA786;
+  background: rgb(46, 196, 216);
   -webkit-transform-origin: left;
           transform-origin: left;
   cursor: pointer;
@@ -134,12 +139,13 @@
 }
 .list .item .score {
   margin-right: 1.5rem;
-  opacity: 0.5;
+  font-weight: bold;
+  /* opacity: 0.5; */
 }
 .list .item .score:after {
   margin-right: 1rem;
-  content: 'points';
-  opacity: 0.5;
+  /* content: ' Points'; */
+  /* opacity: 0.5; */
 }
 .list .item:hover {
   -webkit-transform: scale(1.05);
@@ -149,7 +155,7 @@
   opacity: 0.8;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 480px) {
   .top3 .item.one {
     width: 8rem;
     height: 11rem;
