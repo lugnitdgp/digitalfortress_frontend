@@ -41,7 +41,7 @@ export default class CountDown extends React.Component {
     return (
       <React.Fragment>
         <div>
-          <div className="container ct-contain">
+          <div className="ct-contain">
           <div class="heading">
                 {this.state.ended
                   ? "Event already ended before"
