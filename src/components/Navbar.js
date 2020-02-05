@@ -20,6 +20,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  SwipeableDrawer,
 } from "@material-ui/core"
 import {
   Menu,
@@ -58,7 +59,7 @@ const styles = theme => ({
     float: "right",
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1,
+    zIndex: theme.zIndex.drawer + 2,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -82,12 +83,14 @@ const styles = theme => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+    zIndex: -1,
   },
   drawerPaper: {
     width: drawerWidth,
     background: "black",
     color: "white",
     opacity: 0.75,
+    zIndex: -1,
   },
   drawerHeader: {
     display: "flex",
@@ -186,11 +189,13 @@ class NavBar extends React.Component {
             <Logout />
           </Toolbar>
         </AppBar>
-        <Drawer
+        <SwipeableDrawer
           className={classes.drawer}
-          variant="persistent"
+          variant="temporary"
           anchor="left"
           open={this.state.isOpen}
+          onClose={e => this.setState({ isOpen: false })}
+          onOpen={e => this.setState({ isOpen: true })}
           classes={{
             paper: classes.drawerPaper,
           }}
@@ -202,14 +207,15 @@ class NavBar extends React.Component {
           </div>
           <Divider />
           <List>
-            <ListItem button key="Home">
-              <ListItemIcon>
-                <Home style={{ color: "white" }} />
-              </ListItemIcon>
-              <Link to="/">
+            <Link to="/">
+              <ListItem button key="Home">
+                <ListItemIcon>
+                  <Home style={{ color: "white" }} />
+                </ListItemIcon>
+
                 <ListItemText primary="Home" style={{ color: "white" }} />
-              </Link>
-            </ListItem>
+              </ListItem>
+            </Link>
             <ListItem button key="Rules">
               <ListItemIcon>
                 <FormatAlignJustifyIcon style={{ color: "white" }} />
@@ -221,31 +227,20 @@ class NavBar extends React.Component {
                 onClick={e => store.dispatch({ type: "OPEN" })}
               />
             </ListItem>
-            <ListItem button key="Leaderboard">
-              <ListItemIcon>
-                <DashboardIcon style={{ color: "white" }} />
-              </ListItemIcon>
-              <Link to="/leaderboard/">
+            <Link to="/leaderboard/">
+              <ListItem button key="Leaderboard">
+                <ListItemIcon>
+                  <DashboardIcon style={{ color: "white" }} />
+                </ListItemIcon>
+
                 <ListItemText
                   primary="Leaderboard"
                   style={{ color: "white" }}
                 />
-              </Link>
-            </ListItem>
-            {/* <ListItem button key="Google">
-              <ListItemIcon>
-                <YouTube style={{ color: "white" }} />
-              </ListItemIcon>
-              <ListItemText primary="Google"></ListItemText>
-            </ListItem>
-            <ListItem button key="Facebook">
-              <ListItemIcon>
-                <Facebook style={{ color: "white" }} />
-              </ListItemIcon>
-              <ListItemText primary="Facebook" />
-            </ListItem> */}
+              </ListItem>
+            </Link>
           </List>
-        </Drawer>
+        </SwipeableDrawer>
       </React.Fragment>
     )
   }

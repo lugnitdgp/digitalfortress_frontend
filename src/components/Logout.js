@@ -74,10 +74,7 @@ export default props => {
   else
     return (
       <Hidden smDown>
-        <Button color="primary">
-          <Facebook style={{ color: "white" }} className={classes.spacing} />
-          <Typography style={{ color: "white" }}>Facebook</Typography>
-        </Button>
+        <div></div>
       </Hidden>
     )
 }
