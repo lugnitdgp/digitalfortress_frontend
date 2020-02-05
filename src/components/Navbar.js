@@ -127,6 +127,7 @@ class NavBar extends React.Component {
     }
     this.setProfile = this.setProfile.bind(this)
     this.toggleNavbar = this.toggleNavbar.bind(this)
+    this.closeNavbar = this.closeNavbar.bind(this)
   }
 
   componentDidMount() {
@@ -145,7 +146,14 @@ class NavBar extends React.Component {
   toggleNavbar() {
     this.setState({
       isOpen: !this.state.isOpen,
+      
     })
+  }
+
+  closeNavbar() {
+    if(this.state.collapsed !== true){
+      this.toggleNavbar();
+    }
   }
 
   render() {
@@ -172,7 +180,7 @@ class NavBar extends React.Component {
               alt="Logo"
             />
             <div className={classes.grow} />
-            <Hidden smDown>
+            <Hidden smDown >
               <Link to="/" style={{ color: "white" }}>
                 <Button color="inherit">Home</Button>
               </Link>
@@ -207,7 +215,7 @@ class NavBar extends React.Component {
           </div>
           <Divider />
           <List>
-            <Link to="/">
+            <Link to="/" onClick={e => this.closeNavbar()}>
               <ListItem button key="Home">
                 <ListItemIcon>
                   <Home style={{ color: "white" }} />
@@ -227,7 +235,7 @@ class NavBar extends React.Component {
                 onClick={e => store.dispatch({ type: "OPEN" })}
               />
             </ListItem>
-            <Link to="/leaderboard/">
+            <Link to="/leaderboard/"  onClick={e => this.closeNavbar()} >
               <ListItem button key="Leaderboard">
                 <ListItemIcon>
                   <DashboardIcon style={{ color: "white" }} />
