@@ -9,12 +9,13 @@ body {
   background: #183059;
 } */
 
-.container {
-  position: relative;
-  margin: auto;
-  overflow: hidden;
-  width: 650px;
-  height: 480px;
+
+
+.ct-contain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-25%, -50%);
 }
 
 h1 {
@@ -33,8 +34,27 @@ h1 {
   text-transform: uppercase;
   font-family: "Lato", sans-serif;
   font-size: .7em;
+  display: flex;
+  flex-wrap: wrap;
   letter-spacing: 5px;
-  margin-top: 25%;
+  margin-top: 25px;
+}
+
+div.heading {
+  font-size: 1.5rem;
+  color: black;
+  font-family: "Lato", sans-serif;
+  word-wrap: break-word;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .ct-contain {
+    left: 50vw;
+    top: 25%;
+    transform: translateX(-48%);
+  }
 }
 
 .days, .hours, .minutes, .seconds {
