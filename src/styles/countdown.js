@@ -5,7 +5,7 @@ import { Container, Grid, withStyles } from "@material-ui/core"
 const styles = theme => ({
   root: {
     marginTop: theme.spacing(5),
-    marginDown: theme.spacing(20)
+    marginBottom: theme.spacing(20)
   }
 })
 class CountDown extends React.Component {
