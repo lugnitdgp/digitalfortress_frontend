@@ -4,7 +4,8 @@ import { Container, Grid, withStyles } from "@material-ui/core"
 
 const styles = theme => ({
   root: {
-    marginTop: theme.spacing(5)
+    marginTop: theme.spacing(5),
+    marginDown: theme.spacing(20)
   }
 })
 class CountDown extends React.Component {
@@ -31,8 +32,6 @@ class CountDown extends React.Component {
         self.setState({ ended: false })
         diff = eventStartTime - today
       }
-
-      // const diff = eventTime > today ? eventTime - today : today - eventTime;
 
       self.setState({
         days: Math.floor(diff / (1000 * 60 * 60 * 24)),
