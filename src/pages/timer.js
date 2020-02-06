@@ -4,6 +4,7 @@ import Countdown from "../styles/countdown"
 import AnswerAlert from "../components/AnswerAlert"
 import { navigate } from "gatsby"
 import axios from "axios"
+import Footer from "../components/Footer";
 
 class Timer extends React.Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class Timer extends React.Component {
     return (
       <DashboardLayout>
         <Countdown time={this.state.time} />
+        <Footer></Footer>
       </DashboardLayout>
     )
   }

@@ -11,6 +11,7 @@ import Countdown from "../styles/countdown"
 import Social from "../styles/social"
 import HeaderScreen from "../styles/header"
 import Rules from "../components/Rules"
+import Footer from "../components/Footer";
 
 var styles = theme => ({
   root: {
@@ -60,7 +61,9 @@ class IndexPage extends React.Component {
               </div>
             </div>
             <div className="jumbotron jumbotron-fluid"></div>
+            <Footer />
           </Container>
+          
         </DashboardLayout>
       </div>
     )
