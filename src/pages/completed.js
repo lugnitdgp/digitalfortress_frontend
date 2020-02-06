@@ -17,7 +17,7 @@ export default function Completed() {
                             <h1 className="text-center">Congratulations</h1>
                         </div>
                         
-                        <div className="card-footer d-block mx-auto bg-transparent">
+                        <div className="card-footer d-block mx-auto bg-transparent md-5">
                             <h1 className="mt-5 text-center">Congratulations, you have successfully completed the event. Please check the leaderboard for your current rank.</h1>
                         </div>
                     </div>

@@ -31,6 +31,9 @@ class LeaderBoard extends React.Component {
 
   componentDidMount() {
     var self = this
+    this.setState({
+      playerRanks: store.getState()
+    })
     this.fetchData()
     store.subscribe(() => {
       self.setState({
@@ -80,6 +83,7 @@ class LeaderBoard extends React.Component {
   }
 
   fetchData() {
+    if(store.getState().length != 0) return;
     const { classes } = this.props
     var self = this
     axios

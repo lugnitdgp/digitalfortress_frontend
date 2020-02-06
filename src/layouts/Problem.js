@@ -209,16 +209,16 @@ class Problem extends React.Component {
           <Grid container spacing={2}>
             <Grid item xs={12} lg={12}>
               <Grid container justify="center">
-                <Typography
+                {/* <Typography
                   variant="h3"
                   component="h3"
                   style={{ color: "white" }}
                   className={classes.textstyle}
                 >
                   Map
-                </Typography>
+                </Typography> */}
               </Grid>
-              <div class="col-12">
+              <div class="col-12 mt-5 md-5">
                 <GameMap
                   positions={this.state.positions}
                   centerLoc={this.state.center}

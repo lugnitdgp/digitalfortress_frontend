@@ -1,7 +1,13 @@
 import React, { useState } from "react"
 import "./countdown.css"
+import { Container, Grid, withStyles } from "@material-ui/core"
 
-export default class CountDown extends React.Component {
+const styles = theme => ({
+  root: {
+    marginTop: theme.spacing(5)
+  }
+})
+class CountDown extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -38,36 +44,41 @@ export default class CountDown extends React.Component {
   }
 
   render() {
+    const { classes } = this.props
     return (
       <React.Fragment>
-        <div>
-          <div className="ct-contain">
-          <div class="heading">
+        <Container className={classes.root}>
+          <Grid container justify="center">
+            <Grid item>
+              <div class="heading">
                 {this.state.ended
                   ? "Event already ended before"
                   : "Event to be start by"}
               </div>
-            <div id="timer">
-              <div class="days">
-                <div class="numbers">{this.state.days}</div>
-                days
+              <div id="timer">
+                <div class="days">
+                  <div class="numbers">{this.state.days}</div>
+                  days
+                </div>
+                <div class="hours">
+                  <div class="numbers">{this.state.hours}</div>
+                  hours
+                </div>
+                <div class="minutes">
+                  <div class="numbers">{this.state.minutes}</div>
+                  minutes
+                </div>
+                <div class="seconds">
+                  <div class="numbers">{this.state.seconds}</div>
+                  seconds
+                </div>
               </div>
-              <div class="hours">
-                <div class="numbers">{this.state.hours}</div>
-                hours
-              </div>
-              <div class="minutes">
-                <div class="numbers">{this.state.minutes}</div>
-                minutes
-              </div>
-              <div class="seconds">
-                <div class="numbers">{this.state.seconds}</div>
-                seconds
-              </div>
-            </div>
-          </div>
-        </div>
+            </Grid>
+          </Grid>
+        </Container>
       </React.Fragment>
     )
   }
 }
+
+export default withStyles(styles)(CountDown)
