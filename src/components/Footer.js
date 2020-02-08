@@ -5,7 +5,6 @@ import nit2 from '../images/arhn.png';
 
 export default () => {
     return <div className="bg-transparent p-3">
-        <span className="text-center mx-auto d-block text-white"><b>Designed and Developed by</b> GNU/Linux Users Group, NIT Durgapur</span>
         <div className="row justify-content-center">
             <img src={nit} alt="GLUG" height="90"  className="m-2" />
            
