@@ -15,8 +15,24 @@ import Footer from "../components/Footer";
 
 var styles = theme => ({
   root: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(0),
   },
+  container:{
+    
+    height: "80vh",
+    width:"100vw",
+    display:"flex",
+    justifyContent:"center",
+    alignItems:"center",
+    flexDirection:"column"
+  },
+  icongrid:{
+    width:"100%",
+    textAlign:"center",
+    display:"flex",
+    justifyContent:"center",
+    alignItems:"center",
+  }
 })
 
 class IndexPage extends React.Component {
@@ -38,31 +54,25 @@ class IndexPage extends React.Component {
       <div>
         <SEO title="Home" />
         <DashboardLayout>
-          <Container className={classes.root}>
-            <div className="jumbotron jumbotron-fluid">
-              <div className="container">
+              <div className={classes.container}>
                 <Hidden smUp>
                   <img src={logo} height="60" />
                 </Hidden>
                 <Hidden smDown>
                   <img src={logo} height="80" />
                 </Hidden>
-                <h3>
+                <h3 style={{color:"#fff"}}>
                   Competition to <span className="element"></span>
                 </h3>
-                <Grid container>
-                  <Grid item>
+                <div className={classes.icongrid}>
                     <GoogleSignIn />
-                  </Grid>
-                  <Grid item>
                     <FacebookSignIn />
-                  </Grid>
-                </Grid>
+                </div>
               </div>
-            </div>
-            <div className="jumbotron jumbotron-fluid"></div>
+            
+            
             <Footer />
-          </Container>
+         
           
         </DashboardLayout>
       </div>
