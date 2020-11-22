@@ -49,6 +49,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor:"#32c8c6",
     color:"rgba(3, 32, 44, 1)",
     outline:"none",
+    fontFamily: "'Audiowide', cursive",
   }
 }));
 

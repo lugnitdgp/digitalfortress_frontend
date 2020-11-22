@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { func } from "prop-types"
 import "../custom.css"
+import "../muipaper.css"
 import clsx from "clsx"
 import {
   Card,
@@ -37,6 +38,11 @@ import { red } from "@material-ui/core/colors"
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
+  },
+  gfont:{
+    fontFamily: "'Audiowide', cursive",
+    color:"#32c8c6",
+    outline:"none"
   },
   media: {
     height: 0,
@@ -109,7 +115,38 @@ const useStyles = makeStyles(theme => ({
     color:"#32c8c6",
     outline:"none",
     border:"2px solid #32c8c6",
-  }
+    fontFamily: "'Audiowide', cursive",
+  },
+  dialog:{
+    backgroundColor: "rgba(3, 32, 44, 0.3)",
+    
+    textAlign:"center",
+  },
+  diaIn:{
+    backgroundColor: "rgba(3, 32, 44, 0.4)",
+    backdropFilter: "blur(3px)",
+    textAlign:"center",
+    color:"#fff",
+    borderRadius:"20px",
+    borderBottom:"8px solid #32c8c6",
+    border:"1px solid #32c8c6",
+    borderLeft:"1px solid #32c8c6",
+    margin:"0 auto",
+    maxWidth:"500px",
+    padding:"30px",
+    textAlign:"center"
+  },
+  input: {
+    backgroundColor:"rgba(0,0,0,0)",
+    border:"none",
+    borderBottom:"2px solid #32c8c6",
+    width:"90%",
+    maxWidth:"400px",
+    outline:"none",
+    color:"#fff",
+    textAlign:"center",
+    margin:"10px auto"
+  },
 }))
 
 export default props => {
@@ -133,6 +170,7 @@ export default props => {
         open={open}
         onClose={e => setOpen(false)}
         aria-labelledby="form-dialog-title"
+        className={classes.dialog}
       >
         <DialogTitle id="form-dialog-title">Clue</DialogTitle>
         <DialogContent>
@@ -153,35 +191,38 @@ export default props => {
         open={open}
         onClose={e => setOpen(false)}
         aria-labelledby="form-dialog-title"
+        className={classes.dialog}
       >
-        <DialogTitle id="form-dialog-title">Clue</DialogTitle>
-        <DialogContent>
-          <DialogContentText>{props.question}</DialogContentText>
-          <TextField
+      <div className={classes.diaIn}>
+        <div id="form-dialog-title" className={classes.gfont}>CLUE</div>
+        
+          <div style={{margin:"10px auto"}}>{props.question}</div>
+          <input
             autoFocus
             margin="dense"
             id="name"
-            label="Enter your answer"
+            placeholder="Enter your answer"
             type="text"
-            fullWidth
+            
+            className={classes.input}
             value={answer}
             onChange={e => {
               setAnswer("")
               setAnswer(e.target.value)
             }}
           />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={e => setOpen(false)} color="primary">
+        
+        
+          <Button onClick={e => setOpen(false)} className={classes.gfont}>
             Close
           </Button>
           <Button
             onClick={e => submit()}
-            color="primary"
+            className={classes.gfont}
           >
             Check Answer
           </Button>
-        </DialogActions>
+          </div>
       </Dialog>
     )
   }
