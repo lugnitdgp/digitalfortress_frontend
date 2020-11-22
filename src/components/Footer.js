@@ -4,11 +4,12 @@ import nit from '../images/Arhn.png';
 import nit2 from '../images/arhn.png';
 
 export default () => {
-    return <div className="bg-transparent p-3">
-        <div className="row justify-content-center">
-            <img src={nit} alt="GLUG" height="90"  className="m-2" />
+    return <div className="bg-transparent">
+        <div style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
+            <div style={{color:"#fff"}}><h5>Created by GNU/Linux Users' Group</h5></div>
+            <img src={logo} alt="GLUG" height="50"  className="m-2" />
            
-            <img src={nit2} alt="GLUG" height="80" className="m-2" />
+            {/* <img src={nit2} alt="GLUG" height="70" className="m-2" /> */}
         </div>
     </div>
 }

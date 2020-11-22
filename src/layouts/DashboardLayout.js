@@ -214,7 +214,7 @@ export default class DashboardLayout extends React.Component {
 
   render() {
     return (
-        <div className="dashboard">
+        <div className="dashboard" style={{overflowX:"hidden"}}>
           <Helmet>
             <link
               rel="stylesheet"

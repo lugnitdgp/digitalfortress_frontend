@@ -19,7 +19,7 @@ var styles = theme => ({
   },
   container:{
     
-    height: "80vh",
+    height: "70vh",
     width:"100vw",
     display:"flex",
     justifyContent:"center",
