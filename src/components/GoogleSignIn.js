@@ -41,6 +41,7 @@ export default class GoogleSignIn extends React.Component {
               }
             )
             .then(res => {
+              console.log(res);
               localStorage.token = res.data.token
               navigate("/dashboard/")
             })

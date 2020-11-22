@@ -42,7 +42,7 @@ class Problem extends React.Component {
 
   fetchRound() {
     var self = this
-    console.log(this.state.email)
+    console.log(this.state)
     axios
       .get(`${process.env.GATSBY_API_URL}quiz/getRound?format=json`, {
         headers: {
