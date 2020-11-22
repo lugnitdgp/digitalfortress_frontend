@@ -7,7 +7,7 @@ import {
   CardContent,
   CardActionArea,
   makeStyles,
-  Typography,
+  div,
   CardActions,
   IconButton,
   Collapse,
@@ -66,6 +66,14 @@ const useStyles = makeStyles(theme => ({
   },
   pad: {
     padding: theme.spacing(1),
+    fontSize:"18px",
+    fontWeight:"500",
+    textTransform:"uppercase"
+  },
+  pad2: {
+    padding: theme.spacing(1),
+    fontSize:"16px",
+    fontWeight:"400",
   },
   divider: {
     height: 28,
@@ -85,7 +93,22 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
   },
   cardColor: {
-    backgroundColor: "rgba(255, 255, 255, 0.5)"
+    backgroundColor: "rgba(3, 32, 44, 0.4)",
+    backdropFilter: "blur(3px)",
+    textAlign:"center",
+    color:"#fff",
+    borderRadius:"20px",
+    borderBottom:"8px solid #32c8c6",
+    border:"1px solid #32c8c6",
+    borderLeft:"1px solid #32c8c6",
+    margin:"0 auto",
+    maxWidth:"250px"
+  },
+  btn2:{
+    margin:"10px auto",
+    color:"#32c8c6",
+    outline:"none",
+    border:"2px solid #32c8c6",
   }
 }))
 
@@ -164,35 +187,34 @@ export default props => {
   }
 
   return (
-    <Card className={classes.cardColor}>
-      <CardContent className={classes.cardColor}>
-        <Typography variant="h6" component="h6" className={classes.pad}>
+    <div className={classes.cardColor}>
+     
+        <div className={classes.pad}>
           Clue No. {props.index}{" "}
-        </Typography>
+        </div>
         {props.isSolved ? (
-          <Typography className={classes.pad}>
+          <div className={classes.pad2}>
             <Check
               className={classes.smallspacing}
               style={{ color: "green" }}
             />
             <span>Solved</span>
-          </Typography>
+          </div>
         ) : (
-          <Typography className={classes.pad}>
+          <div className={classes.pad2}>
             <Close className={classes.smallspacing} style={{ color: "red" }} />
             <span>Not Solved</span>
-          </Typography>
+          </div>
         )}
         <Button
-          className={classes.spacing}
+          className={classes.btn2}
           onClick={e => setOpen(true)}
-          color="primary"
           variant="outlined"
         >
           Open Clue
         </Button>
         <CardActionArea>{x}</CardActionArea>
-      </CardContent>
-    </Card>
+      
+    </div>
   )
 }

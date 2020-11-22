@@ -10,7 +10,7 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  Typography,
+  div,
   withStyles,
   Button,
   Hidden,
@@ -45,6 +45,9 @@ const drawerWidth = 240
 const styles = theme => ({
   root: {
     flexGrow: 1,
+  },
+  gfont:{
+    fontFamily: "'Audiowide', cursive",
   },
   BackdropProps: {
     background: "transparent",
@@ -185,16 +188,17 @@ class NavBar extends React.Component {
             <div className={classes.grow} />
             <Hidden smDown >
               <Link to="/" style={{ color: "white" }}>
-                <Button color="inherit">Home</Button>
+                <Button className={classes.gfont} color="inherit">Home</Button>
               </Link>
               <Button
                 color="inherit"
+                className={classes.gfont}
                 onClick={e => store.dispatch({ type: "OPEN" })}
               >
                 Rules
               </Button>
               <Link to="/leaderboard/" style={{ color: "white" }}>
-                <Button color="inherit">LeaderBoard</Button>
+                <Button className={classes.gfont} color="inherit">LeaderBoard</Button>
               </Link>
             </Hidden>
             <Logout />
@@ -225,7 +229,7 @@ class NavBar extends React.Component {
                   <Home style={{ color: "white" }} />
                 </ListItemIcon>
 
-                <ListItemText primary="Home" style={{ color: "white" }} />
+                <div className={classes.gfont} style={{color:"#fff"}}>HOME</div>
               </ListItem>
             </Link>
             <ListItem button key="Rules">
@@ -233,11 +237,9 @@ class NavBar extends React.Component {
                 <FormatAlignJustifyIcon style={{ color: "white" }} />
               </ListItemIcon>
 
-              <ListItemText
-                primary="Rules"
-                style={{ color: "white" }}
-                onClick={e => store.dispatch({ type: "OPEN" })}
-              />
+              <div className={classes.gfont} onClick={e => store.dispatch({ type: "OPEN" })} style={{color:"#fff"}}>RULES</div>
+                
+              
             </ListItem>
             <Link to="/leaderboard/"  onClick={e => this.closeNavbar()} >
               <ListItem button key="Leaderboard">
@@ -245,10 +247,7 @@ class NavBar extends React.Component {
                   <DashboardIcon style={{ color: "white" }} />
                 </ListItemIcon>
 
-                <ListItemText
-                  primary="Leaderboard"
-                  style={{ color: "white" }}
-                />
+                <div className={classes.gfont} style={{color:"#fff"}}>LEADERBOARD</div>
               </ListItem>
             </Link>
           </List>

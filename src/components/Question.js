@@ -3,7 +3,7 @@ import {
   Card,
   CardHeader,
   CardContent,
-  Typography,
+  div,
   CardActions,
   Button,
   TextField,
@@ -13,17 +13,42 @@ import {
 
 const useStyles = makeStyles(theme => ({
   spacing: {
-    padding: theme.spacing(1)
+    padding: "20px"
   },
   buttons: {
     float: "right"
   },
   cardColor: {
-    backgroundColor: "rgba(255, 255, 255, 0.5)"
+    backgroundColor: "rgba(3, 32, 44, 0.4)",
+    backdropFilter: "blur(3px)",
+    textAlign:"center",
+    color:"#fff",
+    maxWidth:"900px",
+    width:"95%",
+    margin:"10px auto",
+    borderRadius:"20px",
+    borderBottom:"8px solid #32c8c6",
+    border:"1px solid #32c8c6",
+    borderLeft:"1px solid #32c8c6",
   },
   textstyle: {
-    fontFamily: "'Cabin', sans-serif",
-    padding: theme.spacing(1)
+    padding: "20px",
+    fontSize:"16px",
+  },
+  input: {
+    backgroundColor:"rgba(0,0,0,0)",
+    border:"none",
+    borderBottom:"2px solid #32c8c6",
+    width:"90%",
+    maxWidth:"400px",
+    outline:"none",
+    color:"#fff",
+    textAlign:"center"
+  },
+  btn:{
+    backgroundColor:"#32c8c6",
+    color:"rgba(3, 32, 44, 1)",
+    outline:"none",
   }
 }));
 
@@ -33,20 +58,20 @@ export default function Question(props) {
   const theme = useTheme();
 
   return (
-    <Card className={classes.cardColor}>
-      <CardContent className={classes.cardColor}>
-        <Typography color="white" variant="h5" component="h5" className={classes.textstyle}>{props.question.question}</Typography>
-        <TextField
+    <div className={classes.cardColor}>
+      
+        <div color="white" className={classes.textstyle}>{props.question.question}</div>
+        <input
         variant="outlined"
-          fullWidth
-          label="Enter your answer"
+          className={classes.input}
+          placeholder="Enter your answer"
           value={answer}
           onChange={e => setAnswer(e.target.value)}
-        ></TextField>
-        <CardActions className={classes.spacing}>
+        ></input>
+        <div className={classes.spacing}>
           <Button
+            className={classes.btn}
             variant="contained"
-            color="primary"
             onClick={e => {
               setAnswer("")
               props.submitRound(answer)
@@ -54,8 +79,8 @@ export default function Question(props) {
           >
             Submit
           </Button>
-        </CardActions>
-      </CardContent>
-    </Card>
+        </div>
+      
+    </div>
   )
 }

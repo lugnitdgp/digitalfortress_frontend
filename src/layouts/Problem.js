@@ -5,7 +5,7 @@ import AnswerAlert from "../components/AnswerAlert"
 import { navigate } from "gatsby"
 import GameMap from "../components/GameMap"
 import Clue from "../components/Clue"
-import { Typography, withStyles, Container, Grid } from "@material-ui/core"
+import { div, withStyles, Container, Grid } from "@material-ui/core"
 import Loader from "../styles/loader"
 import "../glitch.css"
 
@@ -16,6 +16,19 @@ const styles = theme => ({
   centerRow: {
     justifyContent: "center",
   },
+  clueContainer:{
+    maxWidth:"900px",
+    width:"95%",
+    margin:"10px auto",
+  },
+  map:{
+    borderRadius:"20px",
+    margin:"10px auto",
+    maxWidth:"900px",
+    width:"95%",
+    position:"relative",
+    height:"50vh"
+  }
 })
 
 class Problem extends React.Component {
@@ -161,7 +174,7 @@ class Problem extends React.Component {
     if (this.state.clues !== null) {
       var cluesArr = this.state.clues.map((v, index) => {
         return (
-          <Grid item xs={6} sm={6} lg={3}>
+          <Grid item xs={12} sm={3} lg={3}>
             <Clue
               question={v.question}
               id={v.id}
@@ -179,7 +192,7 @@ class Problem extends React.Component {
           <Container className={classes.root}>
             <Grid container justify="center">
               <div
-                style={{fontSize:"6vmin",
+                style={{fontSize:"30px",
                 color:"#fff",
                 textTransform:"uppercase"}}
                 className="glitch" data-text={`Round No. ${this.state.round.round_number}`}
@@ -192,39 +205,28 @@ class Problem extends React.Component {
               submitRound={this.submitRound}
             />
           </Container>
-          <div className="row justify-content-center">
-                <Typography
-                  variant="h3"
-                  component="h3"
-                  style={{ color: "white" }}
-                  className={classes.textstyle}
+          {/* <div className="row justify-content-center">
+                <div
+                style={{fontSize:"6vmin",
+                color:"#fff",
+                textTransform:"uppercase"}}
+                  
+                className="glitch" data-text="Clues"
                 >
                   Clues
-                </Typography>
-              </div>
-          <Grid container spacing={2}>
+                </div>
+              </div> */}
+          <Grid container spacing={2} className={classes.clueContainer}>
             {cluesArr}
           </Grid>
-          <Grid container spacing={2}>
-            <Grid item xs={12} lg={12}>
-              <Grid container justify="center">
-                {/* <Typography
-                  variant="h3"
-                  component="h3"
-                  style={{ color: "white" }}
-                  className={classes.textstyle}
-                >
-                  Map
-                </Typography> */}
-              </Grid>
-              <div class="col-12 mt-5 md-5">
+          
+              <div className={classes.map}>
                 <GameMap
                   positions={this.state.positions}
                   centerLoc={this.state.center}
                 />
               </div>
-            </Grid>
-          </Grid>
+            
         </Container>
       )
     } else

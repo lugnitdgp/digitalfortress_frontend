@@ -3,7 +3,7 @@ import Swal from "sweetalert2"
 import { navigate } from "gatsby"
 import {
   Avatar,
-  Typography,
+  div,
   Grid,
   Button,
   makeStyles,
@@ -14,6 +14,9 @@ import { Facebook } from "@material-ui/icons"
 const useStyles = makeStyles(theme => ({
   spacing: {
     margin: theme.spacing(1),
+  },
+  gfont:{
+    fontFamily: "'Audiowide', cursive",
   },
 }))
 export default props => {
@@ -67,7 +70,7 @@ export default props => {
       <Button color="primary" onClick={e => logOut()}>
         <Avatar src={image} className={classes.spacing} />
         <Hidden smDown>
-          <Typography style={{ color: "white" }}>{name}</Typography>
+          <div style={{ color: "white" }} className={classes.gfont}>{name}</div>
         </Hidden>
       </Button>
     )

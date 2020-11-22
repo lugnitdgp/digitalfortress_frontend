@@ -9,7 +9,7 @@ import Rules from "../components/Rules"
 export default class DashboardLayout extends React.Component {
   render() {
     return (
-      <div className="dashboard" style={{ overflowX: "hidden" }}>
+      <div className="dashboard" style={{ overflowX: "hidden", height:"100vh" }}>
         <Helmet>
           <link
             rel="stylesheet"
@@ -20,6 +20,14 @@ export default class DashboardLayout extends React.Component {
             href="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/css/demo.css"
           />
           <script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js" />
+          <link rel="preconnect" href="https://fonts.gstatic.com"/>
+          
+          {/* <style dangerouslySetInnerHTML={{
+            __html: `body, html {
+              @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+              font-family: 'Staatliches', cursive !important;
+            }`
+          }}/> */}
         </Helmet>
         <NavBar />
         <div style={{height:"80px"}}></div>
