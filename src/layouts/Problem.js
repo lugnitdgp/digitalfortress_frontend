@@ -7,6 +7,7 @@ import GameMap from "../components/GameMap"
 import Clue from "../components/Clue"
 import { Typography, withStyles, Container, Grid } from "@material-ui/core"
 import Loader from "../styles/loader"
+import "../glitch.css"
 
 const styles = theme => ({
   root: {
@@ -15,9 +16,6 @@ const styles = theme => ({
   centerRow: {
     justifyContent: "center",
   },
-  textstyle: {
-    fontFamily: "'Cabin', sans-serif"
-  }
 })
 
 class Problem extends React.Component {
@@ -180,13 +178,14 @@ class Problem extends React.Component {
         <Container>
           <Container className={classes.root}>
             <Grid container justify="center">
-              <Typography
-                variant="h2"
-                component="h2"
-                className={classes.textstyle}
+              <div
+                style={{fontSize:"6vmin",
+                color:"#fff",
+                textTransform:"uppercase"}}
+                className="glitch" data-text={`Round No. ${this.state.round.round_number}`}
               >
                 Round No. {this.state.round.round_number}
-              </Typography>
+              </div>
             </Grid>
             <Question
               question={this.state.round}

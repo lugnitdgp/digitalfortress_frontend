@@ -59,12 +59,13 @@ const styles = theme => ({
     float: "right",
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 2,
+    zIndex:999,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    backgroundColor: "#000000",
+    backgroundColor: "rgba(3, 32, 44, 0.6)",
+    backdropFilter: "blur(3px)",
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -86,8 +87,10 @@ const styles = theme => ({
     zIndex: -1,
   },
   drawerPaper: {
+    zIndex:9999,
     width: drawerWidth,
-    background: "black",
+    background: "#03212c",
+    backdropFilter: "blur(3px)",
     color: "white",
     opacity: 0.75,
     zIndex: -1,
@@ -161,7 +164,7 @@ class NavBar extends React.Component {
 
     return (
       <React.Fragment>
-        <AppBar position="static" className={classes.appBar}>
+        <AppBar position="fixed" className={classes.appBar}>
           <Toolbar>
             <IconButton
               edge="start"
@@ -197,6 +200,7 @@ class NavBar extends React.Component {
             <Logout />
           </Toolbar>
         </AppBar>
+        {/* hide from 960px */}
         <SwipeableDrawer
           className={classes.drawer}
           variant="temporary"

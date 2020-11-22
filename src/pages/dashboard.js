@@ -6,9 +6,11 @@ import Problem from '../layouts/Problem'
 import SEO from "../components/seo"
 
 export default function Dashboard() {
-    return <DashboardLayout>
+    return (
+    <DashboardLayout>
         <SEO title="Dashboard" />
         <Problem/>
     </DashboardLayout>
+    )
 }
 
