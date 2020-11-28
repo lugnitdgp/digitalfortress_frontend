@@ -181,7 +181,7 @@ class NavBar extends React.Component {
 
             <img
               src={logo}
-              height={40}
+              height={35}
               className="d-inline-block align-top"
               alt="Logo"
             />

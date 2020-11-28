@@ -47,6 +47,7 @@ export default class DashboardLayout extends React.Component {
         <div class="firefly"></div>
         <div class="firefly"></div>
         
+        
         {this.props.children}
         <Rules />
       </div>

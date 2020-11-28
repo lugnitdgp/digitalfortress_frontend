@@ -1,7 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,900&display=swap");
-.center {
-  font-family: 'Red Hat Display', sans-serif;
-}
+
 .title{
   color: black;
   font-size: 2rem;
@@ -18,7 +15,9 @@
 .top3 .item {
   box-sizing: border-box;
   position: relative;
-  background: white;
+  background-color: rgba(3, 32, 44, 0.6);
+  backdrop-filter: blur(3px);
+  border: 1px solid #32c8c6;
   width: 9rem;
   height: auto;
   text-align: center;
@@ -32,7 +31,8 @@
   transition: -webkit-transform 200ms ease-in-out;
   transition: transform 200ms ease-in-out;
   transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
-  box-shadow: 0 0 4rem 0 rgba(0, 0, 0, 0.1), 0 1rem 2rem -1rem rgba(0, 0, 0, 0.3);
+ color:#3de0de;
+ 
 }
 .top3 .item .pic {
   position: absolute;
@@ -50,9 +50,10 @@
   font-weight: 900;
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  color:#fff;
 }
 .top3 .item .name {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: 0.5rem;
 }
 .top3 .item .score {
@@ -60,6 +61,7 @@
   font-size: 1rem;
   font-weight: 900;
   padding-bottom: 5px;
+  color:#fff;
 }
 .top3 .item .score:after {
   display: block;
@@ -92,11 +94,14 @@
   display: flex;
   -webkit-box-align: center;
           align-items: center;
-  background: white;
+  color:#aafffe;
+  
   height: 3rem;
   border-radius: 4rem;
   margin-bottom: 2rem;
-  background: rgb(46, 196, 216);
+  background-color: rgba(3, 32, 44, 0.4);
+  backdrop-filter: blur(3px);
+  border: 1px solid #32c8c6;
   -webkit-transform-origin: left;
           transform-origin: left;
   cursor: pointer;
@@ -113,14 +118,15 @@
   text-align: center;
   font-size: 1.25rem;
   width: 1.5rem;
-  color: white;
+  color: #fff;
+  font-weight: 500;
   opacity: 0.6;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
 }
 .list .item .pic {
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   background-size: cover;
   background-position: center;

@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import "./countdown.css"
 import { Container, Grid, withStyles } from "@material-ui/core"
+import "../glitch.css"
 
 const styles = theme => ({
   root: {
@@ -49,7 +50,17 @@ class CountDown extends React.Component {
         <Container className={classes.root}>
           <Grid container justify="center">
             <Grid item>
-              <div class="heading">
+              <div 
+              style={{
+                textAlign:"center",
+                margin:"0 auto",
+                textTransform:"uppercase",
+                fontSize:"25px",
+                marginTop:"50px"
+              }}
+              className="glitch" data-text={this.state.ended
+                  ? "Event already ended before"
+                  : "Event to be start by"}>
                 {this.state.ended
                   ? "Event already ended before"
                   : "Event to be start by"}

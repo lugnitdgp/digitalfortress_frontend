@@ -61,7 +61,7 @@ class IndexPage extends React.Component {
                 <Hidden smDown>
                   <img src={logo} height="80" />
                 </Hidden>
-                <h3 style={{color:"#fff"}}>
+                <h3 style={{color:"#fff", textAlign:"center", margin:"0 auto"}}>
                   Competition to <span className="element"></span>
                 </h3>
                 <div className={classes.icongrid}>

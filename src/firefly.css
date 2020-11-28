@@ -1,4 +1,4 @@
-.firefly {
+  .firefly {
     position: fixed;
     left: 50%;
     top: 50%;
@@ -7,6 +7,12 @@
     margin: -0.2vw 0 0 9.8vw;
     animation: ease 200s alternate infinite;
     pointer-events: none;
+  }
+  @media screen and (max-width: 821px) {
+    .firefly{
+      width: 1vh;
+      height: 1vh;
+    }
   }
   .firefly::before, .firefly::after {
     content: "";
@@ -27,7 +33,6 @@
     box-shadow: 0 0 0vw 0vw rgb(255, 8, 0);
     animation: drift ease alternate infinite, flash ease infinite;
   }
-  
   .firefly:nth-child(1) {
     animation-name: move1;
   }
