@@ -172,17 +172,17 @@ export default props => {
         aria-labelledby="form-dialog-title"
         className={classes.dialog}
       >
-        <DialogTitle id="form-dialog-title">Clue</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
+         <div className={classes.diaIn}>
+        <div id="form-dialog-title" className={classes.gfont}>CLUE</div>
+        
+          <div style={{margin:"10px auto"}}>
             Position : {props.position[1] + ", " + props.position[0]}
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={e => setOpen(false)} color="primary">
+          </div>
+       
+          <Button onClick={e => setOpen(false)} className={classes.gfont}>
             Close
           </Button>
-        </DialogActions>
+          </div>
       </Dialog>
     )
   } else {

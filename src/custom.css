@@ -211,3 +211,27 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', end
 .clue-submit:hover {
   color: white !important;
 }
+
+/*------------index------------*/
+.dfimg{
+  height: 60px;
+}
+.dftxt{
+  font-size: 24px;
+  margin:20px auto;
+}
+.foottxt{
+  font-size: 21px;
+}
+@media screen and (max-width: 521px) {
+  .dfimg{
+    height: 50px;
+  }
+  .dftxt{
+    font-size: 17px;
+    max-width: 75%;
+  }
+  .foottxt{
+    font-size: 16px;
+  }
+}

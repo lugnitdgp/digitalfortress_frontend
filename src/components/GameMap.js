@@ -10,7 +10,7 @@ const mapStyles = {
   padding: "15px",
   borderRadius:"20px",
   maxWidth:"900px",
-  height: "50vh",
+  height: "60vh",
   zIndex: "1 !important",
   border:"2px solid #32c8c6",
 }

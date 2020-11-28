@@ -55,19 +55,20 @@ class IndexPage extends React.Component {
         <SEO title="Home" />
         <DashboardLayout>
               <div className={classes.container}>
-                <Hidden smUp>
-                  <img src={logo} height="60" />
-                </Hidden>
-                <Hidden smDown>
-                  <img src={logo} height="80" />
-                </Hidden>
-                <h3 style={{color:"#fff", textAlign:"center", margin:"0 auto"}}>
+
+                <div>
+                  <img src={logo} className="dfimg" />
+                </div>
+                
+                <h3 className="dftxt" style={{color:"#fff", textAlign:"center"}}>
                   Competition to <span className="element"></span>
                 </h3>
+
                 <div className={classes.icongrid}>
                     <GoogleSignIn />
                     <FacebookSignIn />
                 </div>
+
               </div>
             
             

@@ -1,30 +1,46 @@
 import React, { useState, useEffect } from "react"
+import {
+    Card,
+    CardHeader,
+    CardContent,
+    div,
+    CardActions,
+    Button,
+    TextField,
+    makeStyles,
+    useTheme
+  } from "@material-ui/core"
+import DashboardLayout from "../layouts/DashboardLayout"
+import "../glitch.css"
 
-import DashboardLayout from '../layouts/DashboardLayout'
-import CompletedSvg from "../styles/completedsvg"
-
+const useStyles = makeStyles(theme => ({
+    main:{
+        textAlign:"center",
+        margin:"100px auto",
+        width:"80%",
+        maxWidth:"600px",
+        fontSize:"21px",
+        color:"#fff",
+        backgroundColor: "rgba(3, 32, 44, 0.4)",
+    backdropFilter: "blur(3px)",
+    border:"1px solid #32c8c6",
+    borderRadius:"20px",
+    padding:"20px"
+            }
+}));
 
 export default function Completed() {
-
-    return <DashboardLayout>
-        <div className="container">
-            <div className="row">
-                <div className="d-none d-md-block col-2"></div>
-                <div className="col-sm-6 col-lg-8 mt-4">
-                <CompletedSvg />
-                        <div className="card border-0 bg-transparent">
-                        <div className="card-header d-block mx-auto bg-transparent">
-                            <h1 className="text-center">Congratulations</h1>
-                        </div>
-                        
-                        <div className="card-footer d-block mx-auto bg-transparent md-5">
-                            <h1 className="mt-5 text-center">Congratulations, you have successfully completed the event. Please check the leaderboard for your current rank.</h1>
-                        </div>
-                    </div>
-                </div>
-                <div className="d-none d-md-block col-2"></div>
-            </div>
+    const classes = useStyles();
+  return (
+    <DashboardLayout>
+      <div className={classes.main}>
+        <div className="glitch" data-text="Congratulations">Congratulations</div>
+<br/>
+        <div >
+         You have successfully completed the questions. Please
+          check the leaderboard for your current rank.
         </div>
+      </div>
     </DashboardLayout>
+  )
 }
-
