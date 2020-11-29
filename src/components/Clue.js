@@ -179,7 +179,7 @@ export default props => {
             Position : {props.position[1] + ", " + props.position[0]}
           </div>
        
-          <Button onClick={e => setOpen(false)} className={classes.gfont}>
+          <Button onClick={e => setOpen(false)} className={classes.gfont} style={{border:"1px solid #32c8c6"}}>
             Close
           </Button>
           </div>
@@ -213,12 +213,17 @@ export default props => {
           />
         
         
-          <Button onClick={e => setOpen(false)} className={classes.gfont}>
+          <Button onClick={e => setOpen(false)} 
+          className={classes.gfont}
+          style={{border:"1px solid #32c8c6"}}
+          >
             Close
           </Button>
+          &nbsp;&nbsp;
           <Button
             onClick={e => submit()}
             className={classes.gfont}
+            style={{border:"1px solid #32c8c6"}}
           >
             Check Answer
           </Button>
