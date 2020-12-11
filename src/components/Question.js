@@ -10,6 +10,7 @@ import {
   makeStyles,
   useTheme
 } from "@material-ui/core"
+import AudioHint from "./AudioHint"
 
 const useStyles = makeStyles(theme => ({
   spacing: {
@@ -61,7 +62,9 @@ export default function Question(props) {
   return (
     <div className={classes.cardColor}>
       
+  <div>{props.question.image ? <div>image</div> : <div></div>}</div>
         <div color="white" className={classes.textstyle}>{props.question.question}</div>
+        <div>{props.question.image ? <div>audio</div> : <div></div>}</div>     
         <input
         variant="outlined"
           className={classes.input}
