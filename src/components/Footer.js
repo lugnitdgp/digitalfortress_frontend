@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../images/glug.png';
-import nit from '../images/Arhn.png';
-import nit2 from '../images/arhn.png';
+//import nit from '../images/Arhn.png';
+//import nit2 from '../images/arhn.png';
 
 export default () => {
     return <div className="bg-transparent">

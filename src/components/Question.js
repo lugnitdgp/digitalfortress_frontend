@@ -51,7 +51,13 @@ const useStyles = makeStyles(theme => ({
     color:"rgba(3, 32, 44, 1)",
     outline:"none",
     fontFamily: "'Audiowide', cursive",
-  }
+  },
+  img:{
+    width:"90%",
+    maxWidth:"500px",
+    margin: "10px auto",
+    borderRadius:"15px"
+    }
 }));
 
 export default function Question(props) {
@@ -62,9 +68,9 @@ export default function Question(props) {
   return (
     <div className={classes.cardColor}>
       
-  <div>{props.question.image ? <div>image</div> : <div></div>}</div>
+  <div>{props.question.image ? <div><img alt="." src={"https://dfapi.weblikate.com/" + props.question.image} className={classes.img} /></div> : <div></div>}</div>
         <div color="white" className={classes.textstyle}>{props.question.question}</div>
-        <div>{props.question.image ? <div>audio</div> : <div></div>}</div>     
+        <div>{props.question.audio ? <div><AudioHint audioUrl={"https://dfapi.weblikate.com" + props.question.audio}/></div> : <div></div>}</div>     
         <input
         variant="outlined"
           className={classes.input}

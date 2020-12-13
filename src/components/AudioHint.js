@@ -35,7 +35,7 @@ export default class AudioHint extends React.Component {
 
     render() {
         var audioArr = this.props.audioUrl.split("/")
-        console.log(this.props.audioUrl)
+        console.log("hi" + this.props.audioUrl)
         if (audioArr[audioArr.length - 1] !== "Not%20Available")
             return <div className="p-2">
                 <ReactHowler src={this.props.audioUrl} playing={this.state.isPlaying} />

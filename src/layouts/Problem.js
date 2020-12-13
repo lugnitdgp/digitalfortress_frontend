@@ -62,8 +62,12 @@ class Problem extends React.Component {
       })
       .then(function(response) {
         if (response.data.status == 200) {
+          console.log(response.data);
           self.setState((state, props) => ({
+            
             round: response.data.question,
+            //image: response.data.image,
+            //audio: response.data.audio,
             // center: response.data.center
           }))
           self.fetchClues()
