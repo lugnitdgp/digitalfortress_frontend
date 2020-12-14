@@ -37,8 +37,7 @@ export default function Completed() {
         <div className="glitch" data-text="Congratulations">Congratulations</div>
 <br/>
         <div >
-         You have successfully completed the questions. Please
-          check the leaderboard for your current rank.
+         You have successfully completed the questions of this sample round.
         </div>
       </div>
     </DashboardLayout>

@@ -111,27 +111,32 @@ class LeaderBoard extends React.Component {
         <DashboardLayout>
           <div className="center" style={{fontFamily: "'Audiowide', cursive",}}>
             <div style={{fontSize:"28px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="LEADERBOARD">LEADERBOARD</div>
+            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="SAMPLE ROUNDS ONGOING">SAMPLE ROUNDS ONGOING</div>
+            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div>
             <br/>
             <div className="top3">
               {
                 <this.SecondPosition
                   name={list[1].name}
                   image={list[1].image}
-                  score={list[1].score}
+                  // score={list[1].score}
+                  score={0}
                 />
               }
               {
                 <this.FirstPosition
                   name={list[0].name}
                   image={list[0].image}
-                  score={list[0].score}
+                  // score={list[0].score}
+                  score={0}
                 />
               }
               {
                 <this.ThirdPosition
                   name={list[2].name}
                   image={list[2].image}
-                  score={list[2].score}
+                  // score={list[2].score}
+                  score={0}
                 />
               }
             </div>
@@ -147,7 +152,8 @@ class LeaderBoard extends React.Component {
                           style={{ backgroundImage: "url(" + v.image + ")" }}
                         ></div>
                         <div className="name">{v.name}</div>
-                        <div className="score" style={{color: "white"}}>{v.score}</div>
+                        {/* <div className="score" style={{color: "white"}}>{v.score}</div> */}
+                        <div className="score" style={{color: "white"}}>0</div>
                       </div>
                     ) : null}
                   </React.Fragment>
