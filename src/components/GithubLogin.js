@@ -55,7 +55,10 @@ export default class GitHubSignin extends React.Component {
         )
         .then(function(res) {
           console.log(res)
-          if (res.data.status != 402) self.setData(res)
+          if (res.data.status != 402) {
+            self.setData(res)
+            navigate("/dashboard/")
+          }
           else {
             axios
               .post(
