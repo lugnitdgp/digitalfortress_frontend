@@ -5,7 +5,7 @@ import DashboardLayout from "../layouts/DashboardLayout"
 import Typed from "typed.js"
 import GoogleSignIn from "../components/GoogleSignIn"
 // import FacebookSignIn from "../components/FacebookSignIn"
-// import GithubSignin from "../components/GithubLogin"
+import GithubSignin from "../components/GithubLogin"
 import logo from "../images/logodf.png"
 import { Hidden, Container, withStyles, Grid } from "@material-ui/core"
 import Countdown from "../styles/countdown"
@@ -67,8 +67,8 @@ class IndexPage extends React.Component {
 
                 <div className={classes.icongrid}>
                     <GoogleSignIn />
-                    {/* <FacebookSignIn />
-                    <GithubSignin /> */}
+                    {/* <FacebookSignIn /> */}
+                    <GithubSignin />
                 </div>
 
               </div>

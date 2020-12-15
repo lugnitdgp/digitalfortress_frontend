@@ -13,6 +13,9 @@ const useStyles = theme => ({
   root: {
     width: "100%",
   },
+  main: {
+    minHeight: "65vh",
+  }
 })
 
 class LeaderBoard extends React.Component {
@@ -109,11 +112,15 @@ class LeaderBoard extends React.Component {
     if (list.length !== 0) {
       return (
         <DashboardLayout>
+          <div className={classes.main}>
           <div className="center" style={{fontFamily: "'Audiowide', cursive",}}>
             <div style={{fontSize:"28px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="LEADERBOARD">LEADERBOARD</div>
-            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="SAMPLE ROUNDS ONGOING">SAMPLE ROUNDS ONGOING</div>
-            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div>
+            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="SAMPLE ROUNDS COMING SOON">SAMPLE ROUNDS COMING SOON</div>
+            
             <br/>
+          { list.length >= 150 ? 
+            <div>
+            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div>
             <div className="top3">
               {
                 <this.SecondPosition
@@ -160,8 +167,12 @@ class LeaderBoard extends React.Component {
                 )
               })}
             </div>
+            </div>
+          : <div> </div>}
+          </div>
           </div>
           <Footer />
+          
         </DashboardLayout>
       )
     } else

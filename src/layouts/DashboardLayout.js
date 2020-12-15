@@ -5,7 +5,7 @@ import "../firefly.css"
 import Helmet from "react-helmet"
 import "../styles/background.css"
 import Rules from "../components/Rules"
-import Fav from "../images/favicon.png"
+import Fav from "../images/favicon.ico"
 
 export default class DashboardLayout extends React.Component {
   render() {

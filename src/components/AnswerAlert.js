@@ -6,7 +6,7 @@ export default (isCorrect) => {
             position: 'center',
             type: 'error',
             title: 'Something Went Wrong',
-            text: 'Please refresh the page',
+            text: 'Please login again',
             showConfirmButton: false,
             timer: 1500,
             showClass: {
