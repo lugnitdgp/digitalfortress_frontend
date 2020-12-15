@@ -3,8 +3,6 @@ import { navigate } from "gatsby"
 import GitHubLogin from 'github-login';
 import axios from "axios"
 import "../styles/social.css"
-import { Location } from '@reach/router'
-import queryString from 'query-string'
 
 export default class GitHubSignin extends React.Component {
   constructor(props) {
@@ -187,7 +185,7 @@ export default class GitHubSignin extends React.Component {
       // redirectUri="http://localhost:5000/"
       // />
       
-        <div className="social-btns"><a href={`https://github.com/login/oauth/authorize?client_id=${process.env.GATSBY_GITHUB_ID}&scope=user&redirect_uri=https://df.nitdgplug.org/`}><button className="btn github"><i className="fa fa-github" /></button></a></div>
+        <div className="social-btns"><a href={`https://github.com/login/oauth/authorize?client_id=662de834d46fdb1ecae7&scope=user&redirect_uri=https://df.nitdgplug.org/`}><button className="btn github"><i className="fa fa-github" /></button></a></div>
       
     )
 
