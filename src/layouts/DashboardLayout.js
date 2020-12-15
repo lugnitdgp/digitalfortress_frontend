@@ -5,6 +5,7 @@ import "../firefly.css"
 import Helmet from "react-helmet"
 import "../styles/background.css"
 import Rules from "../components/Rules"
+import Fav from "../images/favicon.png"
 
 export default class DashboardLayout extends React.Component {
   render() {
@@ -21,7 +22,7 @@ export default class DashboardLayout extends React.Component {
           />
           <script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js" />
           <link rel="preconnect" href="https://fonts.gstatic.com"/>
-          
+          <link rel="icon" type="image/png" href={Fav} />
           {/* <style dangerouslySetInnerHTML={{
             __html: `body, html {
               @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
