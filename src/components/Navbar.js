@@ -132,8 +132,8 @@ class NavBar extends React.Component {
       profileImage: "",
       name: "",
       isOpen: false,
-      score: 0,
-      rank: 0,
+      score: -17,
+      rank: -17,
     }
     this.setProfile = this.setProfile.bind(this)
     this.getScore = this.getScore.bind(this)
@@ -277,10 +277,10 @@ class NavBar extends React.Component {
               </ListItem>
             </Link>
             <ListItem>
-              <div className={classes.gfont} style={{color:"#fff"}}>Your Score - {this.state.score}</div>
+              {this.state.score != -17 ? <div className={classes.gfont} style={{color:"#fff"}}>Your Score - 0</div> : <div></div>}
             </ListItem>
             <ListItem>
-              <div className={classes.gfont} style={{color:"#fff"}}>Your Rank - {this.state.rank}</div>
+            {this.state.score != -17 ? <div className={classes.gfont} style={{color:"#fff"}}>Your Rank - 0</div> : <div></div>}
             </ListItem>
           </List>
         </SwipeableDrawer>
