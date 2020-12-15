@@ -68,9 +68,9 @@ export default function Question(props) {
   return (
     <div className={classes.cardColor}>
       
-  <div>{props.question.image ? <div><img alt="." src={"https://dfapi.weblikate.com/" + props.question.image} className={classes.img} /></div> : <div></div>}</div>
+  <div>{props.question.image ? <div><img alt="." src={`${process.env.GATSBY_API_URL}` + props.question.image} className={classes.img} /></div> : <div></div>}</div>
         <div color="white" className={classes.textstyle}>{props.question.question}</div>
-        <div>{props.question.audio ? <div><AudioHint audioUrl={"https://dfapi.weblikate.com" + props.question.audio}/></div> : <div></div>}</div>     
+        <div>{props.question.audio ? <div><AudioHint audioUrl={`${process.env.GATSBY_API_URL}` + props.question.audio}/></div> : <div></div>}</div>     
         <input
         variant="outlined"
           className={classes.input}

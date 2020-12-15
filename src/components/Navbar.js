@@ -6,6 +6,7 @@ import { Link } from "gatsby"
 import FacebookSignIn from "./FacebookSignIn"
 import { navigate } from "gatsby"
 import Rules from "../components/Rules"
+import AnswerAlert from "../components/AnswerAlert"
 import {
   AppBar,
   Toolbar,
@@ -39,6 +40,7 @@ import Logout from "./Logout"
 import Dashboard from "../pages/dashboard"
 import GoogleLogin from "react-google-login"
 import store from "../store/index"
+import Axios from "axios"
 
 const drawerWidth = 240
 
@@ -130,14 +132,18 @@ class NavBar extends React.Component {
       profileImage: "",
       name: "",
       isOpen: false,
+      score: 0,
+      rank: 0,
     }
     this.setProfile = this.setProfile.bind(this)
+    this.getScore = this.getScore.bind(this)
     this.toggleNavbar = this.toggleNavbar.bind(this)
     this.closeNavbar = this.closeNavbar.bind(this)
   }
 
   componentDidMount() {
     this.setProfile()
+    this.getScore()
   }
 
   setProfile() {
@@ -147,6 +153,26 @@ class NavBar extends React.Component {
         name: localStorage.name,
       })
     }
+  }
+
+  getScore() {
+    var self = this
+    Axios.get(`${process.env.GATSBY_API_URL}quiz/user?format=json`, {
+      headers: {
+        Authorization: `Token ${localStorage.token}`,
+      },
+    })
+    .then(function(response) {
+      //console.log(response)
+      self.setState({
+        score: response.data.score,
+        rank: response.data.rank
+      })
+    })
+    .catch(function(error) {
+      //console.log(error)
+      //AnswerAlert(-1)
+    })
   }
 
   toggleNavbar() {
@@ -241,15 +267,21 @@ class NavBar extends React.Component {
                 
               
             </ListItem>
+
             <Link to="/leaderboard/"  onClick={e => this.closeNavbar()} >
               <ListItem button key="Leaderboard">
                 <ListItemIcon>
                   <DashboardIcon style={{ color: "white" }} />
                 </ListItemIcon>
-
                 <div className={classes.gfont} style={{color:"#fff"}}>LEADERBOARD</div>
               </ListItem>
             </Link>
+            <ListItem>
+              <div className={classes.gfont} style={{color:"#fff"}}>Your Score - {this.state.score}</div>
+            </ListItem>
+            <ListItem>
+              <div className={classes.gfont} style={{color:"#fff"}}>Your Rank - {this.state.rank}</div>
+            </ListItem>
           </List>
         </SwipeableDrawer>
       </React.Fragment>

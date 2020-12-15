@@ -47,7 +47,7 @@ class CountDown extends React.Component {
 
       self.setState({ loaded : true })
 
-    }, 800)
+    }, 1000)
 
   }
 

@@ -53,7 +53,7 @@ class Problem extends React.Component {
 
   fetchRound() {
     var self = this
-    console.log(this.state)
+    //console.log(this.state)
     axios
       .get(`${process.env.GATSBY_API_URL}quiz/getRound?format=json`, {
         headers: {
@@ -62,7 +62,7 @@ class Problem extends React.Component {
       })
       .then(function(response) {
         if (response.data.status == 200) {
-          console.log(response.data);
+          //console.log(response.data);
           self.setState((state, props) => ({
             
             round: response.data.question,
@@ -100,12 +100,12 @@ class Problem extends React.Component {
         }))
         var positions = []
         for (let i = 0; i < response.data.clues.length; i++) {
-          console.log(response.data[i])
+          //console.log(response.data[i])
           if (response.data.clues[i].solved == 1)
             positions.push(response.data.clues[i].position)
         }
 
-        console.log(positions)
+        //console.log(positions)
         self.setState((state, props) => ({
           clues: clues,
         }))

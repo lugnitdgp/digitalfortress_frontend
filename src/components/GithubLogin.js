@@ -35,8 +35,8 @@ export default class GitHubSignin extends React.Component {
       .post(
           `https://github.com/login/oauth/access_token`,
           {
-              client_id: "662de834d46fdb1ecae7",
-              client_secret: "0df64a9bc4034fe4cac38d06cc86443938761f6f",
+              client_id: "",
+              client_secret: "",
               code: response.code,
               redirect_uri: "http://localhost:5000/"
           },
@@ -57,7 +57,7 @@ export default class GitHubSignin extends React.Component {
     //       }
     //   )
     //   .then(function(response) {
-        console.log(resp);
+        //console.log(resp);
         axios
         .post(
           `${process.env.GATSBY_API_URL}quiz/auth/register`,
