@@ -1,13 +1,14 @@
 import React, { useState } from "react"
 import { func } from "prop-types"
 import "../custom.css"
+import "../muipaper.css"
 import clsx from "clsx"
 import {
   Card,
   CardContent,
   CardActionArea,
   makeStyles,
-  Typography,
+  div,
   CardActions,
   IconButton,
   Collapse,
@@ -38,6 +39,11 @@ const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
   },
+  gfont:{
+    fontFamily: "'Audiowide', cursive",
+    color:"#32c8c6",
+    outline:"none"
+  },
   media: {
     height: 0,
     paddingTop: "56.25%", // 16:9
@@ -66,6 +72,14 @@ const useStyles = makeStyles(theme => ({
   },
   pad: {
     padding: theme.spacing(1),
+    fontSize:"18px",
+    fontWeight:"500",
+    textTransform:"uppercase"
+  },
+  pad2: {
+    padding: theme.spacing(1),
+    fontSize:"16px",
+    fontWeight:"400",
   },
   divider: {
     height: 28,
@@ -85,8 +99,54 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
   },
   cardColor: {
-    backgroundColor: "rgba(255, 255, 255, 0.5)"
-  }
+    backgroundColor: "rgba(3, 32, 44, 0.4)",
+    backdropFilter: "blur(3px)",
+    textAlign:"center",
+    color:"#fff",
+    borderRadius:"20px",
+    borderBottom:"8px solid #32c8c6",
+    border:"1px solid #32c8c6",
+    borderLeft:"1px solid #32c8c6",
+    margin:"0 auto",
+    maxWidth:"250px"
+  },
+  btn2:{
+    margin:"10px auto",
+    color:"#32c8c6",
+    outline:"none",
+    border:"2px solid #32c8c6",
+    fontFamily: "'Audiowide', cursive",
+  },
+  dialog:{
+    backgroundColor: "rgba(3, 32, 44, 0.3)",
+    
+    textAlign:"center",
+  },
+  diaIn:{
+    backgroundColor: "rgba(3, 32, 44, 0.4)",
+    backdropFilter: "blur(3px)",
+    textAlign:"center",
+    color:"#fff",
+    borderRadius:"20px",
+    borderBottom:"8px solid #32c8c6",
+    border:"1px solid #32c8c6",
+    borderLeft:"1px solid #32c8c6",
+    margin:"0 auto",
+    maxWidth:"500px",
+    padding:"30px",
+    textAlign:"center"
+  },
+  input: {
+    backgroundColor:"rgba(0,0,0,0)",
+    border:"none",
+    borderBottom:"2px solid #32c8c6",
+    width:"90%",
+    maxWidth:"400px",
+    outline:"none",
+    color:"#fff",
+    textAlign:"center",
+    margin:"10px auto"
+  },
 }))
 
 export default props => {
@@ -110,18 +170,19 @@ export default props => {
         open={open}
         onClose={e => setOpen(false)}
         aria-labelledby="form-dialog-title"
+        className={classes.dialog}
       >
-        <DialogTitle id="form-dialog-title">Clue</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
+         <div className={classes.diaIn}>
+        <div id="form-dialog-title" className={classes.gfont}>CLUE</div>
+        
+          <div style={{margin:"10px auto"}}>
             Position : {props.position[1] + ", " + props.position[0]}
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={e => setOpen(false)} color="primary">
+          </div>
+       
+          <Button onClick={e => setOpen(false)} className={classes.gfont} style={{border:"1px solid #32c8c6"}}>
             Close
           </Button>
-        </DialogActions>
+          </div>
       </Dialog>
     )
   } else {
@@ -130,69 +191,76 @@ export default props => {
         open={open}
         onClose={e => setOpen(false)}
         aria-labelledby="form-dialog-title"
+        className={classes.dialog}
       >
-        <DialogTitle id="form-dialog-title">Clue</DialogTitle>
-        <DialogContent>
-          <DialogContentText>{props.question}</DialogContentText>
-          <TextField
+      <div className={classes.diaIn}>
+        <div id="form-dialog-title" className={classes.gfont}>CLUE</div>
+        
+          <div style={{margin:"10px auto"}}>{props.question}</div>
+          <input
             autoFocus
             margin="dense"
             id="name"
-            label="Enter your answer"
+            placeholder="Enter your answer"
             type="text"
-            fullWidth
+            
+            className={classes.input}
             value={answer}
             onChange={e => {
               setAnswer("")
               setAnswer(e.target.value)
             }}
           />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={e => setOpen(false)} color="primary">
+        
+        
+          <Button onClick={e => setOpen(false)} 
+          className={classes.gfont}
+          style={{border:"1px solid #32c8c6"}}
+          >
             Close
           </Button>
+          &nbsp;&nbsp;
           <Button
             onClick={e => submit()}
-            color="primary"
+            className={classes.gfont}
+            style={{border:"1px solid #32c8c6"}}
           >
             Check Answer
           </Button>
-        </DialogActions>
+          </div>
       </Dialog>
     )
   }
 
   return (
-    <Card className={classes.cardColor}>
-      <CardContent className={classes.cardColor}>
-        <Typography variant="h6" component="h6" className={classes.pad}>
+    <div className={classes.cardColor}>
+     
+        <div className={classes.pad}>
           Clue No. {props.index}{" "}
-        </Typography>
+        </div>
         {props.isSolved ? (
-          <Typography className={classes.pad}>
+          <div className={classes.pad2}>
             <Check
               className={classes.smallspacing}
               style={{ color: "green" }}
             />
             <span>Solved</span>
-          </Typography>
+          </div>
         ) : (
-          <Typography className={classes.pad}>
+          <div className={classes.pad2}>
             <Close className={classes.smallspacing} style={{ color: "red" }} />
             <span>Not Solved</span>
-          </Typography>
+          </div>
         )}
         <Button
-          className={classes.spacing}
+          className={classes.btn2}
           onClick={e => setOpen(true)}
-          color="primary"
           variant="outlined"
         >
           Open Clue
         </Button>
         <CardActionArea>{x}</CardActionArea>
-      </CardContent>
-    </Card>
+      
+    </div>
   )
 }

@@ -4,7 +4,8 @@ import SEO from "../components/seo"
 import DashboardLayout from "../layouts/DashboardLayout"
 import Typed from "typed.js"
 import GoogleSignIn from "../components/GoogleSignIn"
-import FacebookSignIn from "../components/FacebookSignIn"
+// import FacebookSignIn from "../components/FacebookSignIn"
+import GithubSignin from "../components/GithubLogin"
 import logo from "../images/logodf.png"
 import { Hidden, Container, withStyles, Grid } from "@material-ui/core"
 import Countdown from "../styles/countdown"
@@ -15,8 +16,24 @@ import Footer from "../components/Footer";
 
 var styles = theme => ({
   root: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(0),
   },
+  container:{
+    
+    height: "70vh",
+    width:"100vw",
+    display:"flex",
+    justifyContent:"center",
+    alignItems:"center",
+    flexDirection:"column"
+  },
+  icongrid:{
+    width:"100%",
+    textAlign:"center",
+    display:"flex",
+    justifyContent:"center",
+    alignItems:"center",
+  }
 })
 
 class IndexPage extends React.Component {
@@ -38,31 +55,27 @@ class IndexPage extends React.Component {
       <div>
         <SEO title="Home" />
         <DashboardLayout>
-          <Container className={classes.root}>
-            <div className="jumbotron jumbotron-fluid">
-              <div className="container">
-                <Hidden smUp>
-                  <img src={logo} height="60" />
-                </Hidden>
-                <Hidden smDown>
-                  <img src={logo} height="80" />
-                </Hidden>
-                <h3>
+              <div className={classes.container}>
+
+                <div>
+                  <img src={logo} className="dfimg" />
+                </div>
+                
+                <h3 className="dftxt" style={{color:"#fff", textAlign:"center"}}>
                   Competition to <span className="element"></span>
                 </h3>
-                <Grid container>
-                  <Grid item>
+
+                <div className={classes.icongrid}>
                     <GoogleSignIn />
-                  </Grid>
-                  <Grid item>
-                    <FacebookSignIn />
-                  </Grid>
-                </Grid>
+                    {/* <FacebookSignIn /> */}
+                    <GithubSignin />
+                </div>
+
               </div>
-            </div>
-            <div className="jumbotron jumbotron-fluid"></div>
+            
+            
             <Footer />
-          </Container>
+         
           
         </DashboardLayout>
       </div>

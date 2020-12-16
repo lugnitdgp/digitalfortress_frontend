@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Mansalva&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+html, body{
+  font-family: 'Audiowide', cursive !important;
+}
 
 .loginBtn {
   box-sizing: border-box;
@@ -84,7 +89,6 @@ audio {
 }
 
 /* tttttttttttttttttttttttttt */
-
 .jumbotron {
   color: white;
   /* background-image: url("images/globe.webp"); */
@@ -206,4 +210,28 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', end
 
 .clue-submit:hover {
   color: white !important;
+}
+
+/*------------index------------*/
+.dfimg{
+  height: 60px;
+}
+.dftxt{
+  font-size: 24px;
+  margin:20px auto;
+}
+.foottxt{
+  font-size: 21px;
+}
+@media screen and (max-width: 521px) {
+  .dfimg{
+    height: 50px;
+  }
+  .dftxt{
+    font-size: 17px;
+    max-width: 75%;
+  }
+  .foottxt{
+    font-size: 16px;
+  }
 }

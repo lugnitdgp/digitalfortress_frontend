@@ -6,11 +6,12 @@ import { Link } from "gatsby"
 import FacebookSignIn from "./FacebookSignIn"
 import { navigate } from "gatsby"
 import Rules from "../components/Rules"
+import AnswerAlert from "../components/AnswerAlert"
 import {
   AppBar,
   Toolbar,
   IconButton,
-  Typography,
+  div,
   withStyles,
   Button,
   Hidden,
@@ -39,12 +40,16 @@ import Logout from "./Logout"
 import Dashboard from "../pages/dashboard"
 import GoogleLogin from "react-google-login"
 import store from "../store/index"
+import Axios from "axios"
 
 const drawerWidth = 240
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
+  },
+  gfont:{
+    fontFamily: "'Audiowide', cursive",
   },
   BackdropProps: {
     background: "transparent",
@@ -59,12 +64,13 @@ const styles = theme => ({
     float: "right",
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 2,
+    zIndex:999,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    backgroundColor: "#000000",
+    backgroundColor: "rgba(3, 32, 44, 0.6)",
+    backdropFilter: "blur(3px)",
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -86,8 +92,10 @@ const styles = theme => ({
     zIndex: -1,
   },
   drawerPaper: {
+    zIndex:9999,
     width: drawerWidth,
-    background: "black",
+    background: "#03212c",
+    backdropFilter: "blur(3px)",
     color: "white",
     opacity: 0.75,
     zIndex: -1,
@@ -124,14 +132,18 @@ class NavBar extends React.Component {
       profileImage: "",
       name: "",
       isOpen: false,
+      score: -17,
+      rank: -17,
     }
     this.setProfile = this.setProfile.bind(this)
+    this.getScore = this.getScore.bind(this)
     this.toggleNavbar = this.toggleNavbar.bind(this)
     this.closeNavbar = this.closeNavbar.bind(this)
   }
 
   componentDidMount() {
     this.setProfile()
+    this.getScore()
   }
 
   setProfile() {
@@ -141,6 +153,26 @@ class NavBar extends React.Component {
         name: localStorage.name,
       })
     }
+  }
+
+  getScore() {
+    var self = this
+    Axios.get(`${process.env.GATSBY_API_URL}quiz/user?format=json`, {
+      headers: {
+        Authorization: `Token ${localStorage.token}`,
+      },
+    })
+    .then(function(response) {
+      //console.log(response)
+      self.setState({
+        score: response.data.score,
+        rank: response.data.rank
+      })
+    })
+    .catch(function(error) {
+      //console.log(error)
+      //AnswerAlert(-1)
+    })
   }
 
   toggleNavbar() {
@@ -161,7 +193,7 @@ class NavBar extends React.Component {
 
     return (
       <React.Fragment>
-        <AppBar position="static" className={classes.appBar}>
+        <AppBar position="fixed" className={classes.appBar}>
           <Toolbar>
             <IconButton
               edge="start"
@@ -175,28 +207,30 @@ class NavBar extends React.Component {
 
             <img
               src={logo}
-              height={40}
+              height={35}
               className="d-inline-block align-top"
               alt="Logo"
             />
             <div className={classes.grow} />
             <Hidden smDown >
               <Link to="/" style={{ color: "white" }}>
-                <Button color="inherit">Home</Button>
+                <Button className={classes.gfont} color="inherit">Home</Button>
               </Link>
               <Button
                 color="inherit"
+                className={classes.gfont}
                 onClick={e => store.dispatch({ type: "OPEN" })}
               >
                 Rules
               </Button>
               <Link to="/leaderboard/" style={{ color: "white" }}>
-                <Button color="inherit">LeaderBoard</Button>
+                <Button className={classes.gfont} color="inherit">LeaderBoard</Button>
               </Link>
             </Hidden>
             <Logout />
           </Toolbar>
         </AppBar>
+        {/* hide from 960px */}
         <SwipeableDrawer
           className={classes.drawer}
           variant="temporary"
@@ -221,7 +255,7 @@ class NavBar extends React.Component {
                   <Home style={{ color: "white" }} />
                 </ListItemIcon>
 
-                <ListItemText primary="Home" style={{ color: "white" }} />
+                <div className={classes.gfont} style={{color:"#fff"}}>HOME</div>
               </ListItem>
             </Link>
             <ListItem button key="Rules">
@@ -229,24 +263,25 @@ class NavBar extends React.Component {
                 <FormatAlignJustifyIcon style={{ color: "white" }} />
               </ListItemIcon>
 
-              <ListItemText
-                primary="Rules"
-                style={{ color: "white" }}
-                onClick={e => store.dispatch({ type: "OPEN" })}
-              />
+              <div className={classes.gfont} onClick={e => store.dispatch({ type: "OPEN" })} style={{color:"#fff"}}>RULES</div>
+                
+              
             </ListItem>
+
             <Link to="/leaderboard/"  onClick={e => this.closeNavbar()} >
               <ListItem button key="Leaderboard">
                 <ListItemIcon>
                   <DashboardIcon style={{ color: "white" }} />
                 </ListItemIcon>
-
-                <ListItemText
-                  primary="Leaderboard"
-                  style={{ color: "white" }}
-                />
+                <div className={classes.gfont} style={{color:"#fff"}}>LEADERBOARD</div>
               </ListItem>
             </Link>
+            <ListItem>
+              {this.state.score != -17 ? <div className={classes.gfont} style={{color:"#fff"}}>Your Score - 0</div> : <div></div>}
+            </ListItem>
+            <ListItem>
+            {this.state.score != -17 ? <div className={classes.gfont} style={{color:"#fff"}}>Your Rank - 0</div> : <div></div>}
+            </ListItem>
           </List>
         </SwipeableDrawer>
       </React.Fragment>

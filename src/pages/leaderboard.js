@@ -3,21 +3,19 @@ import DashboardLayout from "../layouts/DashboardLayout"
 import axios from "axios"
 import "../styles/leaderboard.css"
 import AnswerAlert from "../components/AnswerAlert"
-import {
-  List,
-  ListItem,
-  ListItemAvatar,
-  Avatar,
-  ListItemText,
-  withStyles,
-} from "@material-ui/core"
+import { withStyles } from "@material-ui/core"
 import Loader from "../styles/loader"
 import store from "../store/leaderboard"
+import "../glitch.css"
+import Footer from "../components/Footer";
 
 const useStyles = theme => ({
   root: {
     width: "100%",
   },
+  main: {
+    minHeight: "65vh",
+  }
 })
 
 class LeaderBoard extends React.Component {
@@ -51,10 +49,11 @@ class LeaderBoard extends React.Component {
           style={{ backgroundImage: "url(" + image + ")" }}
         ></div>
         <div className="name">{name}</div>
-        <div className="score" style={{color: "black"}}>{score}</div>
+        <div className="score">{score}</div>
       </div>
     )
   }
+
   SecondPosition({ name, image, score }) {
     return (
       <div className="two item">
@@ -64,10 +63,11 @@ class LeaderBoard extends React.Component {
           style={{ backgroundImage: "url(" + image + ")" }}
         ></div>
         <div className="name">{name}</div>
-        <div className="score" style={{color: "black"}}>{score}</div>
+        <div className="score">{score}</div>
       </div>
     )
   }
+
   ThirdPosition({ name, image, score }) {
     return (
       <div className="three item">
@@ -77,7 +77,7 @@ class LeaderBoard extends React.Component {
           style={{ backgroundImage: "url(" + image + ")" }}
         ></div>
         <div className="name">{name}</div>
-        <div className="score" style={{color: "black"}}>{score}</div>
+        <div className="score">{score}</div>
       </div>
     )
   }
@@ -101,6 +101,7 @@ class LeaderBoard extends React.Component {
         AnswerAlert(-1)
       })
   }
+  
   render() {
     const { classes } = this.props
     const list = this.state.playerRanks
@@ -111,29 +112,38 @@ class LeaderBoard extends React.Component {
     if (list.length !== 0) {
       return (
         <DashboardLayout>
-          <div className="center">
-            <h1 className="mx-auto d-block md-5 text-black title">LeaderBoard</h1>
-            <hr></hr>
+          <div className={classes.main}>
+          <div className="center" style={{fontFamily: "'Audiowide', cursive",}}>
+            <div style={{fontSize:"28px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="LEADERBOARD">LEADERBOARD</div>
+            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="SAMPLE ROUNDS COMING SOON">SAMPLE ROUNDS COMING SOON</div>
+            
+            <br/>
+          { list.length >= 150 ? 
+            <div>
+            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div>
             <div className="top3">
               {
                 <this.SecondPosition
                   name={list[1].name}
                   image={list[1].image}
-                  score={list[1].score}
+                  // score={list[1].score}
+                  score={0}
                 />
               }
               {
                 <this.FirstPosition
                   name={list[0].name}
                   image={list[0].image}
-                  score={list[0].score}
+                  // score={list[0].score}
+                  score={0}
                 />
               }
               {
                 <this.ThirdPosition
                   name={list[2].name}
                   image={list[2].image}
-                  score={list[2].score}
+                  // score={list[2].score}
+                  score={0}
                 />
               }
             </div>
@@ -143,20 +153,26 @@ class LeaderBoard extends React.Component {
                   <React.Fragment key={v.rank}>
                     {v.rank > 3 ? (
                       <div className="item">
-                        <div className="pos">{v.rank}</div>
+                        <div className="pos" style={{color: "white"}}>{v.rank}</div>
                         <div
                           className="pic"
                           style={{ backgroundImage: "url(" + v.image + ")" }}
                         ></div>
                         <div className="name">{v.name}</div>
-                        <div className="score" style={{color: "black"}}>{v.score}</div>
+                        {/* <div className="score" style={{color: "white"}}>{v.score}</div> */}
+                        <div className="score" style={{color: "white"}}>0</div>
                       </div>
                     ) : null}
                   </React.Fragment>
                 )
               })}
             </div>
+            </div>
+          : <div> </div>}
           </div>
+          </div>
+          <Footer />
+          
         </DashboardLayout>
       )
     } else

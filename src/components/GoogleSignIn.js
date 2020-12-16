@@ -41,12 +41,13 @@ export default class GoogleSignIn extends React.Component {
               }
             )
             .then(res => {
+              //console.log(res);
               localStorage.token = res.data.token
               navigate("/dashboard/")
             })
             .catch(res => console.log(res))
         } else {
-          console.log("User registered successfully")
+          //console.log("User registered successfully")
           localStorage.token = res.data.token
           navigate("/dashboard/")
         }
@@ -60,7 +61,7 @@ export default class GoogleSignIn extends React.Component {
   }
 
   setData(res) {
-    console.log(res.tokenId)
+    //console.log(res.tokenId)
     this.registerUser(res.tokenId)
     localStorage.email = res.profileObj.email
     localStorage.image = res.profileObj.imageUrl

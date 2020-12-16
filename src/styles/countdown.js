@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import "./countdown.css"
 import { Container, Grid, withStyles } from "@material-ui/core"
+import "../glitch.css"
+import Loader from "../styles/loader"
 
 const styles = theme => ({
   root: {
@@ -17,6 +19,7 @@ class CountDown extends React.Component {
       minutes: 0,
       seconds: 0,
       ended: true,
+      loaded: false,
     }
   }
 
@@ -30,6 +33,7 @@ class CountDown extends React.Component {
 
       if (eventStartTime - today > 0) {
         self.setState({ ended: false })
+        self.setState({ loaded : true })
         diff = eventStartTime - today
       }
 
@@ -38,21 +42,37 @@ class CountDown extends React.Component {
         hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
         minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((diff % (1000 * 60)) / 1000),
+        
       })
+
+      self.setState({ loaded : true })
+
     }, 1000)
+
   }
 
   render() {
     const { classes } = this.props
     return (
       <React.Fragment>
+        {this.state.loaded ? 
         <Container className={classes.root}>
           <Grid container justify="center">
             <Grid item>
-              <div class="heading">
+              <div 
+              style={{
+                textAlign:"center",
+                margin:"0 auto",
+                textTransform:"uppercase",
+                fontSize:"25px",
+                marginTop:"50px"
+              }}
+              className="glitch" data-text={this.state.ended
+                  ? "Event already ended before"
+                  : "Sample rounds will start in"}>
                 {this.state.ended
                   ? "Event already ended before"
-                  : "Event to be start by"}
+                  : "Sample rounds will start in"}
               </div>
               <div id="timer">
                 <div class="days">
@@ -75,6 +95,7 @@ class CountDown extends React.Component {
             </Grid>
           </Grid>
         </Container>
+        : <Loader/>}
       </React.Fragment>
     )
   }

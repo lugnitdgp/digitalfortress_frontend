@@ -8,9 +8,11 @@ import {
 
 const mapStyles = {
   padding: "15px",
-  width: "95%",
-  height: "500px",
-  zIndex: "1 !important"
+  borderRadius:"20px",
+  maxWidth:"900px",
+  height: "60vh",
+  zIndex: "1 !important",
+  border:"2px solid #32c8c6",
 }
 
 class GameMap extends React.Component {
