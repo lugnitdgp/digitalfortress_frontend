@@ -35,7 +35,7 @@ export default class GitHubSignin extends React.Component {
     //var code = "" + window.location.href.match(/?code=(.*)/) && window.location.href.match(/?code=(.*)/)[1];
     if (code) {
       
-      console.log(code);
+      // console.log(code);
       var self = this
       axios
         .post(
@@ -54,7 +54,7 @@ export default class GitHubSignin extends React.Component {
           }
         )
         .then(function(res) {
-          console.log(res)
+          // console.log(res)
           if (res.data.status != 402) {
             self.setData(res)
             
