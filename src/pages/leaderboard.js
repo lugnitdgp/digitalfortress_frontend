@@ -15,6 +15,46 @@ const useStyles = theme => ({
   },
   main: {
     minHeight: "65vh",
+  },
+  wrap:{
+    width:"97%",
+    display:"flex",
+    justifyContent:"flex-start",
+    alignItems:"center",
+    margin:"25px auto",
+    maxWidth:"600px"
+  },
+  item:{
+    width:"100%",
+    display:"flex",
+    justifyContent:"flex-start",
+    alignItems:"center",
+    fontWeight: "18px",
+    height:"50px",
+    borderRadius:"50px",
+    backgroundColor: "rgba(3, 32, 44, 0.4)",
+    backdropFilter: "blur(3px)",
+    border:"1px solid #32c8c6",
+  },
+  pos:{
+    paddingRight:"10px",
+    width:"30px"
+  },
+  name:{
+    color:"#fff",
+    marginLeft:"5px",
+    width:"80%"
+  },
+  score:{
+    float: "right",
+    paddingRight:"8px",
+  },
+  pic:{
+    width:"50px",
+    height:"50px",
+    borderRadius:"50px",
+    backgroundPosition:"center",
+    backgroundSize:"cover"
   }
 })
 
@@ -163,23 +203,26 @@ class LeaderBoard extends React.Component {
                 />
               }
             </div>
-            <div className="list">
+            <div >
               {list.map((v, index) => {
                 return (
-                  <React.Fragment key={v.rank}>
+                  <div key={v.rank}>
                     {v.rank > 3 ? (
-                      <div className="item">
-                        <div className="pos" style={{color: "white"}}>{v.rank}</div>
+                      <div className={classes.wrap}>
+                      <div className={classes.pos} style={{color: "white"}}>{v.rank}</div>
+                      <div className={classes.item}>
+                        
                         <div
-                          className="pic"
+                          className={classes.pic}
                           style={{ backgroundImage: "url(" + v.image + ")" }}
                         ></div>
-                        <div className="name">{v.name}</div>
+                        <div className={classes.name}>{v.name}</div>
                         {/* <div className="score" style={{color: "white"}}>{v.score}</div> */}
-                        <div className="score" style={{color: "white"}}>0</div>
+                        <div className={classes.score} style={{color: "white"}}>0</div>
+                      </div>
                       </div>
                     ) : null}
-                  </React.Fragment>
+                  </div>
                 )
               })}
             </div>
