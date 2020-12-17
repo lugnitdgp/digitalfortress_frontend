@@ -29,15 +29,31 @@ class LeaderBoard extends React.Component {
 
   componentDidMount() {
     var self = this
-    this.setState({
-      playerRanks: store.getState()
-    })
-    this.fetchData()
-    store.subscribe(() => {
-      self.setState({
-        playerRanks: store.getState()
+    // this.setState({
+    //   playerRanks: store.getState()
+    // })
+    // this.fetchData()
+    // store.subscribe(() => {
+    //   self.setState({
+    //     playerRanks: store.getState()
+    //   })
+    // })
+    axios
+      .get(`${process.env.GATSBY_API_URL}quiz/leaderboard?format=json`)
+      .then(response => {
+        if (response.data.standings.length != 0) {
+          self.setState({
+          playerRanks: response.data.standings
+        })
+        } else {
+          self.setState({
+            playerRanks: [],
+          })
+        }
       })
-    })
+      .catch(error => {
+        AnswerAlert(-1)
+      })
   }
 
   FirstPosition({ name, image, score }) {
