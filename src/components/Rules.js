@@ -82,9 +82,10 @@ class Rules extends React.Component {
           <ol style={{margin:"10px auto", textAlign:"left"}}>
               <li>Solving each round rewards you 10 points.</li>
               <li>Each Round is based on a theme which you need to figure out.</li>
-              <li>Each Round consists of a main question and 4 clue questions.</li>
+              <li>Each Round consists of a main question and a few clue questions.</li>
               <li>Answering each clue question unlocks a position on the map.</li>
-              <li>These locations are hints to the main question.</li>
+              <li>These locations/shapes/street-views are hints to the main question.</li>
+              <li>The leaderboard will be inactive during sample rounds.</li>
             </ol>
           
         

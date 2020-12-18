@@ -63,6 +63,7 @@ class LeaderBoard extends React.Component {
     super(props)
     this.state = {
       playerRanks: [],
+      status: 0,
     }
     this.fetchData = this.fetchData.bind(this)
   }
@@ -81,9 +82,10 @@ class LeaderBoard extends React.Component {
     axios
       .get(`${process.env.GATSBY_API_URL}quiz/leaderboard?format=json`)
       .then(response => {
-        if (response.data.standings.length != 0) {
+        if (response.data.standings.length != 0 || response.data.status == 203 ) {
           self.setState({
-          playerRanks: response.data.standings
+          playerRanks: response.data.standings,
+          status: 203
         })
         } else {
           self.setState({
@@ -165,18 +167,18 @@ class LeaderBoard extends React.Component {
       color: "black",
    };
 
-    if (list.length !== 0) {
+    if (list.length !== 0 || this.state.status == 203) {
       return (
         <DashboardLayout>
           <div className={classes.main}>
           <div className="center" style={{fontFamily: "'Audiowide', cursive",}}>
             <div style={{fontSize:"28px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="LEADERBOARD">LEADERBOARD</div>
-            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="SAMPLE ROUNDS COMING SOON">SAMPLE ROUNDS COMING SOON</div>
+            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginBottom:"0px"}} className="glitch" data-text="SAMPLE ROUNDS ARE LIVE">SAMPLE ROUNDS ARE LIVE</div>
             
             <br/>
           { list.length >= 150 ? 
             <div>
-            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div>
+            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginTop:"10px"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div>
             <div className="top3">
               {
                 <this.SecondPosition
