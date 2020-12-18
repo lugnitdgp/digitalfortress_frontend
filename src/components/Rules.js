@@ -35,7 +35,7 @@ const styles = theme => ({
     borderLeft:"1px solid #32c8c6",
     margin:"0 auto",
     maxWidth:"500px",
-    padding:"30px",
+    padding:"25px",
     textAlign:"center"
   },
 })
