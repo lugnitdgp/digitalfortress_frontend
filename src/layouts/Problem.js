@@ -199,9 +199,9 @@ class Problem extends React.Component {
                 style={{fontSize:"30px",
                 color:"#fff",
                 textTransform:"uppercase", textAlign:"center"}}
-                className="glitch" data-text={`Sample Round ${this.state.round.round_number}`}
+                className="glitch" data-text={`Round ${this.state.round.round_number}`}
               >
-                Sample Round {this.state.round.round_number}
+                Round {this.state.round.round_number}
               </div>
             </Grid>
             <Question

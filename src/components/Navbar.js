@@ -277,10 +277,10 @@ class NavBar extends React.Component {
               </ListItem>
             </Link>
             <ListItem>
-              {this.state.score != -17 ? <div className={classes.gfont} style={{color:"#fff"}}>Your Score - 0</div> : <div></div>}
+              {this.state.score != -17 ? <div className={classes.gfont} style={{color:"#fff"}}>Your Score - {this.state.score}</div> : <div></div>}
             </ListItem>
             <ListItem>
-            {this.state.score != -17 ? <div className={classes.gfont} style={{color:"#fff"}}>Your Rank - 0</div> : <div></div>}
+            {this.state.score != -17 ? <div className={classes.gfont} style={{color:"#fff"}}>Your Rank - {this.state.score}</div> : <div></div>}
             </ListItem>
           </List>
         </SwipeableDrawer>

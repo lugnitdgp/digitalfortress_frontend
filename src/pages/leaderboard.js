@@ -178,7 +178,7 @@ class LeaderBoard extends React.Component {
             <br/>
           { list.length >= 150 ? 
             <div>
-            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginTop:"10px"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div>
+            {/* <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginTop:"10px"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div> */}
             <div className="top3">
               {
                 <this.SecondPosition
@@ -220,7 +220,7 @@ class LeaderBoard extends React.Component {
                         ></div>
                         <div className={classes.name}>{v.name}</div>
                         {/* <div className="score" style={{color: "white"}}>{v.score}</div> */}
-                        <div className={classes.score} style={{color: "white"}}>0</div>
+                        <div className={classes.score} style={{color: "white"}}>{v.score}</div>
                       </div>
                       </div>
                     ) : null}
