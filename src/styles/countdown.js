@@ -69,10 +69,10 @@ class CountDown extends React.Component {
               }}
               className="glitch" data-text={this.state.ended
                   ? "Event already ended before"
-                  : "Sample rounds will start in"}>
+                  : "The Event will start in"}>
                 {this.state.ended
                   ? "Event already ended before"
-                  : "Sample rounds will start in"}
+                  : "The Event will start in"}
               </div>
               <div id="timer">
                 <div class="days">

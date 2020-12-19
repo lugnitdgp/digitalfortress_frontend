@@ -173,7 +173,7 @@ class LeaderBoard extends React.Component {
           <div className={classes.main}>
           <div className="center" style={{fontFamily: "'Audiowide', cursive",}}>
             <div style={{fontSize:"28px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="LEADERBOARD">LEADERBOARD</div>
-            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginBottom:"0px"}} className="glitch" data-text="SAMPLE ROUNDS ARE LIVE">SAMPLE ROUNDS ARE LIVE</div>
+            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginBottom:"0px"}} className="glitch" data-text="EVENT WILL START SOON">EVENT WILL START SOON</div>
             
             <br/>
           { list.length >= 150 ? 
