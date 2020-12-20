@@ -37,7 +37,7 @@ export default function Completed() {
         <div className="glitch" data-text="Congratulations">Congratulations</div>
 <br/>
         <div >
-         You have successfully completed the questions of this sample round.
+         You have successfully completed the questions of this round.
         </div>
       </div>
     </DashboardLayout>

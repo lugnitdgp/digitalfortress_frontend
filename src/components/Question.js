@@ -85,6 +85,7 @@ export default function Question(props) {
             onClick={e => {
               setAnswer("")
               props.submitRound(answer)
+              
             }}
           >
             
