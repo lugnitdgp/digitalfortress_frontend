@@ -184,24 +184,24 @@ class LeaderBoard extends React.Component {
                 <this.SecondPosition
                   name={list[1].name}
                   image={list[1].image}
-                  // score={list[1].score}
-                  score={0}
+                  score={list[1].score}
+                  // score={0}
                 />
               }
               {
                 <this.FirstPosition
                   name={list[0].name}
                   image={list[0].image}
-                  // score={list[0].score}
-                  score={0}
+                  score={list[0].score}
+                  // score={0}
                 />
               }
               {
                 <this.ThirdPosition
                   name={list[2].name}
                   image={list[2].image}
-                  // score={list[2].score}
-                  score={0}
+                  score={list[2].score}
+                  // score={0}
                 />
               }
             </div>
