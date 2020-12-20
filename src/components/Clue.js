@@ -162,6 +162,7 @@ export default props => {
   const submit = () => {
     setOpen(false)
     props.submitClue(answer, props.id)
+    setAnswer("")
   }
 
   if (props.isSolved == 1) {
