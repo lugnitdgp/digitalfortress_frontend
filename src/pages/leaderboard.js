@@ -173,12 +173,12 @@ class LeaderBoard extends React.Component {
           <div className={classes.main}>
           <div className="center" style={{fontFamily: "'Audiowide', cursive",}}>
             <div style={{fontSize:"28px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="LEADERBOARD">LEADERBOARD</div>
-            {/* <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginBottom:"0px"}} className="glitch" data-text="EVENT WILL START SOON">EVENT WILL START SOON</div> */}
+            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginBottom:"0px"}} className="glitch" data-text="TUNE IN TO THE FRESHER'S ORIENTATION ON 24TH AT 4PM TO KNOW WHO BREACHED THE FORT">TUNE IN TO THE FRESHER'S ORIENTATION ON 24TH AT 4PM TO KNOW WHO BREACHED THE FORT</div>
             
-            <br/>
-          { list.length >= 150 ? 
+            {/* <br/> */}
+          {/* { list.length >= 150 ? 
             <div>
-            {/* <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginTop:"10px"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div> */}
+            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginTop:"10px"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div>
             <div className="top3">
               {
                 <this.SecondPosition
@@ -219,7 +219,7 @@ class LeaderBoard extends React.Component {
                           style={{ backgroundImage: "url(" + v.image + ")" }}
                         ></div>
                         <div className={classes.name}>{v.name}</div>
-                        {/* <div className="score" style={{color: "white"}}>{v.score}</div> */}
+                       <div className="score" style={{color: "white"}}>{v.score}</div> 
                         <div className={classes.score} style={{color: "white"}}>{v.score}</div>
                       </div>
                       </div>
@@ -229,7 +229,7 @@ class LeaderBoard extends React.Component {
               })}
             </div>
             </div>
-          : <div> </div>}
+          : <div> </div>} */}
           </div>
           </div>
           <Footer />
