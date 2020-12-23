@@ -25,7 +25,8 @@ const useStyles = makeStyles(theme => ({
     backdropFilter: "blur(3px)",
     border:"1px solid #32c8c6",
     borderRadius:"20px",
-    padding:"20px"
+    padding:"20px",
+    
             }
 }));
 
@@ -37,7 +38,8 @@ export default function Completed() {
         <div className="glitch" data-text="Congratulations">Congratulations</div>
 <br/>
         <div >
-         You have successfully completed the questions of this round. More Rounds coming soon.
+        You have been successful !
+The fortress has been breached.
         </div>
       </div>
     </DashboardLayout>

@@ -220,6 +220,7 @@ class Problem extends React.Component {
                   Clues
                 </div>
               </div> */}
+
           <Grid container spacing={2} className={classes.clueContainer}>
             {cluesArr}
           </Grid>
@@ -230,7 +231,7 @@ class Problem extends React.Component {
                   centerLoc={this.state.center}
                 />
               </div>
-            
+
         </Container>
       )
     } else
