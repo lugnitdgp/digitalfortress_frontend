@@ -15,6 +15,46 @@ const useStyles = theme => ({
   },
   main: {
     minHeight: "65vh",
+  },
+  wrap:{
+    width:"97%",
+    display:"flex",
+    justifyContent:"flex-start",
+    alignItems:"center",
+    margin:"25px auto",
+    maxWidth:"600px"
+  },
+  item:{
+    width:"100%",
+    display:"flex",
+    justifyContent:"flex-start",
+    alignItems:"center",
+    fontWeight: "18px",
+    height:"50px",
+    borderRadius:"50px",
+    backgroundColor: "rgba(3, 32, 44, 0.4)",
+    backdropFilter: "blur(3px)",
+    border:"1px solid #32c8c6",
+  },
+  pos:{
+    paddingRight:"10px",
+    width:"35px"
+  },
+  name:{
+    color:"#fff",
+    marginLeft:"5px",
+    width:"80%"
+  },
+  score:{
+    float: "right",
+    paddingRight:"8px",
+  },
+  pic:{
+    width:"50px",
+    height:"50px",
+    borderRadius:"50px",
+    backgroundPosition:"center",
+    backgroundSize:"cover"
   }
 })
 
@@ -23,21 +63,39 @@ class LeaderBoard extends React.Component {
     super(props)
     this.state = {
       playerRanks: [],
+      status: 0,
     }
     this.fetchData = this.fetchData.bind(this)
   }
 
   componentDidMount() {
     var self = this
-    this.setState({
-      playerRanks: store.getState()
-    })
-    this.fetchData()
-    store.subscribe(() => {
-      self.setState({
-        playerRanks: store.getState()
+    // this.setState({
+    //   playerRanks: store.getState()
+    // })
+    // this.fetchData()
+    // store.subscribe(() => {
+    //   self.setState({
+    //     playerRanks: store.getState()
+    //   })
+    // })
+    axios
+      .get(`${process.env.GATSBY_API_URL}quiz/leaderboard?format=json`)
+      .then(response => {
+        if (response.data.standings.length != 0 || response.data.status == 203 ) {
+          self.setState({
+          playerRanks: response.data.standings,
+          status: 203
+        })
+        } else {
+          self.setState({
+            playerRanks: [],
+          })
+        }
       })
-    })
+      .catch(error => {
+        AnswerAlert(-1)
+      })
   }
 
   FirstPosition({ name, image, score }) {
@@ -109,66 +167,69 @@ class LeaderBoard extends React.Component {
       color: "black",
    };
 
-    if (list.length !== 0) {
+    if (list.length !== 0 || this.state.status == 203) {
       return (
         <DashboardLayout>
           <div className={classes.main}>
           <div className="center" style={{fontFamily: "'Audiowide', cursive",}}>
             <div style={{fontSize:"28px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="LEADERBOARD">LEADERBOARD</div>
-            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="SAMPLE ROUNDS COMING SOON">SAMPLE ROUNDS COMING SOON</div>
+            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginBottom:"0px"}} className="glitch" data-text="TUNE IN TO THE FRESHER'S ORIENTATION ON 24TH AT 4PM TO KNOW WHO BREACHED THE FORT">TUNE IN TO THE FRESHER'S ORIENTATION ON 24TH AT 4PM TO KNOW WHO BREACHED THE FORT</div>
             
-            <br/>
-          { list.length >= 150 ? 
+            {/* <br/> */}
+          {/* { list.length >= 150 ? 
             <div>
-            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div>
+            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginTop:"10px"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div>
             <div className="top3">
               {
                 <this.SecondPosition
                   name={list[1].name}
                   image={list[1].image}
-                  // score={list[1].score}
-                  score={0}
+                  score={list[1].score}
+                  // score={0}
                 />
               }
               {
                 <this.FirstPosition
                   name={list[0].name}
                   image={list[0].image}
-                  // score={list[0].score}
-                  score={0}
+                  score={list[0].score}
+                  // score={0}
                 />
               }
               {
                 <this.ThirdPosition
                   name={list[2].name}
                   image={list[2].image}
-                  // score={list[2].score}
-                  score={0}
+                  score={list[2].score}
+                  // score={0}
                 />
               }
             </div>
-            <div className="list">
+            <div >
               {list.map((v, index) => {
                 return (
-                  <React.Fragment key={v.rank}>
+                  <div key={v.rank}>
                     {v.rank > 3 ? (
-                      <div className="item">
-                        <div className="pos" style={{color: "white"}}>{v.rank}</div>
+                      <div className={classes.wrap}>
+                      <div className={classes.pos} style={{color: "white"}}>{v.rank}</div>
+                      <div className={classes.item}>
+                        
                         <div
-                          className="pic"
+                          className={classes.pic}
                           style={{ backgroundImage: "url(" + v.image + ")" }}
                         ></div>
-                        <div className="name">{v.name}</div>
-                        {/* <div className="score" style={{color: "white"}}>{v.score}</div> */}
-                        <div className="score" style={{color: "white"}}>0</div>
+                        <div className={classes.name}>{v.name}</div>
+                       <div className="score" style={{color: "white"}}>{v.score}</div> 
+                        <div className={classes.score} style={{color: "white"}}>{v.score}</div>
+                      </div>
                       </div>
                     ) : null}
-                  </React.Fragment>
+                  </div>
                 )
               })}
             </div>
             </div>
-          : <div> </div>}
+          : <div> </div>} */}
           </div>
           </div>
           <Footer />

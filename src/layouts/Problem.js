@@ -198,10 +198,10 @@ class Problem extends React.Component {
               <div
                 style={{fontSize:"30px",
                 color:"#fff",
-                textTransform:"uppercase"}}
-                className="glitch" data-text={`Round No. ${this.state.round.round_number}`}
+                textTransform:"uppercase", textAlign:"center"}}
+                className="glitch" data-text={`Round ${this.state.round.round_number}`}
               >
-                Round No. {this.state.round.round_number}
+                Round {this.state.round.round_number}
               </div>
             </Grid>
             <Question
@@ -220,6 +220,7 @@ class Problem extends React.Component {
                   Clues
                 </div>
               </div> */}
+
           <Grid container spacing={2} className={classes.clueContainer}>
             {cluesArr}
           </Grid>
@@ -230,7 +231,7 @@ class Problem extends React.Component {
                   centerLoc={this.state.center}
                 />
               </div>
-            
+
         </Container>
       )
     } else

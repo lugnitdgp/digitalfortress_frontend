@@ -69,8 +69,9 @@ class IndexPage extends React.Component {
                     <GoogleSignIn />
                     {/* <FacebookSignIn /> */}
                     <GithubSignin />
+                    
                 </div>
-
+                
               </div>
             
             

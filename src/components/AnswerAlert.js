@@ -36,6 +36,7 @@ export default (isCorrect) => {
             title: 'You Gave the Wrong answer',
             text: 'Read the question carefully',
             type: 'error',
+            timer: 1500,
             showConfirmButton: false,
             showClass: {
                 popup: 'animate__animated animate__fadeInDown'

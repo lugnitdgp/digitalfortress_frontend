@@ -162,6 +162,7 @@ export default props => {
   const submit = () => {
     setOpen(false)
     props.submitClue(answer, props.id)
+    setAnswer("")
   }
 
   if (props.isSolved == 1) {
@@ -221,7 +222,7 @@ export default props => {
           </Button>
           &nbsp;&nbsp;
           <Button
-            onClick={e => submit()}
+            onClick={e => {submit(); setAnswer("")}}
             className={classes.gfont}
             style={{border:"1px solid #32c8c6"}}
           >
