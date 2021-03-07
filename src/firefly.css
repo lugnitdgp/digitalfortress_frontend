@@ -23,14 +23,14 @@
     transform-origin: -10vw;
   }
   .firefly::before {
-    background: rgb(0, 255, 255);
+    background: rgb(78, 81, 255);
     opacity: 0.5;
     animation: drift ease alternate infinite;
   }
   .firefly::after {
-    background: rgb(255, 190, 190);
+    background: rgb(119, 104, 255);
     opacity: 0;
-    box-shadow: 0 0 0vw 0vw rgb(255, 8, 0);
+    box-shadow: 0 0 0vw 0vw rgb(68, 0, 255);
     animation: drift ease alternate infinite, flash ease infinite;
   }
   .firefly:nth-child(1) {
@@ -1295,10 +1295,10 @@
   @keyframes flash {
     0%, 30%, 100% {
       opacity: 0;
-      box-shadow: 0 0 0vw 0vw rgb(255, 0, 0);
+      box-shadow: 0 0 0vw 0vw rgb(25, 0, 255);
     }
     5% {
       opacity: 1;
-      box-shadow: 0 0 2vw 0.4vw rgb(255, 0, 0);
+      box-shadow: 0 0 2vw 0.4vw rgb(25, 0, 255);
     }
   }
