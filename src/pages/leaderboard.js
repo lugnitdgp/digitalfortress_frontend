@@ -176,7 +176,7 @@ class LeaderBoard extends React.Component {
             <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginBottom:"0px"}} className="glitch" data-text="TUNE IN TO THE FRESHER'S ORIENTATION ON 24TH AT 4PM TO KNOW WHO BREACHED THE FORT">TUNE IN TO THE FRESHER'S ORIENTATION ON 24TH AT 4PM TO KNOW WHO BREACHED THE FORT</div>
             
             {/* <br/> */}
-          { list.length >= 150 ? 
+          { list.length >= 3 ? 
             <div>
             <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginTop:"10px"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div>
             <div className="top3">
