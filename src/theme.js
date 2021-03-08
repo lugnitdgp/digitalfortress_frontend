@@ -1,4 +1,3 @@
-import { red } from '@material-ui/core/colors';
 import { createMuiTheme } from '@material-ui/core/styles';
 
 // A custom theme for this app
@@ -11,11 +10,12 @@ const theme = createMuiTheme({
       main: '#19857b',
     },
     error: {
-      main: red.A400,
+      main: "#f00",
     },
     background: {
       default: '#fff',
     },
+    cardbg: '#fff',
   },
 });
 

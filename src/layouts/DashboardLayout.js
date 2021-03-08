@@ -31,6 +31,7 @@ export default class DashboardLayout extends React.Component {
           }}/> */}
         </Helmet>
         <NavBar />
+        <div class="overlay"></div>
         <div style={{height:"80px"}}></div>
         <div class="firefly"></div>
         <div class="firefly"></div>

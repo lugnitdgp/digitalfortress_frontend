@@ -32,9 +32,9 @@ const useStyles = theme => ({
     fontWeight: "18px",
     height:"50px",
     borderRadius:"50px",
-    backgroundColor: "rgba(3, 32, 44, 0.4)",
+    backgroundColor: "rgba(7,7,125, 0.25)",
     backdropFilter: "blur(3px)",
-    border:"1px solid #32c8c6",
+    border:"1px solid rgb(70, 70, 255)",
   },
   pos:{
     paddingRight:"10px",
@@ -176,7 +176,7 @@ class LeaderBoard extends React.Component {
             <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginBottom:"0px"}} className="glitch" data-text="TUNE IN TO THE FRESHER'S ORIENTATION ON 24TH AT 4PM TO KNOW WHO BREACHED THE FORT">TUNE IN TO THE FRESHER'S ORIENTATION ON 24TH AT 4PM TO KNOW WHO BREACHED THE FORT</div>
             
             {/* <br/> */}
-          {/* { list.length >= 150 ? 
+          { list.length >= 150 ? 
             <div>
             <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginTop:"10px"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div>
             <div className="top3">
@@ -229,7 +229,7 @@ class LeaderBoard extends React.Component {
               })}
             </div>
             </div>
-          : <div> </div>} */}
+          : <div> </div>}
           </div>
           </div>
           <Footer />

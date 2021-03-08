@@ -1,10 +1,18 @@
 /* Header */
 body {
-  background-image: url("../images/bckg.jpg") !important;
+  background: rgba(70,70,255,0.3) url("../images/bckg.jpg") !important;
   background-size: cover !important;
   background-position: center center !important;
   background-attachment: fixed !important;
   background-repeat: no-repeat !important;
+  background-color: rgb(70, 70, 255);
+}
+.overlay{
+  background-color: rgba(9, 9, 65, 0.6);
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
 }
 .large-header {
   position: absolute;

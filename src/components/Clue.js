@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   },
   gfont:{
     fontFamily: "'Audiowide', cursive",
-    color:"#32c8c6",
+    color:"rgb(70, 70, 255)",
     outline:"none"
   },
   media: {
@@ -99,38 +99,38 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
   },
   cardColor: {
-    backgroundColor: "rgba(3, 32, 44, 0.4)",
+    backgroundColor: "rgba(7,7,125, 0.25)",
     backdropFilter: "blur(3px)",
     textAlign:"center",
     color:"#fff",
     borderRadius:"20px",
-    borderBottom:"8px solid #32c8c6",
-    border:"1px solid #32c8c6",
-    borderLeft:"1px solid #32c8c6",
+    borderBottom:"8px solid rgb(70, 70, 255)",
+    border:"1px solid rgb(70, 70, 255)",
+    borderLeft:"1px solid rgb(70, 70, 255)",
     margin:"0 auto",
     maxWidth:"250px"
   },
   btn2:{
     margin:"10px auto",
-    color:"#32c8c6",
+    color:"rgb(70, 70, 255)",
     outline:"none",
-    border:"2px solid #32c8c6",
+    border:"2px solid rgb(70, 70, 255)",
     fontFamily: "'Audiowide', cursive",
   },
   dialog:{
-    backgroundColor: "rgba(3, 32, 44, 0.3)",
+    backgroundColor: "rgba(7,7,125, 0.2)",
     
     textAlign:"center",
   },
   diaIn:{
-    backgroundColor: "rgba(3, 32, 44, 0.4)",
+    backgroundColor: "rgba(7,7,125, 0.25)",
     backdropFilter: "blur(3px)",
     textAlign:"center",
     color:"#fff",
     borderRadius:"20px",
-    borderBottom:"8px solid #32c8c6",
-    border:"1px solid #32c8c6",
-    borderLeft:"1px solid #32c8c6",
+    borderBottom:"8px solid rgb(70, 70, 255)",
+    border:"1px solid rgb(70, 70, 255)",
+    borderLeft:"1px solid rgb(70, 70, 255)",
     margin:"0 auto",
     maxWidth:"500px",
     padding:"30px",
@@ -139,7 +139,7 @@ const useStyles = makeStyles(theme => ({
   input: {
     backgroundColor:"rgba(0,0,0,0)",
     border:"none",
-    borderBottom:"2px solid #32c8c6",
+    borderBottom:"2px solid rgb(70, 70, 255)",
     width:"90%",
     maxWidth:"400px",
     outline:"none",
@@ -213,10 +213,9 @@ export default props => {
             }}
           />
         
-        
           <Button onClick={e => setOpen(false)} 
           className={classes.gfont}
-          style={{border:"1px solid #32c8c6"}}
+          style={{border:"1px solid rgb(70, 70, 255)"}}
           >
             Close
           </Button>
@@ -224,7 +223,7 @@ export default props => {
           <Button
             onClick={e => {submit(); setAnswer("")}}
             className={classes.gfont}
-            style={{border:"1px solid #32c8c6"}}
+            style={{border:"1px solid rgb(70, 70, 255)"}}
           >
             Check Answer
           </Button>
