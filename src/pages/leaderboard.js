@@ -32,9 +32,9 @@ const useStyles = theme => ({
     fontWeight: "18px",
     height:"50px",
     borderRadius:"50px",
-    backgroundColor: "rgba(7,7,125, 0.25)",
+    backgroundColor: "rgba(7,7,125, 0.35)",
     backdropFilter: "blur(3px)",
-    border:"1px solid rgb(70, 70, 255)",
+    border:"1px solid rgb(150, 160, 255)",
   },
   pos:{
     paddingRight:"10px",
@@ -173,12 +173,12 @@ class LeaderBoard extends React.Component {
           <div className={classes.main}>
           <div className="center" style={{fontFamily: "'Audiowide', cursive",}}>
             <div style={{fontSize:"28px", textAlign:"center", margin:"30px auto"}} className="glitch" data-text="LEADERBOARD">LEADERBOARD</div>
-            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginBottom:"0px"}} className="glitch" data-text="TUNE IN TO THE FRESHER'S ORIENTATION ON 24TH AT 4PM TO KNOW WHO BREACHED THE FORT">TUNE IN TO THE FRESHER'S ORIENTATION ON 24TH AT 4PM TO KNOW WHO BREACHED THE FORT</div>
+            {/* <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginBottom:"0px"}} className="glitch" data-text="TUNE IN TO THE FRESHER'S ORIENTATION ON 24TH AT 4PM TO KNOW WHO BREACHED THE FORT">TUNE IN TO THE FRESHER'S ORIENTATION ON 24TH AT 4PM TO KNOW WHO BREACHED THE FORT</div> */}
             
             {/* <br/> */}
           { list.length >= 3 ? 
             <div>
-            <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginTop:"10px"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div>
+            {/* <div style={{fontSize:"18px", textAlign:"center", margin:"30px auto", marginTop:"10px"}} className="glitch" data-text="SCORE CALCULATION DISABLED">SCORE CALCULATION DISABLED</div> */}
             <div className="top3">
               {
                 <this.SecondPosition
