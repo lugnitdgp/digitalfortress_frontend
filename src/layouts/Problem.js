@@ -182,7 +182,7 @@ class Problem extends React.Component {
     if (this.state.clues !== null) {
       var cluesArr = this.state.clues.map((v, index) => {
         return (
-          <Grid item xs={12} sm={3} lg={3}>
+          <Grid item xs={12} sm={3} lg={3} style={{margin: "5px"}}>
       
             <Clue
               question={v.question}
