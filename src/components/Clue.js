@@ -99,7 +99,7 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
   },
   cardColor: {
-    backgroundColor: "rgba(7,7,125, 0.35)",
+    backgroundColor: "rgba(7,7,125, 0.55)",
     backdropFilter: "blur(3px)",
     textAlign:"center",
     color:"#fff",
@@ -107,7 +107,7 @@ const useStyles = makeStyles(theme => ({
     borderBottom:"8px solid rgb(150, 160, 255)",
     border:"1px solid rgb(150, 160, 255)",
     borderLeft:"1px solid rgb(150, 160, 255)",
-    margin:"0 auto",
+    margin:"10px auto",
     maxWidth:"250px"
   },
   btn2:{
@@ -118,12 +118,12 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "'Audiowide', cursive",
   },
   dialog:{
-    backgroundColor: "rgba(7,7,125, 0.2)",
+    backgroundColor: "rgba(7,7,125, 0.4)",
     
     textAlign:"center",
   },
   diaIn:{
-    backgroundColor: "rgba(7,7,125, 0.35)",
+    backgroundColor: "rgba(7,7,125, 0.55)",
     backdropFilter: "blur(3px)",
     textAlign:"center",
     color:"#fff",

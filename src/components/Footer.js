@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../images/glug.png';
+import logo from '../images/aarhnLogo.png';
 //import nit from '../images/Arhn.png';
 //import nit2 from '../images/arhn.png';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';

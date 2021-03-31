@@ -20,6 +20,10 @@ const styles = theme => ({
     maxWidth:"900px",
     width:"95%",
     margin:"10px auto",
+    display: "flex",
+    flexWrap:"wrap",
+    alignItems: "center",
+    justifyContent:"center"
   },
   map:{
     borderRadius:"20px",
@@ -179,6 +183,7 @@ class Problem extends React.Component {
       var cluesArr = this.state.clues.map((v, index) => {
         return (
           <Grid item xs={12} sm={3} lg={3}>
+      
             <Clue
               question={v.question}
               id={v.id}
@@ -187,8 +192,11 @@ class Problem extends React.Component {
               key={index}
               isSolved={v.isSolved}
               position={v.position}
+              style={{margin: "5px"}}
             ></Clue>
+     
           </Grid>
+          
         )
       })
       return (
@@ -221,9 +229,9 @@ class Problem extends React.Component {
                 </div>
               </div> */}
 
-          <Grid container spacing={2} className={classes.clueContainer}>
+          <div className={classes.clueContainer}>
             {cluesArr}
-          </Grid>
+          </div>
           
               <div className={classes.map}>
                 <GameMap

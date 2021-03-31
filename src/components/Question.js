@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     float: "right"
   },
   cardColor: {
-    backgroundColor: "rgba(7,7,125, 0.35)",
+    backgroundColor: "rgba(7,7,125, 0.55)",
     backdropFilter: "blur(5px)",
     textAlign:"center",
     color:"#fff",
