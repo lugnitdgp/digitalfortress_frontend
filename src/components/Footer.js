@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../images/aarhnLogo.png';
+import Glogo from '../images/glug.png';
 //import nit from '../images/Arhn.png';
 //import nit2 from '../images/arhn.png';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -18,6 +19,10 @@ export default () => {
             <a href="https://nitdgplug.org/">
 
             <img src={logo} alt="GLUG" height="30"  className="m-2" />
+            </a>
+            <a href="https://nitdgplug.org/">
+
+            <img src={Glogo} alt="GLUG" height="30"  className="m-2" />
             </a>
             <a href="https://www.linkedin.com/company/lugnitdgp/"><LinkedInIcon style={{fontSize: "30px", color:"#fff"}}/></a>
             &nbsp;

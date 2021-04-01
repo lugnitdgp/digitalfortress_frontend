@@ -94,7 +94,7 @@ export default class GitHubSignin extends React.Component {
   render() {
     return (
  
-        <div className="social-btns"><a href={`https://github.com/login/oauth/authorize?client_id=2036201dd557d06ec9aa&scope=user&redirect_uri=https://df.arhn.co.in/`}><button className="btn github"><i className="fa fa-github" /></button></a></div>
+        <div className="social-btns"><a href={`https://github.com/login/oauth/authorize?client_id=2036201dd557d06ec9aa&scope=user&redirect_uri=https://df.arhn.co.in`}><button className="btn github"><i className="fa fa-github" /></button></a></div>
       
     )
 
