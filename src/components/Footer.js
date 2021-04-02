@@ -11,20 +11,20 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 export default () => {
     return <div className="bg-transparent">
         <div style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
-            <div style={{color:"#fff", margin:"6px auto", textAlign:"center", maxWidth:"65%"}}><h5 className="foottxt">Developed by Team Aavishkar for Aarohan 2021</h5></div>
+            <div style={{color:"#fff", margin:"6px auto", textAlign:"center", maxWidth:"65%"}}><h5 className="foottxt">Created by GNU/Linux Users' Group</h5></div>
             <div style={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
             <a href="https://www.facebook.com/arhn.nitd/"><FacebookIcon style={{fontSize: "30px", color:"#fff"}}/></a>
             &nbsp;
-            {/* <a href="https://github.com/lugnitdgp/"><GitHubIcon style={{fontSize: "30px", color:"#fff"}} /></a> */}
+            <a href="https://github.com/lugnitdgp/"><GitHubIcon style={{fontSize: "30px", color:"#fff"}} /></a>
             <a href="https://arhn.co.in/">
 
             <img src={logo} alt="GLUG" height="30"  className="m-2" />
             </a>
-            {/* <a href="https://nitdgplug.org/">
+            <a href="https://nitdgplug.org/">
 
             <img src={Glogo} alt="GLUG" height="30"  className="m-2" />
-            </a> */}
-            {/* <a href="https://www.linkedin.com/company/aarohan-nit-durgapur"><LinkedInIcon style={{fontSize: "30px", color:"#fff"}}/></a> */}
+            </a>
+            <a href="https://www.linkedin.com/company/aarohan-nit-durgapur"><LinkedInIcon style={{fontSize: "30px", color:"#fff"}}/></a>
             &nbsp;
             <a href="https://instagram.com/arhn.nitd"><InstagramIcon style={{fontSize: "30px", color:"#fff"}} /></a>
             </div>
