@@ -11,7 +11,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 export default () => {
     return <div className="bg-transparent">
         <div style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
-            <div style={{color:"#fff", margin:"6px auto", textAlign:"center", maxWidth:"65%"}}><h5 className="foottxt">Organized for Aarohan</h5></div>
+            <div style={{color:"#fff", margin:"6px auto", textAlign:"center", maxWidth:"65%"}}><h5 className="foottxt">Developed by Team Aavishkar for Aarohan 2021</h5></div>
             <div style={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
             <a href="https://www.facebook.com/arhn.nitd/"><FacebookIcon style={{fontSize: "30px", color:"#fff"}}/></a>
             &nbsp;
