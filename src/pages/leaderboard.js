@@ -219,7 +219,7 @@ class LeaderBoard extends React.Component {
                           style={{ backgroundImage: "url(" + v.image + ")" }}
                         ></div>
                         <div className={classes.name}>{v.name}</div>
-                       <div className="score" style={{color: "white"}}>{v.score}</div> 
+                       {/* <div className="score" style={{color: "white"}}>{v.score}</div>  */}
                         <div className={classes.score} style={{color: "white"}}>{v.score}</div>
                       </div>
                       </div>
