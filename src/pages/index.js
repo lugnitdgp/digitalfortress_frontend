@@ -19,7 +19,6 @@ var styles = theme => ({
     padding: theme.spacing(0),
   },
   container:{
-    
     height: "70vh",
     width:"100vw",
     display:"flex",

@@ -38,8 +38,8 @@ export default function Completed() {
         <div className="glitch" data-text="Congratulations">Congratulations</div>
 <br/>
         <div >
-        You have been successful !
-The fortress has been breached.
+        You have cleared all levels till now!
+More coming soon.
         </div>
       </div>
     </DashboardLayout>

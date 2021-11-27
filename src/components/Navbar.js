@@ -69,7 +69,7 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    backgroundColor: "rgba(3, 32, 44, 0.6)",
+    backgroundColor: "rgba(7,7,125, 0.2)",
     backdropFilter: "blur(3px)",
   },
   appBarShift: {
@@ -94,7 +94,7 @@ const styles = theme => ({
   drawerPaper: {
     zIndex:9999,
     width: drawerWidth,
-    background: "#03212c",
+    background: "rgba(7,7,125, 0.2)",
     backdropFilter: "blur(3px)",
     color: "white",
     opacity: 0.75,
