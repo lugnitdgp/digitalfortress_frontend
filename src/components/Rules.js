@@ -9,7 +9,7 @@ const styles = theme => ({
   },
   gfont:{
     fontFamily: "'Audiowide', cursive",
-    color:"rgb(150, 160, 255)",
+    color:"#ae377f",
     outline:"none"
   },
   btn2:{
@@ -24,7 +24,7 @@ const styles = theme => ({
     textAlign:"center",
   },
   diaIn:{
-    backgroundColor: "rgba(7,7,125, 0.2)",
+    backgroundColor: "#45042d",
     backdropFilter: "blur(3px)",
     textAlign:"center",
     color:"#fff",
