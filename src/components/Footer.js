@@ -16,10 +16,10 @@ export default () => {
             <a href="https://www.facebook.com/arhn.nitd/"><FacebookIcon style={{fontSize: "30px", color:"#fff"}}/></a>
             &nbsp;
             <a href="https://github.com/lugnitdgp/"><GitHubIcon style={{fontSize: "30px", color:"#fff"}} /></a>
-            <a href="https://arhn.co.in/">
+            {/* <a href="https://arhn.co.in/">
 
             <img src={logo} alt="GLUG" height="30"  className="m-2" />
-            </a>
+            </a> */}
             <a href="https://nitdgplug.org/">
 
             <img src={Glogo} alt="GLUG" height="30"  className="m-2" />

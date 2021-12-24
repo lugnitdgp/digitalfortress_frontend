@@ -67,7 +67,7 @@ class IndexPage extends React.Component {
                 <div className={classes.icongrid}>
                     <GoogleSignIn />
                     {/* <FacebookSignIn /> */}
-                    <GithubSignin />
+                    {/* <GithubSignin /> */}
                     
                 </div>
                 
