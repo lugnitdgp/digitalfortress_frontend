@@ -32,9 +32,9 @@ const useStyles = theme => ({
     fontWeight: "18px",
     height:"50px",
     borderRadius:"50px",
-    backgroundColor: "rgba(7,7,125, 0.35)",
+    backgroundColor: "rgba(44, 1, 70, 0.404)",
     backdropFilter: "blur(3px)",
-    border:"1px solid rgb(150, 160, 255)",
+    border:"1px solid #bb79da",
   },
   pos:{
     paddingRight:"10px",
@@ -82,6 +82,7 @@ class LeaderBoard extends React.Component {
     axios
       .get(`${process.env.GATSBY_API_URL}quiz/leaderboard?format=json`)
       .then(response => {
+        console.log(response)
         if (response.data.standings.length != 0 || response.data.status == 203 ) {
           self.setState({
           playerRanks: response.data.standings,

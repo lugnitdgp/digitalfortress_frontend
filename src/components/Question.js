@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     float: "right"
   },
   cardColor: {
-    backgroundColor: "rgba(7,7,125, 0.55)",
+    backgroundColor: "rgba(44, 1, 70, 0.404)",
     backdropFilter: "blur(5px)",
     textAlign:"center",
     color:"#fff",
@@ -28,9 +28,9 @@ const useStyles = makeStyles(theme => ({
     width:"95%",
     margin:"10px auto",
     borderRadius:"20px",
-    borderBottom:"8px solid rgb(150, 160, 255)",
-    border:"1px solid rgb(150, 160, 255)",
-    borderLeft:"1px solid rgb(150, 160, 255)",
+    borderBottom:"8px solid #bb79da",
+    border:"1px solid #bb79da",
+    borderLeft:"1px solid #bb79da",
   },
   textstyle: {
     padding: "20px",
@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   input: {
     backgroundColor:"rgba(0,0,0,0)",
     border:"none",
-    borderBottom:"2px solid rgb(150, 160, 255)",
+    borderBottom:"2px solid #bb79da",
     width:"90%",
     maxWidth:"400px",
     outline:"none",
@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     textAlign:"center"
   },
   btn:{
-    backgroundColor:"rgb(150, 160, 255)",
+    backgroundColor:"#bb79da",
     color:"rgba(3, 32, 44, 1)",
     outline:"none",
     fontFamily: "'Audiowide', cursive",
@@ -67,10 +67,10 @@ export default function Question(props) {
 
   return (
     <div className={classes.cardColor}>
-      
-  <div>{props.question.image ? <div><img alt="." src={`${process.env.GATSBY_API_URL}` + props.question.image} className={classes.img} /></div> : <div></div>}</div>
+      {console.log(props.question.image)}
+  <div>{props.question.image ? <div><img alt="." src={`${process.env.GATSBY_API_URL}` + props.question.image.substring(1)} className={classes.img} /></div> : <div></div>}</div>
         <div color="white" className={classes.textstyle}>{props.question.question}</div>
-        <div>{props.question.audio ? <div><AudioHint audioUrl={`${process.env.GATSBY_API_URL}` + props.question.audio}/></div> : <div></div>}</div>     
+        <div>{props.question.audio ? <div><AudioHint audioUrl={`${process.env.GATSBY_API_URL}` + props.question.audio.substring(1)}/></div> : <div></div>}</div>     
         <input
         variant="outlined"
           className={classes.input}

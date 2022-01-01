@@ -9,14 +9,14 @@ const styles = theme => ({
   },
   gfont:{
     fontFamily: "'Audiowide', cursive",
-    color:"#ae377f",
+    color:"#bb79da",
     outline:"none"
   },
   btn2:{
     margin:"10px auto",
-    color:"rgb(150, 160, 255)",
+    color:"#bb79da",
     outline:"none",
-    border:"2px solid rgb(150, 160, 255)",
+    border:"2px solid #bb79da",
     fontFamily: "'Audiowide', cursive",
   },
   dialog:{
@@ -29,9 +29,9 @@ const styles = theme => ({
     textAlign:"center",
     color:"#fff",
     borderRadius:"20px",
-    borderBottom:"8px solid rgb(150, 160, 255)",
-    border:"1px solid rgb(150, 160, 255)",
-    borderLeft:"1px solid rgb(150, 160, 255)",
+    borderBottom:"8px solid #bb79da",
+    border:"1px solid #bb79da",
+    borderLeft:"1px solid #bb79da",
     margin:"0 auto",
     maxWidth:"500px",
     padding:"25px",

@@ -15,9 +15,9 @@
 .top3 .item {
   box-sizing: border-box;
   position: relative;
-  background-color: rgba(7,7,125, 0.35);
+  background-color: rgba(44, 1, 70, 0.404);
   backdrop-filter: blur(3px);
-  border: 1px solid rgb(150, 160, 255);
+  border: 1px solid #bb79da;
   width: 9rem;
   height: auto;
   text-align: center;
@@ -31,7 +31,7 @@
   transition: -webkit-transform 200ms ease-in-out;
   transition: transform 200ms ease-in-out;
   transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
- color:rgb(150, 160, 255);
+ color:#bb79da;
  
 }
 .top3 .item .pic {
