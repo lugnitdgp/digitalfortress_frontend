@@ -24,7 +24,7 @@ const styles = theme => ({
     textAlign:"center",
   },
   diaIn:{
-    backgroundColor: "#45042d",
+    backgroundColor: "rgba(44, 1, 70, 0.404)",
     backdropFilter: "blur(3px)",
     textAlign:"center",
     color:"#fff",
