@@ -21,9 +21,9 @@ const useStyles = makeStyles(theme => ({
         maxWidth:"600px",
         fontSize:"21px",
         color:"#fff",
-        backgroundColor: "rgba(3, 32, 44, 0.4)",
+        backgroundColor: "rgba(44, 1, 70, 0.404)",
     backdropFilter: "blur(3px)",
-    border:"1px solid #32c8c6",
+    border:"1px solid #bb79da",
     borderRadius:"20px",
     padding:"20px",
     
