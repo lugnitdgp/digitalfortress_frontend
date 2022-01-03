@@ -38,7 +38,7 @@ const useStyles = theme => ({
   },
   pos:{
     paddingRight:"10px",
-    width:"35px"
+    width:"40px"
   },
   name:{
     color:"#fff",
