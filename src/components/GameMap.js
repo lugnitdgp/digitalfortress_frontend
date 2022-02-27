@@ -12,7 +12,7 @@ const mapStyles = {
   maxWidth:"900px",
   height: "60vh",
   zIndex: "1 !important",
-  border:"2px solid rgb(150, 160, 255)",
+  border:"2px solid rgb(212,158,135)",
 }
 
 class GameMap extends React.Component {

@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     float: "right"
   },
   cardColor: {
-    backgroundColor: "rgba(44, 1, 70, 0.404)",
+    backgroundColor: "rgb(24,23,28)",
     backdropFilter: "blur(5px)",
     textAlign:"center",
     color:"#fff",
@@ -28,9 +28,9 @@ const useStyles = makeStyles(theme => ({
     width:"95%",
     margin:"10px auto",
     borderRadius:"20px",
-    borderBottom:"8px solid #bb79da",
-    border:"1px solid #bb79da",
-    borderLeft:"1px solid #bb79da",
+    borderBottom:"8px solid rgb(212,158,135)",
+    border:"1px solid rgb(212,158,135)",
+    borderLeft:"1px solid rgb(212,158,135)",
   },
   textstyle: {
     padding: "20px",
@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   input: {
     backgroundColor:"rgba(0,0,0,0)",
     border:"none",
-    borderBottom:"2px solid #bb79da",
+    borderBottom:"2px solid rgb(212,158,135)",
     width:"90%",
     maxWidth:"400px",
     outline:"none",
@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     textAlign:"center"
   },
   btn:{
-    backgroundColor:"#bb79da",
+    backgroundColor:"rgb(212,158,135)",
     color:"rgba(3, 32, 44, 1)",
     outline:"none",
     fontFamily: "'Audiowide', cursive",

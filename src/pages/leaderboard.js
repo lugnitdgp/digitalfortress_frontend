@@ -32,9 +32,9 @@ const useStyles = theme => ({
     fontWeight: "18px",
     height:"50px",
     borderRadius:"50px",
-    backgroundColor: "rgba(44, 1, 70, 0.404)",
+    backgroundColor: "rgb(24,23,28)",
     backdropFilter: "blur(3px)",
-    border:"1px solid #bb79da",
+    border:"1px solid rgb(212,158,135)",
   },
   pos:{
     paddingRight:"10px",

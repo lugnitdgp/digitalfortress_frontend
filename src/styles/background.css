@@ -1,14 +1,14 @@
 /* Header */
 body {
-  background: rgba(70,70,255,0.3) url("../images/df.png") !important;
+  background: rgba(70,70,255,0.3) url("../images/df.jpg") !important;
   background-size: cover !important;
   background-position: center center !important;
   background-attachment: fixed !important;
   background-repeat: no-repeat !important;
-  background-color: rgba(48,4,60,255)  ;
+  /* background-color: rgba(48,4,60,255)  ; */
 }
 .overlay{
-  background-color: rgba(0, 0, 0, 0.609);
+  background-color: rgba(0, 0, 0, 0.164);
   position: absolute;
   z-index: -1;
   width: 100vw;
