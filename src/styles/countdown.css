@@ -49,19 +49,18 @@ div.heading {
 }
 
 .days, .hours, .minutes, .seconds {
-  background-color: rgba(7,7,125, 0.35);
+  background-color: rgb(24,23,28);
   backdrop-filter: blur(3px);
-  padding: 20px;
-  margin: 10px;
+  padding: 10px;
+  margin: 8px;
   width: 110px;
   border-radius: 5px;
 }
 
 
-
 .numbers {
   font-family: "Montserrat", sans-serif;
-  color: rgb(150, 160, 255);
+  color: rgb(212,158,135);
   font-size: 4em;
 }
 

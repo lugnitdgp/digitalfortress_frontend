@@ -31,7 +31,9 @@ export default class GitHubSignin extends React.Component {
 
   componentDidMount() {
     let params = new URLSearchParams(document.location.search.substring(1));
+    console.log(params)
     let code = params.get("code");
+    console.log(code)
     //var code = "" + window.location.href.match(/?code=(.*)/) && window.location.href.match(/?code=(.*)/)[1];
     if (code) {
       
@@ -94,7 +96,7 @@ export default class GitHubSignin extends React.Component {
   render() {
     return (
  
-        <div className="social-btns"><a href={`https://github.com/login/oauth/authorize?client_id=2036201dd557d06ec9aa&scope=user&redirect_uri=https://df.arhn.co.in`}><button className="btn github"><i className="fa fa-github" /></button></a></div>
+        <div className="social-btns"><a href={`https://github.com/login/oauth/authorize?client_id=de64fdcc0e55699cd512&scope=user&redirect_uri=http://localhost:5000/dashboard/`}><button className="btn github"><i className="fa fa-github" /></button></a></div>
       
     )
 

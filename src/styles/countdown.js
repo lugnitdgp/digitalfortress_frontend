@@ -89,7 +89,7 @@ class CountDown extends React.Component {
                 </div>
                 <div class="seconds">
                   <div class="numbers">{this.state.seconds}</div>
-                  seconds
+                seconds
                 </div>
               </div>
             </Grid>
