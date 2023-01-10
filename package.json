@@ -17,7 +17,7 @@
     "bootstrap": "^4.3.1",
     "clsx": "^1.0.4",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.27.0",
+    "gatsby": "^5.4.0",
     "gatsby-plugin-material-ui": "^2.1.6",
     "gatsby-plugin-nprogress": "^2.1.2",
     "gatsby-plugin-offline": "^2.2.5",
